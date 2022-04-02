@@ -1,0 +1,17 @@
+{% extends "base.html.twig" %}
+
+{% block title %}About{% endblock %}
+
+{% block sidebar %}
+    <h1><span class="greyed-out">Model-Controller-</span>View</h1>
+    <a href="{{ absolute_url("img/view.jpg") }}"><img src="img/view.jpg" class="img-horiz" alt="View"></a>
+{% endblock %}
+
+
+{% block content %}
+    <h1>Beskrivning av kursen</h1>
+    <p>Denna webbplatsen är en del av kursen <a href="https://github.com/dbwebb-se/mvc">MVC</a>. MVC (Model View Controller) är ett tillvägagångssätt för att utveckla UI (user interface). Under kursen jobbar vi med ett ramverk som heter Symfony för att skapa controllern och templatemotoron Twig för att skapa views. Som i en tidigare kurs använder vi programmeringsspråket PHP men denna gång jobbar vi objektorienterat. Vi kommer även att använda SQL igen för att skapa databaser.</p>
+
+    <p>Bonus: <a href="{{path("lucky")}}">Se en jsonrespons</a></p>
+{% endblock %}
+

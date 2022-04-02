@@ -1,0 +1,27 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Home{% endblock %}
+
+{% block sidebar %}
+    <h1>Model<span class="greyed-out">-Controller-View</span></h1>
+    <a href="{{ absolute_url("img/model.jpg") }}"><img src="img/model.jpg" class="img-vert" alt="Model"></a>
+    {# absolute_url är en symfony-extension till twig! #}
+    {# https://symfony.com/doc/current/reference/twig_reference.html #}
+{% endblock %}
+
+
+{% block content %}
+    <h1>Beskrivning av mig</h1>
+    <p>
+        Rött, uppsatt hår för att avslöja ett benigt, dystert ansikte. Döda gråa ögon, charmigt placerade i sina hålor, vakar vaksamt över andarna som de har hållit i säkerhet så länge.
+    </p>
+    <p>
+        En tatuering som liknar en flagga placeras subtilt på sidan av hennes högra öga och lämnar ett värkande minne av hennes kärlek.
+    </p>
+    <p>
+        Det är Yneasia Stagrunners ansikte utåt, en sann allierad bland nattalver. Hon står och tornar över andra, trots sin magra ram.
+    </p>
+    <p>
+        Det är något dunkelt med henne, kanske är det hennes känsla för rättvisa eller kanske är det helt enkelt hennes mildhet. Men ändå tenderar folk att fråga henne om hennes äventyr, samtidigt som de hittar på större historier om henne.
+    </p>
+{% endblock %}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Default title{% endblock %}</title>
+        <link rel="icon" href="favicon.ico">
+        <link rel="stylesheet" href="css/style.css"/>
+    </head>
+    <body>
+        <div class="siteheader">
+            <h1><a href="{{ url("home") }}">Redovisningssida</a></h1>
+        </div>
+
+        <div class="navbar">
+            <li><a href="{{ url("home") }}">Home</a></li>
+            <li><a href="{{ path("report") }}">Report</a></li>
+            <li><a href="{{ path("about") }}">About</a></li>
+            <li><a href="{{ path("debug") }}">Debug</a></li>
+            {# url och path fungerar ungefär på samma sätt, tack vare att vi agivit "name" i vår controller kan vi använda detta #}
+        </div>
+
+        <div class="side-and-cont">
+            <div class="sidebar">
+                {% block sidebar %}
+                    Default sidebar
+                {% endblock %}
+            </div>
+
+            <div class="content">
+                {% block content %}
+                    Default content
+                {% endblock %}
+            </div>
+        </div>
+
+    </body>
+
+    <footer class="sitefooter"><p>Made by Erik Nästesjö Todd spring 2022</p></footer>
+</html>

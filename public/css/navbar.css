@@ -1,0 +1,33 @@
+.navbar {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    background-color: #ec97ec;
+    padding: 10px;
+    font-size: 18px;
+    margin-bottom: 25px;
+}
+
+.navbar li {
+    margin: 0 20px;
+}
+
+.navbar a:link {
+    text-decoration: none;
+    color: #8c2f8c;
+}
+
+.navbar a:visited {
+    text-decoration: none;
+    color: #8c2f8c;
+}
+
+.navbar a:hover {
+    text-decoration: none;
+    color: #f6ddf6;
+}
+
+.navbar a:active {
+    text-decoration: none;
+    color: #8c2f8c;
+}

@@ -1,0 +1,15 @@
+html {
+    box-sizing: border-box;
+    background: rgb(241, 241, 241);
+    font-size: 100%;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+}

@@ -1,0 +1,24 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Report{% endblock %}
+
+{% block sidebar %}
+    <h1><span class="greyed-out">Model-</span>Controller<span class="greyed-out">-View</span></h1>
+    <a href="{{ absolute_url("img/control.jpg") }}"><img src="img/control.jpg" class="img-horiz" alt="Controller"></a>
+{% endblock %}
+
+
+{% block content %}
+
+<h1>Redovisningstext</h1>
+
+{{ include('reports/kmom01.markdown.twig')|markdown_to_html }}
+
+{% endblock %}
+
+{# Behövde köra
+composer require twig/markdown-extra
+composer require league/commonmark
+för att kunna skriva i MD! #}
+
+
