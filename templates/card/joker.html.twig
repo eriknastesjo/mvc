@@ -1,0 +1,57 @@
+{% extends "card/card-base.html.twig" %}
+
+{% block title %}Deck{% endblock %}
+
+{% block cardcontent %}
+
+<h1>Kortleken</h1>
+
+<div>
+	<p>
+		{% for i in range(0, 12) %}
+			{{ cardDeck[i] }}
+		{% endfor %}
+	</p>
+
+	<p>
+		{% for i in range(13, 25) %}
+			{{ cardDeck[i] }}
+		{% endfor %}
+	</p>
+
+
+	<p>
+		{% for i in range(26, 38) %}
+			{{ cardDeck[i] }}
+		{% endfor %}
+	</p>
+
+	<p>
+		{% for i in range(39, 51) %}
+			{{ cardDeck[i] }}
+		{% endfor %}
+	</p>
+
+	<p>
+		{% for i in range(52, 53) %}
+			{{ cardDeck[i] }}
+		{% endfor %}
+	</p>
+</div>
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+{% endblock %}
+
+
+
+
+
+
+

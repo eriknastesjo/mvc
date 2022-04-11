@@ -1,0 +1,43 @@
+{% extends "card/card-base.html.twig" %}
+
+{% block title %}Draw{% endblock %}
+
+{% block cardcontent %}
+
+<h1>Dra kort</h1>
+
+<div>
+	<p>
+		{% for card in cardHand %}
+			{{ card }}
+		{% endfor %}
+	</p>
+	<form method="post">
+		<p>
+			<input type="submit" name="hand" value="Draw">
+			<input type="hidden" name="deck">
+		</p>
+	</form>
+	<p>
+		{{deckNum}} st kvar att dra.
+	</p>
+</div>
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+{% endblock %}
+
+
+
+
+
+
+

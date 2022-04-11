@@ -1,0 +1,41 @@
+{% extends "card/card-base.html.twig" %}
+
+{% block title %}Players{% endblock %}
+
+{% block cardcontent %}
+
+	<h1>Spelare</h1>
+
+	<div>
+        {% for key, player in players %}
+		<p>
+            Spelare {{key + 1}}
+			{% for card in player %}
+				{{ card }}
+			{% endfor %}
+		</p>
+        {% endfor %}
+		{# <form method="post">     // I kommande kmom - bygg ett system med knappar (lite beroende på vilket spel)
+			<p>
+				<input type="submit" name="hand" value="Draw">
+				<input type="hidden" name="deck">
+			</p>
+		</form> #}
+		<p>
+			{{deckNum}}
+			st i kortleken.
+		</p>
+	</div>
+
+
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+
+{% endblock %}
+

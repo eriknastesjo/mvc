@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>
+			{% block title %}Default title{% endblock %}
+		</title>
+		<link rel="icon" href="{{ asset("favicon.ico") }}">
+		<link rel="stylesheet" href="{{ asset("css/style.css") }}"/>
+
+	</head>
+	<body>
+		<div class="siteheader">
+			<h1>
+				<a href="{{ url("card") }}">Kort</a>
+			</h1>
+		</div>
+
+		<div class="navbar">
+			<li><a href="{{ url("home") }}">Back</a></li>
+			<li><a href="{{ path("deck") }}">Deck</a></li>
+			<li><a href="{{ path("shuffled") }}">Shuffle</a></li>
+			<li><a href="{{ path("draw") }}">Draw</a></li>
+			<li><a href="{{ path("players", {playerNum: 1, cardNum: 1}) }}">Players</a></li>
+			<li><a href="{{ path("deck2") }}">Joker</a></li>
+			<li><a href="{{ path("api-deck") }}">API</a></li>
+
+			{# url och path fungerar likadant här tack vare att vi agivit "name" i vår controller #}
+		</div>
+
+        <div class="card-content">
+            {% block cardcontent %}
+                Default cardcontent
+            {% endblock %}
+        </div>
+
+	</body>
+
+	<footer class="sitefooter">
+		<p>Made by Erik Nästesjö Todd spring 2022</p>
+	</footer>
+</html>
+

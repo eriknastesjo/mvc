@@ -3,8 +3,8 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Default title{% endblock %}</title>
-        <link rel="icon" href="favicon.ico">
-        <link rel="stylesheet" href="css/style.css"/>
+        <link rel="icon" href="{{ asset("favicon.ico") }}">
+        <link rel="stylesheet" href="{{ asset("css/style.css") }}"/>
     </head>
     <body>
         <div class="siteheader">
@@ -16,7 +16,8 @@
             <li><a href="{{ path("report") }}">Report</a></li>
             <li><a href="{{ path("about") }}">About</a></li>
             <li><a href="{{ path("debug") }}">Debug</a></li>
-            {# url och path fungerar ungefär på samma sätt, tack vare att vi agivit "name" i vår controller kan vi använda detta #}
+            <li><a href="{{ path("card") }}">Card</a></li>
+            {# url och path fungerar likadant här tack vare att vi agivit "name" i vår controller #}
         </div>
 
         <div class="side-and-cont">
