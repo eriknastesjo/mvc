@@ -1,0 +1,50 @@
+{% extends "game/game-base.html.twig" %}
+{% block title %}Game{% endblock %}
+
+
+{% block gamecontent %}
+    <p>
+        {% for card in player %}
+            {{ card }}
+        {% endfor %}
+    </p>
+
+    <p>
+        Points so far:
+        {% if (playerMinPoints != playerMaxPoints) %}
+            {{playerMinPoints}} eller
+        {% endif %}
+
+        {% if (playerMaxPoints > 21) %}
+            <span class="too-great">{{playerMaxPoints}}</span>
+        {% else %}
+            {{playerMaxPoints}}
+        {% endif %}
+    </p>
+
+
+    <form action="{{ path("game-session-draw") }}" method="post">
+        <input type="submit" value="Dra kort">
+    </form>
+
+    <form action="{{ path("game-session-finish") }}" method="post">
+        <input type="submit" value="Stanna">
+    </form>
+
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+{% endblock %}
+

@@ -10,14 +10,7 @@ class CardHandJoker extends CardHand
 {
     private int $jokerNum = 2;
 
-    public function __construct(bool $drawDeck = false)
-    {
-        if ($drawDeck) {
-            $this->drawAll();
-        }
-    }
-
-    public function drawAll(): void
+    public function fillWithCards(): void
     {
         foreach ($this->possibleColors as $col) {
             foreach ($this->possibleValues as $key => $val) {

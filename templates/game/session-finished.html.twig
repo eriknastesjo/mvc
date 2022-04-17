@@ -1,0 +1,57 @@
+{% extends "game/game-base.html.twig" %}
+{% block title %}Game{% endblock %}
+
+
+{% block gamecontent %}
+
+    <h2>
+        {{message}}
+    </h2>
+
+    <p>
+        {% for card in player %}
+            {{ card }}
+        {% endfor %}
+    </p>
+
+    <p>
+        Players points:
+        {% if (playerPoints > 21) %}
+            <span class="too-great">{{playerPoints}}</span>
+        {% else %}
+            {{playerPoints}}
+        {% endif %}
+    </p>
+
+    <p>
+        {% for card in bank %}
+            {{ card }}
+        {% endfor %}
+    </p>
+    <p>
+        {% if (bankPoints) %}
+            Banks points:
+            {% if (bankPoints > 21) %}
+                <span class="too-great">{{bankPoints}}</span>
+            {% else %}
+                {{bankPoints}}
+            {% endif %}
+        {% endif %}
+    </p>
+
+
+    <form action="{{ path("game-session-reset") }}" method="post">
+        <input type="submit" value="Spela igen">
+    </form>
+
+
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+{% endblock %}
+

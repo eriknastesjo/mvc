@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>
+			{% block title %}Default title{% endblock %}
+		</title>
+		<link rel="icon" href="{{ asset("favicon.ico") }}">
+		<link rel="stylesheet" href="{{ asset("css/style.css") }}"/>
+
+	</head>
+	<body>
+		<div class="siteheader">
+			<h1>
+				<a href="{{ url("game") }}">Game</a>
+			</h1>
+		</div>
+
+		<div class="navbar">
+			<li><a href="{{ url("home") }}">Back</a></li>
+			<li><a href="{{ path("game") }}">Game</a></li>
+			<li><a href="{{ path("game-dock") }}">Doc</a></li>
+		</div>
+
+        <div class="game-content">
+            {% block gamecontent %}
+                Default gamecontent
+            {% endblock %}
+        </div>
+
+	</body>
+
+	<footer class="sitefooter">
+		<p>Made by Erik Nästesjö Todd spring 2022</p>
+	</footer>
+</html>
+

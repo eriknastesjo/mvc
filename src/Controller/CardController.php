@@ -27,7 +27,8 @@ class CardController extends AbstractController
      */
     public function deck(): Response
     {
-        $deck = new \App\Card\CardHand(true);
+        $deck = new \App\Card\CardHand();
+        $deck->fillWithCards();
         $data = [
             'title' => 'Deck',
             'cardDeck' => $deck->viewHand()
@@ -40,13 +41,17 @@ class CardController extends AbstractController
      */
     public function shuffle(SessionInterface $session): Response
     {
-        $deck = new \App\Card\CardHand(true);
+        $deck = new \App\Card\CardHand();
+        $deck->fillWithCards();
         $deck->shuffleHand();
         $data = [
             'title' => 'Shuffle',
             'cardDeck' => $deck->viewHand()
         ];
-        $session->set("deck", new \App\Card\CardHand(true));
+
+        $session->set("deck", new \App\Card\CardHand());
+        $deckSession = $session->get("deck");
+        $deckSession->fillWithCards();
         $session->set("hand", new \App\Card\CardHand());
         return $this->render('card/shuffled.html.twig', $data);
     }
@@ -56,7 +61,13 @@ class CardController extends AbstractController
      */
     public function draw(SessionInterface $session): Response
     {
-        $deck = $session->get("deck") ?? new \App\Card\CardHand(true);
+        $deck = "";
+        if ($session->get("deck") == null) {
+            $deck = new \App\Card\CardHand();
+            $deck->fillWithCards();
+        } else {
+            $deck = $session->get("deck");
+        }
         $cardHand = $session->get("hand") ?? new \App\Card\CardHand();
 
         $data = [
@@ -72,11 +83,17 @@ class CardController extends AbstractController
      */
     public function drawProcess(SessionInterface $session): Response
     {
-        $deck = $session->get("deck") ?? new \App\Card\CardHand(true);
+        $deck = "";
+        if ($session->get("deck") == null) {
+            $deck = new \App\Card\CardHand();
+            $deck->fillWithCards();
+        } else {
+            $deck = $session->get("deck");
+        }
         $cardHand = $session->get("hand") ?? new \App\Card\CardHand();
 
         if ($deck->getNumberCards() > 0) {
-            $cardHand->stealRandomCard($deck);
+            $cardHand->pickRandomCard($deck);
         }
 
         $session->set("deck", $deck);
@@ -90,12 +107,18 @@ class CardController extends AbstractController
      */
     public function drawNum(SessionInterface $session, int $numCards): Response
     {
-        $deck = $session->get("deck") ?? new \App\Card\CardHand(true);
+        $deck = "";
+        if ($session->get("deck") == null) {
+            $deck = new \App\Card\CardHand();
+            $deck->fillWithCards();
+        } else {
+            $deck = $session->get("deck");
+        }
         $cardHand = $session->get("hand") ?? new \App\Card\CardHand();
 
         for ($i = 1; $i <= $numCards; $i++) {
             if ($deck->getNumberCards() > 0) {
-                $cardHand->stealRandomCard($deck);
+                $cardHand->pickRandomCard($deck);
             }
         }
 
@@ -110,7 +133,8 @@ class CardController extends AbstractController
      */
     public function players(SessionInterface $session, int $playerNum, int $cardNum): Response
     {
-        $deck = new \App\Card\CardHand(true);
+        $deck = new \App\Card\CardHand();
+        $deck->fillWithCards();
         // obs, när göra om till session, ha annat
         // variabelnamn än "deck" så det inte krockar med ovan!!
         $players = [];
@@ -120,7 +144,7 @@ class CardController extends AbstractController
         }
         foreach ($players as $player) {
             for ($i = 1; $i <= $cardNum; $i++) {
-                $player->stealRandomCard($deck);
+                $player->pickRandomCard($deck);
             }
         }
         foreach ($players as $player) {
@@ -139,7 +163,8 @@ class CardController extends AbstractController
      */
     public function deck2(): Response
     {
-        $deck = new \App\Card\CardHandJoker(true);
+        $deck = new \App\Card\CardHandJoker();
+        $deck->fillWithCards();
         $data = [
             'title' => 'Deck',
             'cardDeck' => $deck->viewHand()

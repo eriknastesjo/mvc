@@ -1,0 +1,17 @@
+.game-content {
+    text-align: center;
+    margin: 0 300px;
+}
+
+.pseudo-code {
+    text-align: start;
+}
+
+.pseudo-code h2 {
+    font-size: 1.5rem;
+    color: rgb(101, 101, 101);
+}
+
+.too-great {
+    color: rgb(209, 46, 21);
+}

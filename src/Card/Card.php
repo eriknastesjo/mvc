@@ -10,7 +10,7 @@ class Card
 
     public function __construct(string $color, string $strValue, int $realValue)
     {
-        $this->color = $this->ChooseSymbol($color);
+        $this->color = $this->chooseSymbol($color);
         $this->strValue = $strValue;
         $this->realValue = $realValue;
     }
@@ -40,12 +40,13 @@ class Card
         return "[{$this->color}{$this->strValue}]";
     }
 
-    public function getValue(): string
+    public function getValue(): int
     {
         return $this->realValue;
     }
 
-    public function getCardRaw(): array {
+    public function getCardRaw(): array
+    {
         return array(
                 "color" => $this->color,
                 "strValue" => $this->strValue,

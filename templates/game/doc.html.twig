@@ -1,0 +1,21 @@
+{% extends "game/game-base.html.twig" %}
+{% block title %}Dock{% endblock %}
+
+{% block gamecontent %}
+
+	<h1>Doc</h1>
+
+	<h2>Flödesschema</h2>
+	<a href="{{ absolute_url("../img/fd.png") }}"><img src="../img/fd.png" class="img-vert" alt="Flödesdiagram"></a>
+
+	<h2>Psuedokod</h2>
+	<div class="pseudo-code">
+	{{ include('game/md/pseudoCode.markdown.twig')|markdown_to_html }}
+	</div>
+
+	<h2>Klassbeskrivning</h2>
+	<p> <strong>Card</strong> - Innhåller färg, värde och reellt värde.</p>
+	<p> <strong>CardHand</strong> - Kan innehålla Card-objekt. Kan skapa en kortlek. Kan ta ett slumpmässigt kort från ett annat CardHand-objekt. Kan kalkulera poäng för spelet 21 där Ess kan vara 1 eller 14. </p>
+
+{% endblock %}
+

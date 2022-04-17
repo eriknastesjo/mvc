@@ -1,0 +1,55 @@
+{% apply markdown_to_html %}
+
+
+## Sub new game
+
+BEGIN
+
+	INIT Player as new CardHand
+    INIT Bank as new CardHand
+    INIT Deck as new CardHand
+    CALL fillWithCards with Deck
+
+END
+
+## Sub finished
+
+BEGIN
+
+	GET Players points
+	GET Banks points
+	IF Players points is more than 21
+        WHILE Bank points is less than 17
+                    CALL pickRandomCard with Bank from Deck
+	CALL Calculate final score
+
+END
+
+## Sub Calculate Final score
+BEGIN
+
+	GET Players points
+	GET Banks points
+	IF Players points is more than 21 OR Players points is equal or less than Banks points
+		SHOW text “game over” and final score
+	ELSE
+		SHOW text “you win” and final score
+
+END
+
+## Sub Player draw
+BEGIN
+
+	CALL pickRandomCard with Player from Deck
+		GET Players points
+		IF Players points more than 21
+			SHOW button “Finish”
+		ELSE
+			SHOW button “Draw”
+			SHOW button “Finish”
+
+END
+
+
+{% endapply %}
+

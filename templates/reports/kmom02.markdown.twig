@@ -1,0 +1,28 @@
+{% apply markdown_to_html %}
+
+
+
+## Kmom02
+
+### Förklara kort de objektorienterade konstruktionerna arv, komposition, interface och trait och hur de används i PHP.
+Jag har använt arv i ett fall, nämligen för att konstruera klassen för CardHandJoker. Där var syftet att återanvända variabler och metoder från klassen CardHand. I detta fallet behövde jag endast modifiera en av metoderna, drawAll.
+
+Vad gäller komposition så är jag inte säker på om jag implementerat det. För att det ska vara komposition krävs att det är nödvändigt för en klass att tillhöra en annan klass. I mitt fall hade jag kunnat använda det i klassen CardHand för att innehålla klassen Card. Istället valde jag att initiera en tom lista där man behöver anropa metoder för att fylla på med Card-objekt.
+
+Om jag förstått trait rätt så går det att använda för att ärva från flera olika klasser. Detta implementeras genom att omge en metod med trait{} i en klass och använda "use" i en annan klass. Jag har använt use i exempelvis klassen CardHand för att kunna instantiera Card-objekt. Däremot har jag inte använt trait{}.
+
+
+### Berätta om din implementation från uppgiften. Hur löste du uppgiften, är du nöjd/missnöjd, vilken förbättringspotential ser du i din koden och dina klasser?
+Jag är nöjd med lösningarna. För att inte fastna för länge valde jag att skapa enkla kort utan CSS-kod. Trots det tycker jag att det blev rätt snyggt. Naturligtvis är det något som skulle kunna förbättras med CSS.
+
+Vidare är jag nöjd med att ha hålla kodblock åtskiljda vad gäller klassmetoder, controller och view. Jag ser för närvarande inget rimligt sätt att hålla dem mer åtskiljda.
+
+För tydlighets skull skulle man kunna ha skapat en separat klass Deck som ärver från CardController. I metoden "pickRandomCard" skulle man då kunna modifiera argumenten så att man endast kan dra ett kort från ett Deck-objekt och inte från ett annat Hand-objekt. Det skulle dock kunna vara till en begränsning om man vill skapa ett spel där en spelare ska dra ett kort från en annan spelares hand.
+
+
+### Vilken är din TIL för detta kmom?
+
+Jag har generellt blivit mer bekväm med att koda i PHP igen. Det är intressant att se hur mycket man glömmer när man inte använder ett språk på ett tag. Däremot känner jag såklart att det går snabbare att kolla upp nu jämfört med under kursen web tec. Vidare har jag lärt mig en del nya tekniker för PHP, t.ex. hur man ärver från andra klasser och hur man kan använda namespace. Det var tufft att komma igång att använda session igen. Efter en hel del jobb känner jag mig dock bekväm med att använda det igen.
+
+
+{% endapply %}
