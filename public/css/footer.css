@@ -3,11 +3,13 @@ footer {
     color: #7f462f;
     padding: 13px 100px;
     text-align: center;
-    /* display: flex;
-    justify-content: right; */
+    margin-top: auto;
+    /* margin-top tillsammans med height 100% på
+    body och html gör att den hamnar längst ner */
 }
 
 footer p {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     margin-bottom: 0;
 }
+
