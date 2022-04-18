@@ -35,8 +35,12 @@ class GameController extends AbstractController
             $data = $this->getFinishData($player, $bank);
             return $this->render('game/session-finished.html.twig', $data);
         } else {
+            if ($player->getNumberCards() === 0) {
+                $player->pickRandomCard($deck, 2);
+            }
             $data = $this->getDrawData($player, $deck);
             if ($player->getOptimalValueCards() > 21) {
+                $session->set("isFinished", True);
                 return $this->redirectToRoute('game-session');
             }
             return $this->render('game/session-player.html.twig', $data);
@@ -85,9 +89,6 @@ class GameController extends AbstractController
      */
     public function getDrawData(CardHand21 $player, CardHand21 $deck)
     {
-        if ($player->getNumberCards() === 0) {
-            $player->pickRandomCard($deck, 2);
-        }
         $data = [
             'title' => 'Games session',
             'player' => $player->viewHand(),
