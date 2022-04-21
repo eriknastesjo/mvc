@@ -1,10 +1,16 @@
 <?php
 
+/**
+ * Module with CardHand class
+ */
+
 namespace App\Card;
 
 use App\Card\Card;
-use Doctrine\ORM\Query\Expr\Func;
 
+/**
+ * Can hold several Card objects and pick cards from other Card Hand objects.
+ */
 class CardHand
 {
     protected $hand = [];
@@ -24,6 +30,10 @@ class CardHand
         13 => 'K',
         14 => 'E');
 
+
+    /**
+     * Pick random card(s) from other another Card Hand object.
+     */
     public function pickRandomCard(CardHand $fromHand, int $numCards = 1): void
     {
         for ($i = 1; $i <= $numCards; $i++) {
@@ -34,6 +44,9 @@ class CardHand
         }
     }
 
+    /**
+     * Discard a random card from the hand. Returns the discarded card object. If the hand got no card to discard nothing happens and method returns null.
+     */
     public function discardRandomCard(): Card | null
     {
         if ($this->hand) {
@@ -46,6 +59,9 @@ class CardHand
         return null;
     }
 
+    /**
+     * Fill hand with the typical deck cards.
+     */
     public function fillWithCards(): void
     {
         foreach ($this->possibleColors as $col) {
@@ -56,11 +72,17 @@ class CardHand
         }
     }
 
+    /**
+     * The cards in the hand are arranged in a random order.
+     */
     public function shuffleHand(): void
     {
         shuffle($this->hand);
     }
 
+    /**
+     * Returns an array of the cards in viewable string format.
+     */
     public function viewHand(): array
     {
         $listReturn = [];
@@ -70,6 +92,9 @@ class CardHand
         return $listReturn;
     }
 
+    /**
+     * Returns the total real value of the cards.
+     */
     public function getValueCards(): int
     {
         $val = 0;
@@ -79,11 +104,17 @@ class CardHand
         return $val;
     }
 
+    /**
+     * Returns the number of cards in the hand.
+     */
     public function getNumberCards(): int
     {
         return Count($this->hand);
     }
 
+    /**
+     * Returns an array of the cards in "raw" format.
+     */
     public function getAllRaw(): array
     {
         $listReturn = [];
@@ -93,10 +124,4 @@ class CardHand
         return $listReturn;
     }
 
-    public function debugPrintHand(): void
-    {
-        foreach ($this->hand as $card) {
-            echo($card->viewCard());
-        }
-    }
 }

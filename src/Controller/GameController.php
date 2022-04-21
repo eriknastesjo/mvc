@@ -12,6 +12,7 @@ class GameController extends AbstractController
 {
     /**
      * @Route("/game", name="game", methods={"GET","HEAD"})
+     * Homing page. Explains the rules of game 21.
      */
     public function game(SessionInterface $session): Response
     {
@@ -21,6 +22,7 @@ class GameController extends AbstractController
 
     /**
      * @Route("/game/session", name="game-session", methods={"GET","HEAD"})
+     * Game session where you play game 21. Functions as a director depending on cards and player decisions.
      */
     public function gameSession(SessionInterface $session): Response
     {
@@ -48,9 +50,9 @@ class GameController extends AbstractController
     }
 
     /**
-     * Help method to assign a deck in session
+     * Method to assign a deck in session
      */
-    public function deckAssignment(SessionInterface $session)
+    private function deckAssignment(SessionInterface $session)
     {
         $deck = $session->get("deck21") ?? new \App\Card\CardHand21();
         if ($deck->getNumberCards() === 0) {
@@ -61,9 +63,9 @@ class GameController extends AbstractController
     }
 
     /**
-     * Help method to get correct data when finished game
+     * Method to get correct data when finished game
      */
-    public function getFinishData(CardHand21 $player, CardHand21 $bank)
+    private function getFinishData(CardHand21 $player, CardHand21 $bank)
     {
         $data = [
             'title' => 'Games session',
@@ -85,9 +87,9 @@ class GameController extends AbstractController
     }
 
     /**
-     * Help method to get correct draw data during session
+     * Method to get correct draw data during session
      */
-    public function getDrawData(CardHand21 $player, CardHand21 $deck)
+    private function getDrawData(CardHand21 $player, CardHand21 $deck)
     {
         $data = [
             'title' => 'Games session',
@@ -102,6 +104,7 @@ class GameController extends AbstractController
 
     /**
      * @Route("/game/session/draw", name="game-session-draw", methods={"POST"})
+     * Process page where player picks a card. Redirects to game session page.
      */
     public function drawProcess(SessionInterface $session)
     {
@@ -113,6 +116,7 @@ class GameController extends AbstractController
 
     /**
      * @Route("/game/session/finish", name="game-session-finish", methods={"POST"})
+     * Process page where bank draws cards and the game ends. Redirects to game session page.
      */
     public function finishProcess(SessionInterface $session)
     {
@@ -129,6 +133,7 @@ class GameController extends AbstractController
 
     /**
      * @Route("/game/session/reset", name="game-session-reset", methods={"POST"})
+     * Process page where the game is reset. Redirects to game session page.
      */
     public function resetGameProcess(SessionInterface $session)
     {
@@ -137,9 +142,9 @@ class GameController extends AbstractController
     }
 
     /**
-     * Help method to reset game
+     * Method to reset game by creating new deck, player and bank.
      */
-    public function resetGame(SessionInterface $session)
+    private function resetGame(SessionInterface $session)
     {
         $session->set("deck21", new \App\Card\CardHand21());
         $session->set("player21", new \App\Card\CardHand21());
@@ -150,6 +155,7 @@ class GameController extends AbstractController
 
     /**
      * @Route("/game/doc", name="game-dock", methods={"GET","HEAD"})
+     * Page with documentation containing flow diagram and such things.
      */
     public function gameDoc(): Response
     {

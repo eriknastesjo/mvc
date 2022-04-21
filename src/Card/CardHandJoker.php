@@ -10,6 +10,10 @@ class CardHandJoker extends CardHand
 {
     private int $jokerNum = 2;
 
+
+    /**
+     * Fill hand with the typical deck cards. Also adds two jokers.
+     */
     public function fillWithCards(): void
     {
         foreach ($this->possibleColors as $col) {
