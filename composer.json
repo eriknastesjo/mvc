@@ -101,7 +101,8 @@
             "@phpcpd",
             "@phpmd",
             "@phpstan"
-        ]
+        ],
+        "phpdoc": "tools/phpdoc/phpdoc"
     },
     "conflict": {
         "symfony/symfony": "*"
