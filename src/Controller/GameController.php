@@ -40,7 +40,7 @@ class GameController extends AbstractController
             }
             $data = $this->getDrawData($player, $deck);
             if ($player->getOptimalValueCards() > 21) {
-                $session->set("isFinished", True);
+                $session->set("isFinished", true);
                 return $this->redirectToRoute('game-session');
             }
             return $this->render('game/session-player.html.twig', $data);
