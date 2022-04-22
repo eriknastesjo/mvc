@@ -8,7 +8,6 @@ use App\Card\Card;
 
 class CardHand21 extends CardHand
 {
-
     /**
      * Returns the total real value of the cards, counting the ace as value 1.
      */
@@ -26,7 +25,7 @@ class CardHand21 extends CardHand
     }
 
     /**
-     * Returns the total real value of the cards. Counting the ace as value 14 if total value is below 21, otherwise ace counts as 1.
+     * Returns the best outcome value of the cards in game 21.
      */
     public function getOptimalValueCards(): int
     {

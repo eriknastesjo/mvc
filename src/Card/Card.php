@@ -18,9 +18,9 @@ class Card
     /**
      * Constructor of the class.
      *
-     * @param string $color Type either "heart", "diamond", "spade", "clove" or "joker". Otherwise the card will get the symbol '?'.
-     * @param string $strValue This is the value that will be visible on a card. For example choose 'K' to show that the card is a king.
-     * @param int $realValue This is the invisible real card value. For example the king card usually have the real value of 13.
+     * @param string $color Type either "heart", "diamond", "spade", "clove" or "joker".
+     * @param string $strValue This is the value that will be visible on a card, eg "K" for a king.
+     * @param int $realValue This is the invisible real card value, eg 13 for a king.
      */
     public function __construct(string $color, string $strValue, int $realValue)
     {
@@ -69,7 +69,7 @@ class Card
     }
 
     /**
-     * Returns an array of raw information about the card. The information contains of the color, the string value and the real value.
+     * Returns an array of raw information about the card.
      */
     public function getCardRaw(): array
     {

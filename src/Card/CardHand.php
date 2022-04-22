@@ -45,7 +45,7 @@ class CardHand
     }
 
     /**
-     * Discard a random card from the hand. Returns the discarded card object. If the hand got no card to discard nothing happens and method returns null.
+     * Discard a random card from the hand. If exists, returns the discarded card object.
      */
     public function discardRandomCard(): Card | null
     {
@@ -123,5 +123,4 @@ class CardHand
         }
         return $listReturn;
     }
-
 }
