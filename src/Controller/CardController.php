@@ -28,10 +28,11 @@ class CardController extends AbstractController
     public function deck(): Response
     {
         $deck = new \App\Card\CardHand();
+
         $deck->fillWithCards();
         $data = [
             'title' => 'Deck',
-            'cardDeck' => $deck->viewHand()
+            'cardDeck' => $deck->getCardIllustrations()
         ];
         return $this->render('card/deck.html.twig', $data);
     }
@@ -46,7 +47,7 @@ class CardController extends AbstractController
         $deck->shuffleHand();
         $data = [
             'title' => 'Shuffle',
-            'cardDeck' => $deck->viewHand()
+            'cardDeck' => $deck->getCardIllustrations()
         ];
 
         $session->set("deck", new \App\Card\CardHand());
@@ -73,7 +74,7 @@ class CardController extends AbstractController
         $data = [
             'title' => 'Draw',
             'deckNum' => $deck->getNumberCards(),
-            'cardHand' => $cardHand->viewHand()
+            'cardHand' => $cardHand->getCardIllustrations()
         ];
         return $this->render('card/draw.html.twig', $data);
     }
@@ -148,7 +149,7 @@ class CardController extends AbstractController
             }
         }
         foreach ($players as $player) {
-            $playersViewCards[] = $player->viewHand();
+            $playersViewCards[] = $player->getCardIllustrations();
         }
         $data = [
             'title' => 'Players',
@@ -167,7 +168,7 @@ class CardController extends AbstractController
         $deck->fillWithCards();
         $data = [
             'title' => 'Deck',
-            'cardDeck' => $deck->viewHand()
+            'cardDeck' => $deck->getCardIllustrations()
         ];
         return $this->render('card/joker.html.twig', $data);
     }

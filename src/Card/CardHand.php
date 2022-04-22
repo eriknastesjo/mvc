@@ -6,7 +6,6 @@
 
 namespace App\Card;
 
-use App\Card\Card;
 
 /**
  * Can hold several Card objects and pick cards from other Card Hand objects.
@@ -72,6 +71,23 @@ class CardHand
         }
     }
 
+
+    /**
+     * Redefine deck
+     *
+     * @param array $possibleColors A numeric array, eg ["heart","clove","diamond","spade"]
+     * @param array $possibleValues An associative array in form of pairs ('illustrated value', 'real value')
+     */
+    public function fillWithSpecifiedCards(array $possibleColors, array $possibleValues): void
+    {
+        foreach ($possibleColors as $col) {
+            foreach ($possibleValues as $realValue => $strValue) {
+                $newCard = new Card($col, $strValue, $realValue);
+                $this->hand[] = $newCard;
+            }
+        }
+    }
+
     /**
      * The cards in the hand are arranged in a random order.
      */
@@ -83,11 +99,11 @@ class CardHand
     /**
      * Returns an array of the cards in viewable string format.
      */
-    public function viewHand(): array
+    public function getCardIllustrations(): array
     {
         $listReturn = [];
         foreach ($this->hand as $card) {
-            $listReturn[] = $card->viewCard();
+            $listReturn[] = $card->getIllustration();
         }
         return $listReturn;
     }
@@ -123,4 +139,5 @@ class CardHand
         }
         return $listReturn;
     }
+
 }

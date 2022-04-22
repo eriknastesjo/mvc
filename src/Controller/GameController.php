@@ -69,9 +69,9 @@ class GameController extends AbstractController
     {
         $data = [
             'title' => 'Games session',
-            'player' => $player->viewHand(),
+            'player' => $player->getCardIllustrations(),
             'playerPoints' => $player->getOptimalValueCards(),
-            'bank' => $bank->viewHand(),
+            'bank' => $bank->getCardIllustrations(),
             'bankPoints' => $bank->getValueCards()
         ];
         if ($bank->getValueCards() <= 21) {
@@ -93,7 +93,7 @@ class GameController extends AbstractController
     {
         $data = [
             'title' => 'Games session',
-            'player' => $player->viewHand(),
+            'player' => $player->getCardIllustrations(),
             'playerMaxPoints' => $player->getValueCards(),
             'playerMinPoints' => $player->getValueCardsMin()
         ];

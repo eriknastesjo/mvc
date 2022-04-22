@@ -2,9 +2,6 @@
 
 namespace App\Card;
 
-use App\Card\Card;
-
-// use App\Card\CardHand;
 
 class CardHandJoker extends CardHand
 {

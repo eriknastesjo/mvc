@@ -55,7 +55,7 @@ class Card
     /**
      * Returns a viewable image of the card in form of a string. Does not return the real value of the card.
      */
-    public function viewCard(): string
+    public function getIllustration(): string
     {
         return "[{$this->color}{$this->strValue}]";
     }
