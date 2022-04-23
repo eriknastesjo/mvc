@@ -6,7 +6,6 @@
 
 namespace App\Card;
 
-
 /**
  * Can hold several Card objects and pick cards from other Card Hand objects.
  */
@@ -139,5 +138,4 @@ class CardHand
         }
         return $listReturn;
     }
-
 }

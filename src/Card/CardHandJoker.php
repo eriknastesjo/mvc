@@ -2,7 +2,6 @@
 
 namespace App\Card;
 
-
 class CardHandJoker extends CardHand
 {
     private int $jokerNum = 2;

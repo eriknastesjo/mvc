@@ -2,8 +2,6 @@
 
 namespace App\Card;
 
-
-
 class CardHand21 extends CardHand
 {
     /**

@@ -157,5 +157,4 @@ class CardHandTest extends TestCase
         $this->assertContains(['color' => '♦', 'strValue' => 'Q', 'value' => 12], $cardHand->getAllRaw());
         $this->assertContains(['color' => '♠', 'strValue' => 'K', 'value' => 13], $cardHand->getAllRaw());
     }
-
 }

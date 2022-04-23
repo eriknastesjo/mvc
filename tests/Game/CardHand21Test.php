@@ -63,5 +63,4 @@ class CardHand21Test extends TestCase
 
         $this->assertEquals(20, $cardHand->getOptimalValueCards());
     }
-
 }

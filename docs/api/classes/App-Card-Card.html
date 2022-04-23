@@ -168,7 +168,14 @@
     <span>
                                 &nbsp;: array&lt;string|int, mixed&gt;    </span>
 </dt>
-<dd>Returns an array of raw information about the card. The information contains of the color, the string value and the real value.</dd>
+<dd>Returns an array of raw information about the card.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/App-Card-Card.html#method_getIllustration">getIllustration()</a>
+    <span>
+                                &nbsp;: string    </span>
+</dt>
+<dd>Returns a viewable image of the card in form of a string. Does not return the real value of the card.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/App-Card-Card.html#method_getValue">getValue()</a>
@@ -176,13 +183,6 @@
                                 &nbsp;: int    </span>
 </dt>
 <dd>Returns the realValue of the card.</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/App-Card-Card.html#method_viewCard">viewCard()</a>
-    <span>
-                                &nbsp;: string    </span>
-</dt>
-<dd>Returns a viewable image of the card in form of a string. Does not return the real value of the card.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
     <a href="classes/App-Card-Card.html#method_chooseSymbol">chooseSymbol()</a>
@@ -325,7 +325,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Card/Card.php"><a href="files/src-card-card.html"><abbr title="src/Card/Card.php">Card.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">24</span>
+    <span class="phpdocumentor-element-found-in__line">25</span>
 
     </aside>
 
@@ -343,7 +343,7 @@
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Type either &quot;heart&quot;, &quot;diamond&quot;, &quot;spade&quot;, &quot;clove&quot; or &quot;joker&quot;. Otherwise the card will get the symbol '?'.</p>
+                    <section class="phpdocumentor-description"><p>Type either &quot;heart&quot;, &quot;diamond&quot;, &quot;spade&quot;, &quot;clove&quot; or &quot;joker&quot;.</p>
 </section>
 
             </dd>
@@ -352,7 +352,7 @@
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>This is the value that will be visible on a card. For example choose 'K' to show that the card is a king.</p>
+                    <section class="phpdocumentor-description"><p>This is the value that will be visible on a card, eg &quot;K&quot; for a king.</p>
 </section>
 
             </dd>
@@ -361,7 +361,7 @@
                 : <span class="phpdocumentor-signature__argument__return-type">int</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>This is the invisible real card value. For example the king card usually have the real value of 13.</p>
+                    <section class="phpdocumentor-description"><p>This is the invisible real card value, eg 13 for a king.</p>
 </section>
 
             </dd>
@@ -388,11 +388,11 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Card/Card.php"><a href="files/src-card-card.html"><abbr title="src/Card/Card.php">Card.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">73</span>
+    <span class="phpdocumentor-element-found-in__line">74</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Returns an array of raw information about the card. The information contains of the color, the string value and the real value.</p>
+        <p class="phpdocumentor-summary">Returns an array of raw information about the card.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -414,6 +414,39 @@
             -public
                                                         "
 >
+    <h4 class="phpdocumentor-element__name" id="method_getIllustration">
+        getIllustration()
+        <a href="classes/App-Card-Card.html#method_getIllustration" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Card/Card.php"><a href="files/src-card-card.html"><abbr title="src/Card/Card.php">Card.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">58</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Returns a viewable image of the card in form of a string. Does not return the real value of the card.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">getIllustration</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+    
+    
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">string</span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
     <h4 class="phpdocumentor-element__name" id="method_getValue">
         getValue()
         <a href="classes/App-Card-Card.html#method_getValue" class="headerlink"><i class="fas fa-link"></i></a>
@@ -421,7 +454,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Card/Card.php"><a href="files/src-card-card.html"><abbr title="src/Card/Card.php">Card.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">65</span>
+    <span class="phpdocumentor-element-found-in__line">66</span>
 
     </aside>
 
@@ -444,39 +477,6 @@
                     <article
         class="phpdocumentor-element
             -method
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_viewCard">
-        viewCard()
-        <a href="classes/App-Card-Card.html#method_viewCard" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Card/Card.php"><a href="files/src-card-card.html"><abbr title="src/Card/Card.php">Card.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">57</span>
-
-    </aside>
-
-        <p class="phpdocumentor-summary">Returns a viewable image of the card in form of a string. Does not return the real value of the card.</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">viewCard</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
-
-    
-    
-    
-
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">string</span>
-            &mdash;
-        
-    
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
             -private
                                                         "
 >
@@ -487,7 +487,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Card/Card.php"><a href="files/src-card-card.html"><abbr title="src/Card/Card.php">Card.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">34</span>
+    <span class="phpdocumentor-element-found-in__line">35</span>
 
     </aside>
 

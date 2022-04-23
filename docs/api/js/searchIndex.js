@@ -16,10 +16,10 @@ Search.appendIndex(
             "summary": "Private\u0020method\u0020to\u0020choose\u0020correct\u0020color\u0020based\u0020on\u0020string\u0020value.",
             "url": "classes/App-Card-Card.html#method_chooseSymbol"
         },                {
-            "fqsen": "\\App\\Card\\Card\u003A\u003AviewCard\u0028\u0029",
-            "name": "viewCard",
+            "fqsen": "\\App\\Card\\Card\u003A\u003AgetIllustration\u0028\u0029",
+            "name": "getIllustration",
             "summary": "Returns\u0020a\u0020viewable\u0020image\u0020of\u0020the\u0020card\u0020in\u0020form\u0020of\u0020a\u0020string.\u0020Does\u0020not\u0020return\u0020the\u0020real\u0020value\u0020of\u0020the\u0020card.",
-            "url": "classes/App-Card-Card.html#method_viewCard"
+            "url": "classes/App-Card-Card.html#method_getIllustration"
         },                {
             "fqsen": "\\App\\Card\\Card\u003A\u003AgetValue\u0028\u0029",
             "name": "getValue",
@@ -28,7 +28,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Card\\Card\u003A\u003AgetCardRaw\u0028\u0029",
             "name": "getCardRaw",
-            "summary": "Returns\u0020an\u0020array\u0020of\u0020raw\u0020information\u0020about\u0020the\u0020card.\u0020The\u0020information\u0020contains\u0020of\u0020the\u0020color,\u0020the\u0020string\u0020value\u0020and\u0020the\u0020real\u0020value.",
+            "summary": "Returns\u0020an\u0020array\u0020of\u0020raw\u0020information\u0020about\u0020the\u0020card.",
             "url": "classes/App-Card-Card.html#method_getCardRaw"
         },                {
             "fqsen": "\\App\\Card\\Card\u003A\u003A\u0024color",
@@ -58,7 +58,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Card\\CardHand\u003A\u003AdiscardRandomCard\u0028\u0029",
             "name": "discardRandomCard",
-            "summary": "Discard\u0020a\u0020random\u0020card\u0020from\u0020the\u0020hand.\u0020Returns\u0020the\u0020discarded\u0020card\u0020object.\u0020If\u0020the\u0020hand\u0020got\u0020no\u0020card\u0020to\u0020discard\u0020nothing\u0020happens\u0020and\u0020method\u0020returns\u0020null.",
+            "summary": "Discard\u0020a\u0020random\u0020card\u0020from\u0020the\u0020hand.\u0020If\u0020exists,\u0020returns\u0020the\u0020discarded\u0020card\u0020object.",
             "url": "classes/App-Card-CardHand.html#method_discardRandomCard"
         },                {
             "fqsen": "\\App\\Card\\CardHand\u003A\u003AfillWithCards\u0028\u0029",
@@ -66,15 +66,20 @@ Search.appendIndex(
             "summary": "Fill\u0020hand\u0020with\u0020the\u0020typical\u0020deck\u0020cards.",
             "url": "classes/App-Card-CardHand.html#method_fillWithCards"
         },                {
+            "fqsen": "\\App\\Card\\CardHand\u003A\u003AfillWithSpecifiedCards\u0028\u0029",
+            "name": "fillWithSpecifiedCards",
+            "summary": "Redefine\u0020deck",
+            "url": "classes/App-Card-CardHand.html#method_fillWithSpecifiedCards"
+        },                {
             "fqsen": "\\App\\Card\\CardHand\u003A\u003AshuffleHand\u0028\u0029",
             "name": "shuffleHand",
             "summary": "The\u0020cards\u0020in\u0020the\u0020hand\u0020are\u0020arranged\u0020in\u0020a\u0020random\u0020order.",
             "url": "classes/App-Card-CardHand.html#method_shuffleHand"
         },                {
-            "fqsen": "\\App\\Card\\CardHand\u003A\u003AviewHand\u0028\u0029",
-            "name": "viewHand",
+            "fqsen": "\\App\\Card\\CardHand\u003A\u003AgetCardIllustrations\u0028\u0029",
+            "name": "getCardIllustrations",
             "summary": "Returns\u0020an\u0020array\u0020of\u0020the\u0020cards\u0020in\u0020viewable\u0020string\u0020format.",
-            "url": "classes/App-Card-CardHand.html#method_viewHand"
+            "url": "classes/App-Card-CardHand.html#method_getCardIllustrations"
         },                {
             "fqsen": "\\App\\Card\\CardHand\u003A\u003AgetValueCards\u0028\u0029",
             "name": "getValueCards",
@@ -118,7 +123,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Card\\CardHand21\u003A\u003AgetOptimalValueCards\u0028\u0029",
             "name": "getOptimalValueCards",
-            "summary": "Returns\u0020the\u0020total\u0020real\u0020value\u0020of\u0020the\u0020cards.\u0020Counting\u0020the\u0020ace\u0020as\u0020value\u002014\u0020if\u0020total\u0020value\u0020is\u0020below\u002021,\u0020otherwise\u0020ace\u0020counts\u0020as\u00201.",
+            "summary": "Returns\u0020the\u0020best\u0020outcome\u0020value\u0020of\u0020the\u0020cards\u0020in\u0020game\u002021.",
             "url": "classes/App-Card-CardHand21.html#method_getOptimalValueCards"
         },                {
             "fqsen": "\\App\\Card\\CardHandJoker",
