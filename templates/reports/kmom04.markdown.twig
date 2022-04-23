@@ -1,0 +1,30 @@
+{% apply markdown_to_html %}
+
+
+
+## Kmom04
+
+### Berätta hur du upplevde att skriva kod som testar annan kod med PHPUnit och hur du upplever phpunit rent allmänt.
+
+Det gick ganska bra att skriva tester med PHPUnit. Med Windows och cygwin kunde jag bara inte kör genom composer. Testerna blev väldigt "straight-forward" utifrån den kod som ville testa. Jag skapade ytterligare en metod fillWithSpecifiedCards() för klassen CardHand för att kunna lägga in definierade kort via argumentet. På så sätt kunde jag testa två scenarion för klassen CardHand21 där Ess kan vara värt 1 eller 14.
+
+Totalt sätt upplever jag ändå att det var ganska kul att skriva tester när jag väl kom igång. Det är inget som jag har sysslat med mycker innan men jag förstår att det är en viktig del i programmeringsvärlden. Något som jag kan behöva jobba med är att skriva metoder som kan testas utan att köra andra metoder. Exempelvis verifierade jag en del olika metoder med metoden getNumberCards().
+
+### Hur väl lyckades du med kodtäckningen av din kod, lyckades du nå mer än 90% kodtäckning?
+
+Jag lyckades uppnå 98 % rader, 94 % funktioner och metoder och 75 % klasser och traits. Den enda metoden som jag inte testade var metoden shuffleHand() som returnerar void och inte går att kontrollera med getNumberCards(). Man kanske skulle kunna testa den genom att kontrollera hand arrayen före och innan och se att de innehåller samma värden men inte med samma keys.
+
+### Upplever du din egen kod som “testbar kod” eller finns det delar i koden som är mer eller mindre testbar och finns det saker som kan göras för att förbättra kodens testbarhet?
+
+Det som jag funderar på återigen är det här med att flera metoder testar under förutsättning att andra metoder fungerar som de ska. För att skapa en mer hållbar testmiljö så skulle jag behöva skapa tester som testar metoderna mer självständigt. Generellt är det svårt när metoder returnerar void och därför skulle jag behöva göra om dessa metoder så att de returnerar något värde som kan kontrolleras.
+
+### Valde du att skriva om delar av din kod för att förbättra den eller göra den mer testbar, om så berätta lite hur du tänkte.
+Det enda jag ändrade var att skapa metoden fillWithSpecifiedCards() som jag beskrev ovan.
+
+### Fundera över om du anser att testbar kod är något som kan identifiera “snygg och ren kod”.
+För att kunna testa en bit kod så behöver den hålla sig till principen "single responsibility principle". Om man behöver många olika tester för en och samma metod så kan det väl vara ett tecken på att den är för komplex och behöver brytas ner i mindre metoder.
+
+### Vilken är din TIL för detta kmom?
+Jag har tränat på enhetstester på ungefär samma vis som vi gjorde i Python-kursen. Jag har också lärt mig hur man skriver doc block i PHP och hur man automatiskt dokumenterar koden med phpdoc. Det var imponerande att se hur snygg den automatgenererade dokumentationen blev.
+
+{% endapply %}

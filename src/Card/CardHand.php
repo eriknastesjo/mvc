@@ -72,7 +72,7 @@ class CardHand
 
 
     /**
-     * Redefine deck
+     * Fill hand with your own custom cards.
      *
      * @param array $possibleColors A numeric array, eg ["heart","clove","diamond","spade"]
      * @param array $possibleValues An associative array in form of pairs ('illustrated value', 'real value')
