@@ -1,0 +1,18 @@
+{% extends 'pokemon/base-pok.html.twig' %}
+
+{% block title %}
+Pokedex | Release
+{% endblock %}
+
+{% block content %}
+
+<h1 class="retro-font">{{ pokemon.name }}</h1>
+
+<p class="retro-font warning">ÄR DU SÄKER PÅ ATT DU VILL BEFRIA DENNA POKEMON?</p>
+
+<a href="{{path("experiment", {id: pokemon.id})}}"><button type="button" class="retro-font">JA</button></a>
+<a href="{{path("pokedex")}}"><button type="button" class="retro-font">NEJ</button></a>
+
+
+{% endblock %}
+

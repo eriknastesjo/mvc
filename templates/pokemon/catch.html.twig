@@ -4,21 +4,21 @@
 Pokedex | Catch
 {% endblock %}
 
-{% block sidebar %}
+{% block content %}
 
-    <h1>Fånga en ny pokemon</h1>
-    <form action="{{ path("catch-process") }}" method="post" class="table">
-        <label for="name">Namn:</label>
-        <input type="text" id="name" name="name"><br><br>
-        <label for="type">Typ:</label>
-        <input type="text" id="type" name="type"><br><br>
-        <label for="attack">Attack:</label>
-        <input type="text" id="attack" name="attack"><br><br>
-        <label for="hp">Hp:</label>
-        <input type="text" id="hp" name="hp"><br><br>
-        <label for="description">Description:</label>
-        <input type="text" id="description" name="description"><br><br>
-        <input type="submit" value="Lägg till">
+    <h1 class="retro-font">Fånga en ny pokemon</h1>
+    <form action="{{ path("catch-process") }}" method="post" class="retro-font">
+        <label for="name">NAMN:</label>
+        <input type="text" id="name" name="name" class="retro-font"><br><br>
+        <label for="type">TYP:</label>
+        <input type="text" id="type" name="type" class="retro-font"><br><br>
+        <label for="attack">ATTACK:</label>
+        <input type="text" id="attack" name="attack" class="retro-font"><br><br>
+        <label for="hp">HP:</label>
+        <input type="text" id="hp" name="hp" class="retro-font"><br><br>
+        <label for="description">DESCRIPTION:</label>
+        <input type="text" id="description" name="description" class="retro-font"><br><br>
+        <input type="submit" value="FÅNGA" class="retro-font">
     </form>
 
 {% endblock %}

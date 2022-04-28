@@ -1,29 +1,29 @@
 {% extends 'pokemon/base-pok.html.twig' %}
 
 {% block title %}
-Pokedex | Observe
+Pokedex | Pokedex
 {% endblock %}
 
-{% block sidebar %}
+{% block content %}
 
+<h1 class="retro-font">Din pokedex</h1>
 
-
-<table>
+<table class="table retro-font">
 	<tr>
-		<th>Name</th>
-		<th>Type</th>
-		<th>Attack</th>
-		<th>Hp</th>
-		<th>Description</th>
+		<th>NAME</th>
+		<th>TYPE</th>
+		<th>ATTACK</th>
+		<th>HP</th>
+		<th>ID</th>
 
 	</tr>
     {% for pokemon in allPokemon %}
-        <tr>
+        <tr onclick="window.location='{{path("pokedex-single", {id: pokemon.id})}}'">
             <td>{{ pokemon.name }}</td>
             <td>{{ pokemon.type }}</td>
             <td>{{ pokemon.attack }}</td>
             <td>{{ pokemon.hp }}</td>
-            <td>{{ pokemon.description }}</td>
+            <td>#{{ pokemon.id }}</td>
         </tr>
     {% endfor %}
 </table>

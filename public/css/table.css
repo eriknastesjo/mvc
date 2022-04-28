@@ -1,0 +1,40 @@
+.table {
+    border-collapse: collapse;
+    width: 100%;
+
+    margin: auto;
+    color: rgb(60, 60, 60);
+    font-size: 1rem;
+}
+
+.table td,
+.table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+
+.table tr:nth-child(odd) {
+    background-color: #c6d5ea;
+}
+
+.table tr:nth-child(even) {
+    background-color: #eff6ff;
+}
+
+.table tr:hover {
+    background-color: rgb(216, 159, 159);
+}
+
+.table td:hover {
+    cursor: pointer;
+}
+
+.table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: rgb(162, 66, 66);
+    color: white;
+}
+

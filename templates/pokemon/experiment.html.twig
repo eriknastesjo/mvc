@@ -1,0 +1,29 @@
+{% extends 'pokemon/base-pok.html.twig' %}
+
+{% block title %}
+Pokedex | Experiment
+{% endblock %}
+
+{% block content %}
+
+    <h1 class="retro-font">Experimentera på {{pokemon.name}}</h1>
+    <form action="{{ path("experiment-process") }}" method="post" class="retro-font">
+        <input type="hidden" id="id" name="id" value={{pokemon.id}} class="retro-font"><br><br>
+        <label for="name">NAMN:</label>
+        <input type="text" id="name" name="name" value={{pokemon.name}} class="retro-font"><br><br>
+        <label for="type">TYP:</label>
+        <input type="text" id="type" name="type" value={{pokemon.type}} class="retro-font"><br><br>
+        <label for="attack">ATTACK:</label>
+        <input type="text" id="attack" name="attack" value={{pokemon.attack}} class="retro-font"><br><br>
+        <label for="hp">HP:</label>
+        <input type="text" id="hp" name="hp" value={{pokemon.hp}} class="retro-font"><br><br>
+        <label for="description">DESCRIPTION:</label>
+        <input type="text" id="description" name="description" value={{pokemon.description}} class="retro-font"><br><br>
+        <input type="submit" value="IMPLEMENTERA" class="retro-font"><br><br>
+        <a href="{{path("pokedex")}}"><button type="button" class="retro-font">TILLBAKA</button></a>
+    </form>
+
+
+
+{% endblock %}
+

@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 @import url("base.css");
 @import url("siteheader.css");
 @import url("navbar.css");
@@ -8,3 +9,4 @@
 @import url("card.css");
 @import url("game.css");
 @import url("table.css");
+@import url("pokemon.css");

@@ -32,6 +32,15 @@ p {
     margin-bottom: 1.4rem;
 }
 
+.retro-font {
+    font-family: 'VT323', monospace;
+    text-align: center;
+}
+
+.warning {
+    color: rgb(184, 75, 75);
+}
+
 a {
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
