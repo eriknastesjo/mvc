@@ -1,0 +1,33 @@
+{% extends 'pokemon/base-pok.html.twig' %}
+
+{% block title %}
+Pokedex | Observe
+{% endblock %}
+
+{% block sidebar %}
+
+
+
+<table>
+	<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Attack</th>
+		<th>Hp</th>
+		<th>Description</th>
+
+	</tr>
+    {% for pokemon in allPokemon %}
+        <tr>
+            <td>{{ pokemon.name }}</td>
+            <td>{{ pokemon.type }}</td>
+            <td>{{ pokemon.attack }}</td>
+            <td>{{ pokemon.hp }}</td>
+            <td>{{ pokemon.description }}</td>
+        </tr>
+    {% endfor %}
+</table>
+
+
+{% endblock %}
+

@@ -8,17 +8,17 @@
     </head>
     <body>
         <div class="siteheader">
-            <h1><a href="{{ url("home") }}">Redovisningssida</a></h1>
+            <h1><a href="{{ url("app_pokemon") }}">Pokedex</a></h1>
         </div>
 
         <div class="navbar">
-            <li><a href="{{ url("home") }}">Home</a></li>
-            <li><a href="{{ path("report") }}">Report</a></li>
-            <li><a href="{{ path("about") }}">About</a></li>
-            <li><a href="{{ path("debug") }}">Debug</a></li>
-            <li><a href="{{ path("card") }}">Card</a></li>
-            <li><a href="{{ path("game") }}">Game</a></li>
-            <li><a href="{{ path("app_pokemon") }}">Pokedex</a></li>
+            <li><a href="{{ url("home") }}">Back</a></li>
+            <li><a href="{{ path("catch") }}">Catch</a></li>
+            <li><a href="{{ path("observe") }}">Observe</a></li>
+            {# <li><a href="{{ path("debug") }}">Debug</a></li> #}
+            {# <li><a href="{{ path("card") }}">Card</a></li> #}
+            {# <li><a href="{{ path("game") }}">Game</a></li> #}
+            {# <li><a href="{{ path("app_pokemon") }}">Pokedex</a></li> #}
             {# url och path fungerar likadant här tack vare att vi agivit "name" i vår controller #}
         </div>
 
