@@ -6,11 +6,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
-
 use App\Entity\Pokemon;
 use App\Repository\PokemonRepository;
 use Doctrine\Persistence\ManagerRegistry;
-
 
 class PokemonController extends AbstractController
 {
@@ -25,7 +23,8 @@ class PokemonController extends AbstractController
     /**
      * @Route("/pokedex/catch", name="catch"), methods={"GET","HEAD"})
      */
-    public function catchPokemon(): Response {
+    public function catchPokemon(): Response
+    {
         return $this->render('pokemon/catch.html.twig');
     }
 
@@ -58,7 +57,8 @@ class PokemonController extends AbstractController
     /**
      * @Route("/pokedex/pokedex", name="pokedex"), methods={"GET","HEAD"})
      */
-    public function pokedex(PokemonRepository $pokemonRepository): Response {
+    public function pokedex(PokemonRepository $pokemonRepository): Response
+    {
         $allPokemon = $pokemonRepository->findAll();
 
         $data = [
@@ -106,7 +106,7 @@ class PokemonController extends AbstractController
     public function experimentProcess(
         ManagerRegistry $doctrine,
         Request $request
-        ): Response {
+    ): Response {
         $entityManager = $doctrine->getManager();
         $id = $request->request->get('id');
 
@@ -151,8 +151,7 @@ class PokemonController extends AbstractController
     public function releasepokemonById(
         ManagerRegistry $doctrine,
         Request $request
-        ): Response {
-
+    ): Response {
         $entityManager = $doctrine->getManager();
         $id = $request->request->get('id');
 
@@ -169,6 +168,4 @@ class PokemonController extends AbstractController
 
         return $this->redirectToRoute('pokedex');
     }
-
-
 }
