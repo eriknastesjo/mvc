@@ -7,13 +7,20 @@ Pokedex | Pokedex
 {% block content %}
 
 <h1 class="retro-font">{{ pokemon.name }}</h1>
+
+{% if (pokemon.name == "Bulbasaur" or pokemon.name == "Pikachu" or pokemon.name == "Charmander") %}
+    <a href="../../img/{{pokemon.name}}.jpg"><img src="../../img/{{pokemon.name}}.jpg" class="img-vert" alt="pokemon image"></a>
+{% endif %}
+
+{% if (pokemon.description) %}
 <h2 class="retro-font">Beskrivning:</h2>
 <p class="retro-font">{{pokemon.description}}</p>
-
-<a href="{{path("experiment", {id: pokemon.id})}}"><button type="button" class="retro-font">EXPERIMENTERA</button></a> <br><br>
-<a href="{{path("release", {id: pokemon.id})}}"><button type="button" class="retro-font">BEFRIA</button></a> <br><br>
-<a href="{{path("pokedex")}}"><button type="button" class="retro-font">TILLBAKA</button></a>
-
+{% endif %}
+<div class="flex-row">
+    <a href="{{path("experiment", {id: pokemon.id})}}"><button type="button" class="retro-font">EXPERIMENTERA</button></a>
+    <a href="{{path("release", {id: pokemon.id})}}"><button type="button" class="retro-font">BEFRIA</button></a>
+    <a href="{{path("pokedex")}}"><button type="button" class="retro-font">TILLBAKA</button></a>
+</div>
 
 {% endblock %}
 

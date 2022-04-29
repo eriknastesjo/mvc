@@ -10,9 +10,16 @@ Pokedex | Release
 
 <p class="retro-font warning">ÄR DU SÄKER PÅ ATT DU VILL BEFRIA DENNA POKEMON?</p>
 
-<a href="{{path("experiment", {id: pokemon.id})}}"><button type="button" class="retro-font">JA</button></a>
+<div class="flex-row">
+
+<form action="{{ path("release-process") }}" method="post">
+	<input type="hidden" id="id" name="id" value={{pokemon.id}}>
+	<input type="submit" value="JA" class="retro-font"><br><br>
+</form>
+
 <a href="{{path("pokedex")}}"><button type="button" class="retro-font">NEJ</button></a>
 
+</div>
 
 {% endblock %}
 

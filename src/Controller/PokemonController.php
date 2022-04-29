@@ -145,4 +145,30 @@ class PokemonController extends AbstractController
         return $this->render('pokemon/release.html.twig', $data);
     }
 
+    /**
+     * @Route("/pokemon/release/process", name="release-process", methods={"POST"})
+     */
+    public function releasepokemonById(
+        ManagerRegistry $doctrine,
+        Request $request
+        ): Response {
+
+        $entityManager = $doctrine->getManager();
+        $id = $request->request->get('id');
+
+        $pokemon = $entityManager->getRepository(Pokemon::class)->find($id);
+
+        if (!$pokemon) {
+            throw $this->createNotFoundException(
+                'No pokemon found for id ' . $id
+            );
+        }
+
+        $entityManager->remove($pokemon);
+        $entityManager->flush();
+
+        return $this->redirectToRoute('pokedex');
+    }
+
+
 }
