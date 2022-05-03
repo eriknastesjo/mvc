@@ -1,6 +1,6 @@
 # mvc
 
-Course repo for the mvc course.
+Student course repo for the mvc course.
 
 Course is available at:
 
@@ -9,12 +9,6 @@ Course is available at:
 GitHub Pages for this repo are published at:
 
 * https://github.com/eriknastesjo/mvc-report.git
-
-Clone the course repo (this repo).
-
-```
-dbwebb clone mvc
-```
 
 
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/eriknastesjo/mvc-report/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/eriknastesjo/mvc-report/?branch=master)
@@ -26,8 +20,5 @@ dbwebb clone mvc
 [![Code Intelligence Status](https://scrutinizer-ci.com/g/eriknastesjo/mvc-report/badges/code-intelligence.svg?b=master)](https://scrutinizer-ci.com/code-intelligence)
 
 
+Copyright (c) 2022 Erik Nästesjö Todd
 
-```
- .
-..:  Copyright (c) 2022 Erik Nästesjö Todd
-```
