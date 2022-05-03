@@ -93,6 +93,7 @@
         "phpcs": "tools/php-codesniffer/vendor/bin/phpcs --standard=PSR12 src",
         "phpcbf": "tools/php-codesniffer/vendor/bin/phpcbf --standard=PSR12 src",
         "phpmd": "tools/phpmd/vendor/bin/phpmd src text phpmd.xml || true",
+        "phpmetrics": "tools/phpmetrics/vendor/bin/phpmetrics --config=phpmetrics.json",
         "phpstan": "tools/phpstan/vendor/bin/phpstan analyse -l 5 src || true",
         "phpcpd": "tools/phpcpd/vendor/bin/phpcpd src || true",
         "lint": [
@@ -103,7 +104,7 @@
             "@phpstan"
         ],
         "phpdoc": "tools/phpdoc/phpdoc",
-        "phpunit": "XDEBUG_MODE=coverage bin/phpunit"
+        "phpunit": "XDEBUG_MODE=coverage vendor/bin/phpunit"
     },
     "conflict": {
         "symfony/symfony": "*"
