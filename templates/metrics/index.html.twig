@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Metrics
+{% endblock %}
+
+{% block sidebar %}
+	<h1>Metrics</h1>
+    <a href="../../img/metrics.jpg"><img src="../../img/metrics.jpg" class="img-horiz" alt="Diagrams and stuff"></a>
+
+{% endblock %}
+
+{% block content %}
+	<h1>Rapport</h1>
+
+    {# Introduktion #}
+    {{ include('metrics/md/introduction.markdown.twig')|markdown_to_html }}
+
+
+{% endblock %}
+
