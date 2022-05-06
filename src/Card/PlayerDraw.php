@@ -15,7 +15,7 @@ class PlayerDraw
     protected $deck;
     protected $players = [];
 
-    function __construct($playerNum = 1)
+    public function __construct($playerNum = 1)
     {
         $this->deck = new CardHand();
         $this->deck->fillWithCards();
@@ -26,7 +26,7 @@ class PlayerDraw
         }
     }
 
-    function playersDrawCards($cardNum = 1) {
+    public function playersDrawCards($cardNum = 1) {
         foreach ($this->players as $player) {
             for ($i = 1; $i <= $cardNum; $i++) {
                 $player->pickRandomCard($this->deck);
@@ -34,7 +34,7 @@ class PlayerDraw
         }
     }
 
-    function singlePlayerDrawCards($playerIndex, $cardNum = 1) {
+    public function singlePlayerDrawCards($playerIndex, $cardNum = 1) {
         for ($i = 1; $i <= $cardNum; $i++) {
             $this->players[$playerIndex]->pickRandomCard($this->deck);
         }
@@ -45,12 +45,12 @@ class PlayerDraw
         return $this->deck->getNumberCards();
     }
 
-    function getCardIllustrationsDeck()
+    public function getCardIllustrationsDeck()
     {
         return $this->deck->getCardIllustrations();
     }
 
-    function getCardIllustrationsPlayers() {
+    public function getCardIllustrationsPlayers() {
         $listReturn = [];
         foreach ($this->players as $player) {
             $listReturn[] = $player->getCardIllustrations();
