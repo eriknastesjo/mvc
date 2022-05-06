@@ -2,6 +2,9 @@
 
 namespace App\Controller;
 
+use App\Card\CardHand;
+use App\Card\PlayerDraw;
+use App\Card\CardHandJoker;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -14,11 +17,7 @@ class CardController extends AbstractController
      */
     public function card(): Response
     {
-        $data = [
-            'title' => 'Home',
-            'cardHand' => "no cards yet"
-        ];
-        return $this->render('card/home.html.twig', $data);
+        return $this->render('card/home.html.twig');
     }
 
     /**
@@ -26,7 +25,7 @@ class CardController extends AbstractController
      */
     public function deck(): Response
     {
-        $deck = new \App\Card\CardHand();
+        $deck = new CardHand();
 
         $deck->fillWithCards();
         $data = [
@@ -41,18 +40,15 @@ class CardController extends AbstractController
      */
     public function shuffle(SessionInterface $session): Response
     {
-        $deck = new \App\Card\CardHand();
-        $deck->fillWithCards();
-        $deck->shuffleHand();
+        $playerDraw = new PlayerDraw();
+
         $data = [
             'title' => 'Shuffle',
-            'cardDeck' => $deck->getCardIllustrations()
+            'cardDeck' => $playerDraw->getCardIllustrationsDeck()
         ];
 
-        $session->set("deck", new \App\Card\CardHand());
-        $deckSession = $session->get("deck");
-        $deckSession->fillWithCards();
-        $session->set("hand", new \App\Card\CardHand());
+        $session->set("playerDraw", $playerDraw);
+
         return $this->render('card/shuffled.html.twig', $data);
     }
 
@@ -61,19 +57,13 @@ class CardController extends AbstractController
      */
     public function draw(SessionInterface $session): Response
     {
-        $deck = "";
-        if ($session->get("deck") == null) {
-            $deck = new \App\Card\CardHand();
-            $deck->fillWithCards();
-        } else {
-            $deck = $session->get("deck");
-        }
-        $cardHand = $session->get("hand") ?? new \App\Card\CardHand();
+        $playerDraw = $session->get("playerDraw") ?? new PlayerDraw();
+        $session->set("playerDraw", $playerDraw);
 
         $data = [
             'title' => 'Draw',
-            'deckNum' => $deck->getNumberCards(),
-            'cardHand' => $cardHand->getCardIllustrations()
+            'deckNum' => $playerDraw->getNumberCardsDeck(),
+            'cardHand' => $playerDraw->getCardIllustrationsPlayers()[0]
         ];
         return $this->render('card/draw.html.twig', $data);
     }
@@ -83,21 +73,11 @@ class CardController extends AbstractController
      */
     public function drawProcess(SessionInterface $session): Response
     {
-        $deck = "";
-        if ($session->get("deck") == null) {
-            $deck = new \App\Card\CardHand();
-            $deck->fillWithCards();
-        } else {
-            $deck = $session->get("deck");
-        }
-        $cardHand = $session->get("hand") ?? new \App\Card\CardHand();
 
-        if ($deck->getNumberCards() > 0) {
-            $cardHand->pickRandomCard($deck);
-        }
+        $playerDraw = $session->get("playerDraw");
+        $playerDraw->playersDrawCards();
 
-        $session->set("deck", $deck);
-        $session->set("hand", $cardHand);
+        $session->set("playerDraw", $playerDraw);
 
         return $this->redirectToRoute('draw');
     }
@@ -107,23 +87,11 @@ class CardController extends AbstractController
      */
     public function drawNum(SessionInterface $session, int $numCards): Response
     {
-        $deck = "";
-        if ($session->get("deck") == null) {
-            $deck = new \App\Card\CardHand();
-            $deck->fillWithCards();
-        } else {
-            $deck = $session->get("deck");
-        }
-        $cardHand = $session->get("hand") ?? new \App\Card\CardHand();
 
-        for ($i = 1; $i <= $numCards; $i++) {
-            if ($deck->getNumberCards() > 0) {
-                $cardHand->pickRandomCard($deck);
-            }
-        }
+        $playerDraw = $session->get("playerDraw");
+        $playerDraw->playersDrawCards($numCards);
 
-        $session->set("deck", $deck);
-        $session->set("hand", $cardHand);
+        $session->set("playerDraw", $playerDraw);
 
         return $this->redirectToRoute('draw');
     }
@@ -131,29 +99,15 @@ class CardController extends AbstractController
     /**
      * @Route("/card/deck/deal/{playerNum}/{cardNum}", name="players", methods={"GET","HEAD"})
      */
-    public function players(SessionInterface $session, int $playerNum, int $cardNum): Response
+    public function players(int $playerNum, int $cardNum): Response
     {
-        $deck = new \App\Card\CardHand();
-        $deck->fillWithCards();
-        // obs, när göra om till session, ha annat
-        // variabelnamn än "deck" så det inte krockar med ovan!!
-        $players = [];
-        $playersViewCards = [];
-        for ($i = 1; $i <= $playerNum; $i++) {
-            $players[] = new \App\Card\CardHand();
-        }
-        foreach ($players as $player) {
-            for ($i = 1; $i <= $cardNum; $i++) {
-                $player->pickRandomCard($deck);
-            }
-        }
-        foreach ($players as $player) {
-            $playersViewCards[] = $player->getCardIllustrations();
-        }
+        $playersDraw = new PlayerDraw($playerNum);
+        $playersDraw->playersDrawCards($cardNum);
+
         $data = [
             'title' => 'Players',
-            'deckNum' => $deck->getNumberCards(),
-            'players' => $playersViewCards
+            'deckNum' => $playersDraw->getNumberCardsDeck(),
+            'players' => $playersDraw->getCardIllustrationsPlayers()
         ];
         return $this->render('card/players.html.twig', $data);
     }
@@ -163,7 +117,7 @@ class CardController extends AbstractController
      */
     public function deck2(): Response
     {
-        $deck = new \App\Card\CardHandJoker();
+        $deck = new CardHandJoker();
         $deck->fillWithCards();
         $data = [
             'title' => 'Deck',

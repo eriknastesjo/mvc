@@ -5,7 +5,7 @@
 
 Jag kommer att arbeta med de två klasser som fick högst antal cyclomatic complexity i PHPMetrics, dvs Game Controller och Card Controller. Game Controller kan förmodligen förenklas avsevärt genom att flytta ut logik till en klass t.ex. Game class som hanterar CardHands genom spelets gång.
 
-En del logik i Card Controller kan kanske också flyttas ut, t.ex. från funktionen players där man kan skapa en Player class. I Card Controller finns kod på flera ställen för att kontrollera om det redan finns en cardHand i sessionen eller om ett nytt objekt behöver instantieras. Kanske kan man koppla samman och använda samma objekt för routes Deck, Shuffle och Draw. I sådana fall skulle man också kunna använda en gemensam metod för att utföra kontrollen.
+En del logik i Card Controller kan kanske också flyttas ut, t.ex. från funktionen players där man kan skapa en Player class. I Card Controller finns kod på flera ställen som gör en "session-kontroll", alltså om det redan finns en cardHand i sessionen eller om ett nytt objekt behöver instantieras. Vi ska se om vi verkligen behöver alla "session-kontrollerna".
 
 Slutligen ska de tre kritiska security issues från Scrutinizer lösas. I alla tre fallen verkar lösningen vara enkel genom att ersätta PHP:s öppningstagg <? med <?php eller <?=. Detta verkar alltså vara viktigt hur både perspektivet security och best practice.
 
