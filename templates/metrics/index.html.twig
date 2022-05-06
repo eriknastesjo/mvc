@@ -15,6 +15,14 @@
     {# Introduktion #}
     {{ include('metrics/md/introduction.markdown.twig')|markdown_to_html }}
 
+    {# PHPMetrics #}
+    {{ include('metrics/md/phpmetrics.markdown.twig')|markdown_to_html }}
+
+    {# Scrutinizer #}
+    {{ include('metrics/md/scrutinizer.markdown.twig')|markdown_to_html }}
+
+    {# Förbättringar #}
+    {{ include('metrics/md/förbättringar.markdown.twig')|markdown_to_html }}
 
 {% endblock %}
 

@@ -1,0 +1,14 @@
+{% apply markdown_to_html %}
+
+
+## Scrutinizer
+
+Nu ska vi istället titta på koden utifrån Scrutinizers analys. Här har all kod som skapar webbsidas tagits med i beräkning till skillnad från PhpMetrics analys.
+
+Scrutinizers ger många olika verktyg för att analysera sin kod. Först och främst ges en övergripande poäng mellan 0-10 där koden för denna webbsidan får 6.14 (klassificeras som "satisfactory"). Klasser och metoder rangordnas i sin tur mellan A-F bland annat beroende på grad av complexity, storlek och test coverage. Här var det 47 % som fick rank A och 31 % fick rank F. Resterande fick någon rank däremellan.
+
+Bland de tre klasser som klassificeras som de "lägst rangordnade" finns PHPDumper, PHP och AbstractPHPParser. Här verkar de två största anmärkningarna vara för högt värde på complexity och storlek. Det finns också kommentarer om buggar och best practice. Bland "Issues" finns tre "kritiska" anmärkningar som är kopplade till security och best practice.
+
+Såvitt undertecknad förstår så är det inte så enkelt att söka upp enskilda klasser med Scrutinizer. Några "egna" klasser hittades under "last found". Det var CardHand, CardController och GameController. Intressant nog är det också dessa klasser som anmärktes som minst stabila av PHPMetrics. I Scrutinizer blev anmärkningarna däremot låga och klassificerades som bug, best practice eller unused code.
+
+{% endapply %}
