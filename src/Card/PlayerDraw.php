@@ -12,8 +12,8 @@ namespace App\Card;
  */
 class PlayerDraw
 {
-    public $deck;
-    public $players = [];
+    protected $deck;
+    protected $players = [];
 
     function __construct($playerNum = 1)
     {
@@ -31,6 +31,12 @@ class PlayerDraw
             for ($i = 1; $i <= $cardNum; $i++) {
                 $player->pickRandomCard($this->deck);
             }
+        }
+    }
+
+    function singlePlayerDrawCards($playerIndex, $cardNum = 1) {
+        for ($i = 1; $i <= $cardNum; $i++) {
+            $this->players[$playerIndex]->pickRandomCard($this->deck);
         }
     }
 

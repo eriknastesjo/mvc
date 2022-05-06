@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\Card\CardHand21;
+use App\Card\Player21;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -14,9 +14,8 @@ class GameController extends AbstractController
      * @Route("/game", name="game", methods={"GET","HEAD"})
      * Homing page. Explains the rules of game 21.
      */
-    public function game(SessionInterface $session): Response
+    public function game(): Response
     {
-        $this->resetGame($session);
         return $this->render('game/home.html.twig');
     }
 
@@ -26,80 +25,15 @@ class GameController extends AbstractController
      */
     public function gameSession(SessionInterface $session): Response
     {
-        // $this->resetGameProcess($session);
+        $game = $session->get("game") ?? new Player21();
+        $session->set("game", $game);
 
-        $deck       = $this->deckAssignment($session);
-        $player     = $session->get("player21") ?? new \App\Card\CardHand21();
-        $bank       = $session->get("bank21") ?? new \App\Card\CardHand21();
-        $isFinished = $session->get("isFinished") ?? false;
-
-        if ($isFinished) {
-            $data = $this->getFinishData($player, $bank);
-            return $this->render('game/session-finished.html.twig', $data);
+        if ($game->isFinished()) {
+            return $this->render('game/session-finished.html.twig', $game->getEndData());
         } else {
-            if ($player->getNumberCards() === 0) {
-                $player->pickRandomCard($deck, 2);
-            }
-            $data = $this->getDrawData($player, $deck);
-            if ($player->getOptimalValueCards() > 21) {
-                $session->set("isFinished", true);
-                return $this->redirectToRoute('game-session');
-            }
+            $data = $game->getCurrentData();
             return $this->render('game/session-player.html.twig', $data);
         }
-    }
-
-    /**
-     * Method to assign a deck in session
-     */
-    private function deckAssignment(SessionInterface $session)
-    {
-        $deck = $session->get("deck21") ?? new \App\Card\CardHand21();
-        if ($deck->getNumberCards() === 0) {
-            $deck->fillWithCards();
-        }
-        // $session->set("deck21", $deck);
-        return $deck;
-    }
-
-    /**
-     * Method to get correct data when finished game
-     */
-    private function getFinishData(CardHand21 $player, CardHand21 $bank)
-    {
-        $data = [
-            'title' => 'Games session',
-            'player' => $player->getCardIllustrations(),
-            'playerPoints' => $player->getOptimalValueCards(),
-            'bank' => $bank->getCardIllustrations(),
-            'bankPoints' => $bank->getValueCards()
-        ];
-        if ($bank->getValueCards() <= 21) {
-            if ($player->getOptimalValueCards() > 21 || $player->getOptimalValueCards() <= $bank->getValueCards()) {
-                $data['message'] = 'You lost!';
-            } else {
-                $data['message'] = 'You won!';
-            }
-        } else {
-            $data['message'] = 'You won!';
-        }
-        return $data;
-    }
-
-    /**
-     * Method to get correct draw data during session
-     */
-    private function getDrawData(CardHand21 $player, CardHand21 $deck)
-    {
-        $data = [
-            'title' => 'Games session',
-            'player' => $player->getCardIllustrations(),
-            'playerMaxPoints' => $player->getValueCards(),
-            'playerMinPoints' => $player->getValueCardsMin()
-        ];
-        // $session->set("player21", $player);
-        // $session->set("deck21", $deck);
-        return $data;
     }
 
     /**
@@ -108,9 +42,9 @@ class GameController extends AbstractController
      */
     public function drawProcess(SessionInterface $session)
     {
-        $deck = $session->get("deck21");
-        $player = $session->get("player21");
-        $player->pickRandomCard($deck, 1);
+        $game = $session->get("game");
+        $game->playerDrawCard();
+
         return $this->redirectToRoute('game-session');
     }
 
@@ -120,14 +54,9 @@ class GameController extends AbstractController
      */
     public function finishProcess(SessionInterface $session)
     {
-        $session->set("isFinished", true);
-        $deck = $session->get("deck21");
-        $bank = $session->get("bank21");
-        while ($bank->getValueCards() < 17) {
-            $bank->pickRandomCard($deck, 1);
-        }
-        // $session->set("bank21", $bank);
-        // $session->set("deck21", $deck);
+        $game = $session->get("game");
+        $game->setIsFinished(true);
+
         return $this->redirectToRoute('game-session');
     }
 
@@ -137,20 +66,9 @@ class GameController extends AbstractController
      */
     public function resetGameProcess(SessionInterface $session)
     {
-        $this->resetGame($session);
+        $game = new Player21();
+        $session->set("game", $game);
         return $this->redirectToRoute('game-session');
-    }
-
-    /**
-     * Method to reset game by creating new deck, player and bank.
-     */
-    private function resetGame(SessionInterface $session)
-    {
-        $session->set("deck21", new \App\Card\CardHand21());
-        $session->set("player21", new \App\Card\CardHand21());
-        $session->set("bank21", new \App\Card\CardHand21());
-        $session->set("isFinished", false);
-        $session->set("newGame", true);
     }
 
     /**
