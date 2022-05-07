@@ -3,10 +3,90 @@
 
 ## Förbättringar
 
-Jag kommer att arbeta med de två klasser som fick högst antal cyclomatic complexity i PHPMetrics, dvs Game Controller och Card Controller. Game Controller kan förmodligen förenklas avsevärt genom att flytta ut logik till en klass t.ex. Game class som hanterar CardHands genom spelets gång.
+### Preliminär plan
 
-En del logik i Card Controller kan kanske också flyttas ut, t.ex. från funktionen players där man kan skapa en Player class. I Card Controller finns kod på flera ställen som gör en "session-kontroll", alltså om det redan finns en cardHand i sessionen eller om ett nytt objekt behöver instantieras. Vi ska se om vi verkligen behöver alla "session-kontrollerna".
+Jag kommer att arbeta med de två klasser som fick högst antal cyclomatic complexity i PHPMetrics, dvs Game Controller och Card Controller. Min plan är implementera två större förändringar och en mindre förändring.
 
-Slutligen ska de tre kritiska security issues från Scrutinizer lösas. I alla tre fallen verkar lösningen vara enkel genom att ersätta PHP:s öppningstagg <? med <?php eller <?=. Detta verkar alltså vara viktigt hur både perspektivet security och best practice.
+1. Game Controller kan förmodligen förenklas avsevärt genom att flytta ut logik till en klass t.ex. Game class som hanterar CardHands genom spelets gång.
+
+2. En del logik i Card Controller kan kanske också flyttas ut till en annan klass, t.ex. Player class.
+
+3. En mindre förändring är att kolla igenom efter onödiga kontroller av session-variabler. I Card Controller kan det mycket väl vara dessa som är grunden till det höga antalet cyclomatic complexity.
+
+### Resultat
+
+Nedan har vi sammanställt metrics-förändringen i ett par olika tabeller och bilder. Datan är endast hämtad från PHPMetrics eftersom vi inte kunde se någon signifikant förändring av värden med verktyget Scrutinizer.
+
+I tabell 1 ser vi förändringen för de individuella klasserna Card Controller och Game Controller. Som väntat gjorde det stor skillnad för Game Controller att flytta ut logik till en annan klass, Player21. För Card Controller gjorde det både skillnad att flytta ut till en annan klass, PlayerDraw men också att ta bort onödiga kontroller av session-variabler i processerna.
+
+Med dessa modifikationer sänktes cyclomatic complexit med 10-12 enheter. Maintainability index höjdes med ca 15 enheter. Slutligen sänktes Logical lines of code (LLOC) med ca 50 st.
+
+<p>
+<table class="table table-normal-text">
+  <tr>
+    <th>Class</th>
+    <th>Cyclomatic complexity</th>
+    <th>Maintainability index</th>
+    <th>LLOC</th>
+  </tr>
+  <tr>
+    <td>Card Controller</td>
+    <td>2 (-12)</td>
+    <td>79.61 (+15.06)</td>
+    <td>57 (-47)</td>
+  </tr>
+  <tr>
+    <td>Game Controller</td>
+    <td>3 (-10)</td>
+    <td>88.67 (-15.88)</td>
+    <td>41 (-50)</td>
+  </tr>
+</table>
+<figcaption>Tabell 1. Förändring i PHPMetrics för klasserna Card Controller och Game Controller efter modifikation av koden.</figcaption>
+</p>
+
+Nedan visas även ett par illustrationer som visar på klassernas grad av cyclomatic complexity. Fig 1 visar utseendet innan modifikationerna och fig 2 visar utseendet efteråt. Pilarna pekar på klasserna Card Controller och Game Controller. I fig 2 ser vi deras cirklar har minskat avsevärt på bekonstnad att det tillkommit två nya klasser (den tredje nya klassen är Metrics Controller för denna rapportsida). Dessa två nya klasser har fått ärva en hel del av den complexity som Card- och Game Controller bar på. De är båda rödmarkerade för lågt Maintainability index men är relativt mindre än Card- och Game Controllers ursprungliga storlek.
+
+<p>
+<a href="../../img/före.png"><img src="../../img/före.png" class="img-vert metrics-img" alt="image of complexity before modifications"></a>
+
+<figcaption>Fig 1. Illustration klassernas grav av cyclomatic complexity och maintainability innan modifikation av koden. De röda pilarna pekar på klasserna Card Controller och Game controller.</figcaption>
+</p>
+
+<p>
+<a href="../../img/efter.png"><img src="../../img/efter.png" class="img-vert metrics-img" alt="image of complexity after modifications"></a>
+
+<figcaption>Fig 1. Illustration klassernas grav av cyclomatic complexity och maintainability efter modifikation av koden. De röda pilarna pekar på klasserna Card Controller och Game controller. De blå pilarna pekar på de två nya klasserna Player21 och PlayerDraw.</figcaption>
+</p>
+
+Nedan visas slutligen en tabell av förändring av koden som helhet. En generell minskning av skett av ca 1 enhet gällande cyclomatic complexity by class. Vi ser dock att det skett på bekostnad av 25 st fler rader av kod och två nya klasser. En oväntad förändring var att uppskattad antal buggar per klass minskade en aning med 0.03 enheter. Vi såg också att en av PHPMetrics varningar om teoretiska buggar i Card Class försvann efter modifikationerna.
+
+<p>
+<table class="table table-normal-text">
+  <th colspan="2">Maintainability index</th>
+  <tr>
+    <td>Average cyclomatic complexity by class</td>
+    <td>3.32 (-1.06)</td>
+  </tr>
+  <tr>
+    <td>Lines of code</td>
+    <td>1021 (+25)</td>
+  </tr>
+  <tr>
+    <td>Classes</td>
+    <td>19 (+2)</td>
+  </tr>
+  <tr>
+    <td>Average bugs by class</td>
+    <td>0.08 (-0.03)</td>
+  </tr>
+</table>
+<figcaption>Tabell 2. Generell förändring av PHPMetrics efter modifikationen av koden.</figcaption>
+</p>
+
+Eftersom vi inte skapat några nya enhetstester så kunde vi heller inte se någon förändring i code coverege. Inte heller såg vi någon förändring i coupling.
+
+
+
 
 {% endapply %}

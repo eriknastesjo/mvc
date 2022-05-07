@@ -48,3 +48,10 @@ a {
 .greyed-out {
     color: rgb(130, 130, 130);
 }
+
+figcaption {
+    text-align: center;
+    font-size: 1rem;
+    font-style: italic;
+    margin-bottom: 40px;
+}

@@ -1,0 +1,13 @@
+{% apply markdown_to_html %}
+
+
+## Diskussion
+
+I denna rapport har vi beskrivit olika sätt att mäta sin kod på. Mätvärdena är starkt kopplade till hur hållbar koden är mot buggar i systemet. De är också kopplade till möjligheter att vidareutveckla koden utan att något förstörs. De mätvärden som undersöktes var framförallt complexity och maintainability.
+
+I exempelt för vår kod såg vi goda effekter när vi tog bort onödiga if-kontroller från Card Controller. Vi såg också goda effekter när vi spred ut logiken över flera klasser. Detta kanske inte alltid är en optimal lösning. Här ledde det dock till en bra ordning där controllerna befriades från mycket logik och kan fokusera på att sköta sina routes. Detta skedde på bekostnad av en liten ökning av totala antalet rader av kod och klasser i projektet.
+
+Att vi inte kunde se någon särskild förändring av värdena i Scrutinizer kan förklaras av att det finns mycket annan automatgenererad kod i projektet som innehåller mycket större varningar än de som skapades från grunden. Därmed användes inte Scrutinizer som verktyg i just detta projektet.
+
+
+{% endapply %}

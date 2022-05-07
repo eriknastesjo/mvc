@@ -1,13 +1,13 @@
 {% apply markdown_to_html %}
 
 
-## PhpMetrics
+## PHPMetrics
 
-Nu ska vi dyka lite längre ner i PhpMetrics analys. Vad som är viktigt att komma ihåg är att det inte är en analys av all kod som skapar denna webbsida utan endast den kod som undertecknad skapat från grunden. Fördefinierade moduler inom Symphonys ramverk och andra moduler som är till för att granska och validera koden har inte tagits med i beräkningen.
+Nu ska vi dyka lite längre ner i PHPMetrics analys. Vad som är viktigt att komma ihåg är att det inte är en analys av all kod som skapar denna webbsida utan endast den kod som undertecknad skapat från grunden. Fördefinierade moduler inom Symphonys ramverk och andra moduler som är till för att granska och validera koden har inte tagits med i beräkningen.
 
-PhpMetrics ger tre varningar, en class violation i CardController baserat på dess grad av komplexitet samt två package violations där paketen klassificeras som både instabila och abstrakta.
+PHPMetrics ger tre varningar, en class violation i CardController baserat på dess grad av komplexitet samt två package violations där paketen klassificeras som både instabila och abstrakta.
 
-Vad som kanske är desto viktigare är PhpMetrics mått maintainability index. Här varierar värdet mellan modulerna och variationen verkar korrelera starkt med graden av cyclomatic complexity. Bland de moduler med lägst complexity och högst maintainability finns exempelvis ReportController som är en simpel controller utan if- else- eller switch-satser. Antal självständiga cykler är därmed på minimal nivå (1). Bland de moduler med högst complexity och lägst maintainability finns två controllers Game Controller och Card Controller samt klassen CardHand. Antal självständiga cykler är här relativt högre (14, 13, 11).
+Vad som kanske är desto viktigare är PHPMetrics mått maintainability index. Här varierar värdet mellan modulerna och variationen verkar korrelera starkt med graden av cyclomatic complexity. Bland de moduler med lägst complexity och högst maintainability finns exempelvis ReportController som är en simpel controller utan if- else- eller switch-satser. Antal självständiga cykler är därmed på minimal nivå (1). Bland de moduler med högst complexity och lägst maintainability finns två controllers Game Controller och Card Controller samt klassen CardHand. Antal självständiga cykler är här relativt högre (14, 13, 11).
 
 Att klassen CardHand har relativt hög grad av complexity är kanske inte så oroande. Här ska det ju finnas många olika operationer som är kopplade till kortspel och som til viss del behöver bygga på if-satser. Däremot är det desto mer alarmerande att controllers har såpass hög grad av complexity då deras syfte är att endast hantera routes.
 

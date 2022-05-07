@@ -38,3 +38,16 @@
     color: white;
 }
 
+.table-normal-text {
+    font-family: Georgia,
+    'Times New Roman',
+    Times,
+    serif;
+    color: rgb(60, 60, 60);
+    font-size: 1rem;
+    line-height: 1.4;
+    margin-top: 0;
+    margin-bottom: 1.4rem;
+    text-align: center;
+}
+
