@@ -1,0 +1,29 @@
+{% apply markdown_to_html %}
+
+
+
+## Kmom06
+
+### Hur uppfattade du verktyget PHPMetrics och fann du några särskilda bitar mer värdefulla än andra? Var det några särskilda metrics eller bilder du uppskattade?
+
+Jag upplever att PHPMetrics är både ett användarvänligt och fördjupat verktyg. Den första vyn "overview" är mycket trevlig för den som inte ännu är särskilt insatt i parametrarna. Det är ett pedagogiskt upplägg där man sedan kan klicka sig fram och hitta parametrar som är relevanta för projektet. För mig räckte bilden som illustrerar cyclomatic complexity och maintainability för att sätta igång med kvalitetsarbetet.
+
+### Berätta hur det gick att integrera med Scrutinizer och vilken är din första känsla av verktyget och dess badges? Vilken kodtäckning och kodkvalitet fick du efter första bygget?
+
+Som jag skrivit i rapporten så är det stora problemet med Scrutinizer i detta projekt att den tittar på ALL kod, även den som automatgeneras vid installation av olika paket via composer. Då jag ännu inte känner att jag vågar modifiera de modulerna så är det svårt att hitta de delar av Scrutinizers analys som är relevant för mig detta läget. Jag tror dock att det kommer kunna vara ett mycket kraftfullt verktyg när jag blir mer varm i kläderna och jobba i större projekt.
+
+Jag fick Scrutinizer poäng till 6.14 och code coverege runt 20 % både före och efter modifikationen av kod.
+
+### Hur är din egen syn på kodkvalitet, berätta lite om den? Tror du man kan man påvisa kodkvalitet i någon viss mån med badges eller vad tror du?
+
+Det som jag lärt mig av kodkvalitet under året som har gått är att det behöver vara så simpelt som möjligt, även för en relativt komplex funktion. Det kan som under detta kursmomentet innebära att man behöver dela upp kodens logik i flera enklare moduler. Kodkvaliteten är bland anant viktig för att så lite som möjligt ska kunna gå fel vid exekvering. Men det är också viktigt för att man själv och andra ska kunna förstå koden och vidareutveckla den i framtiden.
+
+Jag tänker att badges kan ge en grov idé om graden av kodkvalitet. Samtidigt varierar det nog beroende på projektets idé och syfte.
+
+
+### Vilken är din TIL för detta kmom?
+
+Jag har lärt mig grunderna i hur man konkret mäter kodkvalitet. Det är många parametrar i både PHPMetrics och Scrutinizer som jag inte förstår. Men jag har i alla fall lärt mig ungefär vad som kännetecknas av de fyra C:na.
+
+
+{% endapply %}
