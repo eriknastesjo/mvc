@@ -26,8 +26,8 @@ h3 {
 }
 
 p {
-    /* font-family: Georgia, 'Times New Roman', Times, serif; */
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    /* font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; */
     color: rgb(60, 60, 60);
     font-size: 1rem;
     line-height: 1.4;
@@ -45,8 +45,8 @@ p {
 }
 
 a {
-    /* font-family: Georgia, 'Times New Roman', Times, serif; */
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    /* font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; */
 }
 
 .greyed-out {
