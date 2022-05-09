@@ -1,0 +1,61 @@
+.garden-welcome {
+    margin-bottom: 15px;
+}
+
+h1,
+h2,
+h3 {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin-top: 0;
+}
+
+h1 {
+    font-size: 2.4rem;
+    margin-bottom: 2.8rem;
+    color: #2e3f1c;
+}
+
+h2 {
+    font-size: 2.0rem;
+    margin-bottom: 1.4rem;
+    color: #2e3f1c;
+}
+
+h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    color: #2e3f1c;
+}
+
+p {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #2e3f1c;
+    font-size: 1rem;
+    line-height: 1.4;
+    margin-top: 0;
+    margin-bottom: 1.4rem;
+}
+
+.retro-font {
+    font-family: 'VT323', monospace;
+    text-align: center;
+}
+
+.warning {
+    color: rgb(184, 75, 75);
+}
+
+a {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.greyed-out {
+    color: rgb(130, 130, 130);
+}
+
+figcaption {
+    text-align: center;
+    font-size: 1rem;
+    font-style: italic;
+    margin-bottom: 40px;
+}

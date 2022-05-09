@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>
+			{% block title %}Default title
+			{% endblock %}
+		</title>
+		<link rel="icon" href="{{ asset("favicon.ico") }}">
+		<link rel="stylesheet" href="{{ asset("css/style-garden.css") }}"/>
+	</head>
+	<body class="body-garden">
+		<div class="siteheader-garden">
+		<h1><a href="{{ url("garden") }}">The Garden</a></h1>
+		</div>
+
+		<div class="container-garden">
+			<div class="content-garden">
+				{% block content %}
+					Default content
+				{% endblock %}
+			</div>
+		</div>
+
+        <footer class="sitefooter-garden">
+            <p>Made by Erik Nästesjö Todd spring 2022</p>
+        </footer>
+
+	</body>
+</html>
+

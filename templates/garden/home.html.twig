@@ -1,0 +1,16 @@
+{% extends "garden/base.html.twig" %}
+{% block title %} The Garden {% endblock %}
+
+{% block content %}
+
+    <h1 class="garden-welcome">Welcome</h1>
+
+    <form action="{{ path("garden") }}" method="get" class="garden-enter">
+        <input type="submit" value="Tend to your garden">
+    </form>
+
+
+    <p>Here you can choose things to grow. Tender to your plants by watering them</p>
+
+{% endblock %}
+

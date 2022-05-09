@@ -1,0 +1,33 @@
+.body-garden {
+    background-color: #eff7e7;
+}
+
+.siteheader-garden {
+    background-color: #5b872e;
+    text-align: center;
+    padding: 18px;
+}
+.siteheader-garden h1 {
+    margin: 0;
+    font-size: 5rem;
+}
+.siteheader-garden a {
+    color: #dae7ce;
+    text-decoration: none;
+}
+
+.container-garden {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+.sitefooter-garden {
+    background-color: #8d581c;
+}
+
+.sitefooter-garden p {
+    color: #e8d7c3;
+}
