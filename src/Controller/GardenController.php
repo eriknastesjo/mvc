@@ -23,7 +23,7 @@ class GardenController extends AbstractController
      */
     public function garden(): Response
     {
-        return $this->render('garden/home.html.twig');
+        return $this->render('garden/garden.html.twig');
     }
 
 }
