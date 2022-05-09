@@ -5,10 +5,33 @@
 
 {% block content %}
 
+    {# todo: ändra så att bildadressen ändras beroende på vad som kommer med data från controller#}
+    {# todo: ändra action så att det leder till processing #}
+    <form action="/action_page.php">
+        <input type="hidden" id="flower1Type" name="flower1Type">
+        <input type="hidden" id="flower1GrowthLevel" name="flower1GrowthLevel">
+        <input type="image" src="../../img/Flower1.png" alt="flower 1" width="60" height="60">
+    </form>
+
+    <form action="/action_page.php">
+        <input type="hidden" id="flower1Type" name="flower1Type">
+        <input type="hidden" id="flower1GrowthLevel" name="flower1GrowthLevel">
+        <input type="image" src="../../img/Flower1.png" alt="flower 1" width="60" height="60">
+    </form>
+
+    <form action="/action_page.php">
+        <input type="hidden" id="flower1Type" name="flower1Type">
+        <input type="hidden" id="flower1GrowthLevel" name="flower1GrowthLevel">
+        <input type="image" src="../../img/Flower1.png" alt="flower 1" width="60" height="60">
+    </form>
+
+
+
     <div class="garden-field">
     <img src="../../img/IconWaterCan.png" class="img-icon" alt="water can tool">
     </div>
 
+    <script src="{{ asset("js/garden.js") }}"></script>
 
 {% endblock %}
 
