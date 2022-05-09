@@ -6,14 +6,24 @@
     background-color: #5b872e;
     text-align: center;
     padding: 18px;
+    color: #dae7ce;
+    text-decoration: none;
+    font-family: 'Pangolin', cursive;
+    font-size: 6rem;
+
 }
 .siteheader-garden h1 {
     margin: 0;
     font-size: 5rem;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    width: 100%;
 }
 .siteheader-garden a {
     color: #dae7ce;
     text-decoration: none;
+    font-family: 'Pangolin', cursive;
 }
 
 .container-garden {
@@ -29,5 +39,8 @@
 }
 
 .sitefooter-garden p {
+    font-size: 1.1rem;
     color: #e8d7c3;
+    font-family: 'Patrick Hand', cursive;
+    transform: scale(1, .9);
 }

@@ -5,12 +5,13 @@
 h1,
 h2,
 h3 {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    /* font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; */
+    font-family: 'Sacramento', cursive;
     margin-top: 0;
 }
 
 h1 {
-    font-size: 2.4rem;
+    font-size: 3rem;
     margin-bottom: 2.8rem;
     color: #2e3f1c;
 }
@@ -28,9 +29,9 @@ h3 {
 }
 
 p {
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: 'Patrick Hand', cursive;
     color: #2e3f1c;
-    font-size: 1rem;
+    font-size: 1.3rem;
     line-height: 1.4;
     margin-top: 0;
     margin-bottom: 1.4rem;
