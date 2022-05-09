@@ -5,25 +5,12 @@
 .siteheader-garden {
     background-color: #5b872e;
     text-align: center;
-    padding: 8px;
+    padding: 5px;
     color: #dae7ce;
     text-decoration: none;
     font-family: 'Pangolin', cursive;
     font-size: 6rem;
-
-}
-.siteheader-garden h1 {
-    margin: 0;
-    font-size: 5rem;
-    justify-content: center;
-    align-items: center;
-    margin: auto;
-    width: 100%;
-}
-.siteheader-garden a {
-    color: #dae7ce;
-    text-decoration: none;
-    font-family: 'Pangolin', cursive;
+    border-bottom: 3px solid #39531e;
 }
 
 .container-garden {
@@ -35,6 +22,7 @@
 }
 
 .sitefooter-garden {
+    border-top: 3px solid #533411;
     background-color: #8d581c;
 }
 

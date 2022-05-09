@@ -10,19 +10,22 @@
 		<link rel="stylesheet" href="{{ asset("css/style-garden.css") }}"/>
 	</head>
 	<body class="body-garden">
-		<a href="{{ url("garden-home") }}" class="siteheader-garden">The Garden</a>
 
-		<div class="container-garden">
-			<div class="content-garden">
-				{% block content %}
-					Default content
-				{% endblock %}
-			</div>
+	<a href="{{ url("garden-home") }}" class="siteheader-garden">The Garden</a>
+
+
+	<div class="container-garden">
+		<div class="content-garden">
+			{% block content %}
+				Default content
+			{% endblock %}
 		</div>
+	</div>
 
-        <footer class="sitefooter-garden">
-            <p>Made by Erik Nästesjö Todd spring 2022</p>
-        </footer>
+
+	<footer class="sitefooter-garden">
+		<p>Made by Erik Nästesjö Todd spring 2022</p>
+	</footer>
 
 	</body>
 </html>
