@@ -1,5 +1,10 @@
 .body-garden {
     background-color: #eff7e7;
+    /* cursor: url("../img/water.png"), url("custom.cur"), default; */
+    /* cursor: url(../img/water.png), 2, 2; */
+
+    cursor: url(../img/ToolWaterCan.png) 2 2, default;
+    /* cursor: crosshair; */
 }
 
 .siteheader-garden {
