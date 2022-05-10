@@ -8,6 +8,14 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
+use Symfony\Component\HttpFoundation\Request;
+use App\Entity\Flower;
+use App\Repository\FlowerRepository;
+use Doctrine\Persistence\ManagerRegistry;
+
+use App\Garden\SeedBox;
+use App\Garden\Garden;
+
 class GardenController extends AbstractController
 {
     /**
@@ -21,9 +29,60 @@ class GardenController extends AbstractController
     /**
      * @Route("/proj/garden", name="garden", methods={"GET","HEAD"})
      */
-    public function garden(): Response
+    public function garden(FlowerRepository $flowerRepository, SessionInterface $session): Response
     {
-        return $this->render('garden/garden.html.twig');
+        // $allFlowers = $flowerRepository->findAll();
+        $garden = $session->get("garden") ?? new Garden(3);
+
+        $garden->plantSeed("carrot", 30, "ground1");
+
+        $seedBox = new SeedBox();
+
+        $data = [
+            'garden' => $garden->getGarden(),
+            'seedBox' => $seedBox->getSeedBox()
+        ];
+
+        // var_dump($garden);
+
+        return $this->render('garden/garden.html.twig', $data);
     }
+
+    /**
+     * @Route("/proj/add", name="add-process", methods={"POST"})
+     */
+    public function addProcess(Request $request)
+    {
+        // todo: add to garden
+
+        return $this->redirectToRoute('garden');
+    }
+
+
+    // /**
+    //  * @Route("/proj/add", name="add-logg")
+    //  */
+    // private function addLog(
+    //     FlowerRepository $flowerRepository,
+    //     Request $request,
+    //     ManagerRegistry $doctrine
+    // ): Response {
+    //     $entityManager = $doctrine->getManager();
+
+    //     $flower = new Flower();
+    //     // $flower->setName($request->request->get('name'));    <-- instead directly from arguments
+    //     // $flower->setGrowthLevel($request->request->get('name'));    <-- instead directly from arguments
+
+
+    //     // tell Doctrine you want to (eventually) save the flower
+    //     // (no queries yet)
+    //     $entityManager->persist($flower);
+
+    //     // actually executes the queries (i.e. the INSERT query)
+    //     $entityManager->flush();
+
+    //     return $this->redirectToRoute('garden');
+    // }
+
 
 }

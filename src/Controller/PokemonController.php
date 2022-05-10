@@ -64,7 +64,7 @@ class PokemonController extends AbstractController
         $data = [
             'allPokemon' => $allPokemon
         ];
-
+        var_dump($allPokemon);
         return $this->render('pokemon/pokedex.html.twig', $data);
     }
 

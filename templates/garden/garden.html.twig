@@ -5,26 +5,38 @@
 
 {% block content %}
 
+    <h2>Krukor</h2>
     {# todo: ändra så att bildadressen ändras beroende på vad som kommer med data från controller#}
-    {# todo: ändra action så att det leder till processing #}
-    <form action="/action_page.php">
-        <input type="hidden" id="flower1Type" name="flower1Type">
-        <input type="hidden" id="flower1GrowthLevel" name="flower1GrowthLevel">
+    {# todo: ändra action så att det leder till processing, antingen  #}
+    <form action="">
+        <input type="hidden" id="ground1" name="ground1">
+        <input type="hidden" id="flowerName" name="flowerName">
         <input type="image" src="../../img/Flower1.png" alt="flower 1" width="60" height="60">
     </form>
 
-    <form action="/action_page.php">
-        <input type="hidden" id="flower1Type" name="flower1Type">
-        <input type="hidden" id="flower1GrowthLevel" name="flower1GrowthLevel">
+    <form action="">
+        <input type="hidden" id="ground2" name="ground2">
         <input type="image" src="../../img/Flower1.png" alt="flower 1" width="60" height="60">
     </form>
 
-    <form action="/action_page.php">
-        <input type="hidden" id="flower1Type" name="flower1Type">
-        <input type="hidden" id="flower1GrowthLevel" name="flower1GrowthLevel">
+    <form action="">
+        <input type="hidden" id="ground3" name="ground3">
         <input type="image" src="../../img/Flower1.png" alt="flower 1" width="60" height="60">
     </form>
 
+    {% for flower in garden %}
+        {% if flower is same as null %}
+            <p>jordhögsbild</p>
+        {% else %}
+            <p>{{flower.getName()}}</p>
+        {% endif %}
+    {% endfor %}
+
+    <h2>Fröpåse</h2>
+    {# todo: ändra så att det kommer som bilder istället (skapa bilder som har samma namn som frö:et) #}
+    {# {% for seed in seedBox %} #}
+        {# <p>{{seed.name}}</p> #}
+    {# {% endfor %} #}
 
 
     <div class="garden-field">
