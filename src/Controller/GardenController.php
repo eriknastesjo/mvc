@@ -33,6 +33,7 @@ class GardenController extends AbstractController
     {
         // $allFlowers = $flowerRepository->findAll();
         $garden = $session->get("garden") ?? new Garden(3);
+        $session->set("garden", $garden);
 
         $garden->plantSeed("carrot", 30, "ground1");
 
@@ -51,9 +52,11 @@ class GardenController extends AbstractController
     /**
      * @Route("/proj/add", name="add-process", methods={"POST"})
      */
-    public function addProcess(Request $request)
+    public function addProcess(Request $request, SessionInterface $session)
     {
-        // todo: add to garden
+        $garden = $session->get("garden");
+        // $garden->plantSeed("blueberry", 11, "ground2");
+        $garden->plantSeed($request->get('name'), $request->get('price'), $request->get('index'));
 
         return $this->redirectToRoute('garden');
     }
