@@ -3,7 +3,7 @@
 
     // document.body.style.cursor = "wait";
 
-    const forms = document.getElementsByClassName("groundForm");
+    const forms = document.getElementsByClassName("ground-form");
     // console.log(forms);
 
     const seedBox = document.getElementsByClassName("seed");

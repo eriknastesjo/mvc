@@ -1,3 +1,29 @@
 .garden-enter {
     margin-bottom: 10px;
 }
+
+.garden-container {
+    display: flex;
+    gap: 60px;
+}
+
+.plants-container {
+    display: flex;
+    gap: 30px;
+}
+
+.seed-bag {
+    text-align: center;
+}
+
+.seed-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.instructions {
+    margin: auto;
+    text-align: center;
+    max-width: 60%;
+}
+

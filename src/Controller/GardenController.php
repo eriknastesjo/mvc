@@ -44,7 +44,7 @@ class GardenController extends AbstractController
             'seedBox' => $seedBox->getSeedBox()
         ];
 
-        var_dump($garden);
+        // var_dump($garden);
 
         return $this->render('garden/garden.html.twig', $data);
     }

@@ -10,9 +10,12 @@ class SeedBox
     private array $seedBox = [];
 
     private array $defaultSeeds = array(
-        "blue" => 30,
-        "red" => 20,
-        "yellow" => 25
+        "potato" => 5,
+        "tomato" => 13,
+        "cucumber" => 6,
+        "leek" => 7,
+        "carrot" => 10,
+        "aubergin" => 15
     );
 
     public function __construct(array $additionlSeeds = [])
