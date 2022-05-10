@@ -12,7 +12,7 @@ class Garden
     {
         for ($i = 1; $i <= $groundNum; $i++) {
             $index = "ground" . strval($i);
-            $this->flowers[$index] = null;
+            $this->flowers[$index] = new Flower("empty", 0);
             // array_push($this->flowers, null);
         }
     }
@@ -22,8 +22,8 @@ class Garden
         $this->flowers[$index] = new Flower($name, $price);
     }
 
-    public function waterFlower(int $index) {
-        $this->flowers[$index]->incrementGrowth;
+    public function waterFlower(string $index) {
+        $this->flowers[$index]->incrementGrowth();
     }
 
     public function getGarden() {

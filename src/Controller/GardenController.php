@@ -32,10 +32,10 @@ class GardenController extends AbstractController
     public function garden(FlowerRepository $flowerRepository, SessionInterface $session): Response
     {
         // $allFlowers = $flowerRepository->findAll();
+        // $garden = new Garden(3);    // uncomment to reset
+
         $garden = $session->get("garden") ?? new Garden(3);
         $session->set("garden", $garden);
-
-        $garden->plantSeed("carrot", 30, "ground1");
 
         $seedBox = new SeedBox();
 
@@ -44,7 +44,7 @@ class GardenController extends AbstractController
             'seedBox' => $seedBox->getSeedBox()
         ];
 
-        // var_dump($garden);
+        var_dump($garden);
 
         return $this->render('garden/garden.html.twig', $data);
     }
@@ -55,8 +55,19 @@ class GardenController extends AbstractController
     public function addProcess(Request $request, SessionInterface $session)
     {
         $garden = $session->get("garden");
-        // $garden->plantSeed("blueberry", 11, "ground2");
         $garden->plantSeed($request->get('name'), $request->get('price'), $request->get('index'));
+
+        return $this->redirectToRoute('garden');
+    }
+
+    /**
+     * @Route("/proj/incrementGrowth", name="increment-growth", methods={"POST"})
+     */
+    public function incrementGrowth(Request $request, SessionInterface $session)
+    {
+        $garden = $session->get("garden");
+        $garden->waterFlower($request->get('index'));
+        // $garden->plantSeed($request->get('name'), $request->get('price'), $request->get('index'));
 
         return $this->redirectToRoute('garden');
     }

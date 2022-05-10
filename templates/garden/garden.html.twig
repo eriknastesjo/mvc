@@ -5,54 +5,72 @@
 
 {% block content %}
 
-    <h2>Krukor</h2>
-    {# todo: ändra så att bildadressen ändras beroende på vad som kommer med data från controller#}
-    {# todo: ändra action så att det leder till processing, antingen  #}
+    <h2>Flowers</h2>
 
-
-    <form action="" method="post" name="ground1" class="groundForm">
-        <input type="hidden" id="indexGround1" name="index", value="ground1">
-        <input type="hidden" id="nameGround1" name="name", value="testPlant">
-        <input type="hidden" id="priceGround1" name="price", value=10>
+    {# <form action="" method="post" name="ground1" class="groundForm">
+        <input type="hidden" name="index", value="ground1">
+        <input type="hidden" name="name" value="testPlant">
+        <input type="hidden" name="price" value=10>
         <input type="image" src="../../img/Flower1.png" alt="flower 1" width="60" height="60">
     </form>
 
     <form action="" method="post" name="ground2" class="groundForm">
-        <input type="hidden" id="indexGround2" name="index", value="ground2">
-        <input type="hidden" id="nameGround2" name="name", value="testPlant">
-        <input type="hidden" id="priceGround2" name="price", value=10>
+        <input type="hidden" name="index", value="ground2">
+        <input type="hidden" name="name" value="testPlant">
+        <input type="hidden" name="price" value=10>
         <input type="image" src="../../img/Flower1.png" alt="flower 1" width="60" height="60">
     </form>
 
     <form action="" method="post" name="ground3" class="groundForm">
-        <input type="hidden" id="indexGround3" name="index", value="ground3">
-        <input type="hidden" id="nameGround3" name="name", value="testPlant">
-        <input type="hidden" id="priceGround3" name="price", value=10>
+        <input type="hidden" name="index" value="ground3">
+        <input type="hidden" name="name" value="testPlant">
+        <input type="hidden" name="price" value=10>
         <input type="image" src="../../img/Flower1.png" alt="flower 1" width="60" height="60">
-    </form>
+    </form> #}
 
 
 
+    {% for i in 1..garden|length %}
+        <form action="" method="post" name="ground{{i}}" class="groundForm">
+            <input type="hidden" name="index" value="ground{{i}}">
+            <input type="hidden" name="name" value="testPlant">
+            <input type="hidden" name="price" value="10">
+            <input type="image" src="../../img/Flower1.png" alt="flower 1" width="60" height="60">
+        </form>
+    {% endfor %}
 
 
-
-    {% for flower in garden %}
+    {# {% for flower in garden %}
         {% if flower is same as null %}
+
+
             <p>jordhögsbild</p>
+
+
         {% else %}
+
+
             <p>{{flower.getName()}}</p>
+
+
         {% endif %}
-    {% endfor %}
+    {% endfor %} #}
 
-    <h2>Fröpåse</h2>
-    {# todo: ändra så att det kommer som bilder istället (skapa bilder som har samma namn som frö:et) #}
+
+
+
+    <h2>Seed bag</h2>
     {% for seed in seedBox %}
-        <p class="seed" id="seed.name">{{seed.name}}</p>
+        <form class="seed">
+            <input type="hidden" id="name" name="name" , value={{seed.getName()}}>
+            <input type="hidden" id="price" name="price" , value={{seed.getPrice()}}>
+            <p>{{seed.getName()}}</p>
+        </form>
     {% endfor %}
 
-
-    <div class="garden-field">
-    <img src="../../img/IconWaterCan.png" class="img-icon" alt="water can tool">
+    <h2>Water can</h2>
+    <div class="tools">
+        <img src="../../img/IconWaterCan.png" class="img-icon" id="water-tool" alt="water tool">
     </div>
 
     <script src="{{ asset("js/garden.js") }}"></script>

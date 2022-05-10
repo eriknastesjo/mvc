@@ -24,6 +24,10 @@ class Flower
         return $this->name;
     }
 
+    public function getPrice() {
+        return $this->price;
+    }
+
     public function incrementGrowth() {
         if ($this->growthLevel < 2) {
             $this->growthLevel++;
