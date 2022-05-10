@@ -8,23 +8,30 @@
     <h2>Krukor</h2>
     {# todo: ändra så att bildadressen ändras beroende på vad som kommer med data från controller#}
     {# todo: ändra action så att det leder till processing, antingen  #}
-    <form action="">
-        <input type="hidden" id="ground1" name="ground1">
-        <input type="hidden" id="flowerName" name="flowerName">
+
+
+    <form action="" method="post" name="ground1" class="groundForm">
+        <input type="hidden" id="indexGround1" name="index", value="ground1">
+        <input type="hidden" id="nameGround1" name="name", value="testPlant">
+        <input type="hidden" id="priceGround1" name="price", value=10>
         <input type="image" src="../../img/Flower1.png" alt="flower 1" width="60" height="60">
     </form>
 
-    <form action="{{ path("add-process") }}" method="post">
+    <form action="" method="post" name="ground2" class="groundForm">
         <input type="hidden" id="indexGround2" name="index", value="ground2">
         <input type="hidden" id="nameGround2" name="name", value="testPlant">
         <input type="hidden" id="priceGround2" name="price", value=10>
         <input type="image" src="../../img/Flower1.png" alt="flower 1" width="60" height="60">
     </form>
 
-    <form action="">
-        <input type="hidden" id="ground3" name="ground3">
+    <form action="" method="post" name="ground3" class="groundForm">
+        <input type="hidden" id="indexGround3" name="index", value="ground3">
+        <input type="hidden" id="nameGround3" name="name", value="testPlant">
+        <input type="hidden" id="priceGround3" name="price", value=10>
         <input type="image" src="../../img/Flower1.png" alt="flower 1" width="60" height="60">
     </form>
+
+
 
 
 
@@ -40,7 +47,7 @@
     <h2>Fröpåse</h2>
     {# todo: ändra så att det kommer som bilder istället (skapa bilder som har samma namn som frö:et) #}
     {% for seed in seedBox %}
-        <p>{{seed.name}}</p>
+        <p class="seed" id="seed.name">{{seed.name}}</p>
     {% endfor %}
 
 
