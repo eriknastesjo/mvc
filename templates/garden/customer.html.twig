@@ -5,26 +5,34 @@
 
 {% block content %}
 
-    <div class="garden-container">
+    <img src="../../img/arrowLeft.png" alt="flower 1" width="50" class="cursor-pointer hidden">
 
-    <p>{{message}}</p>
+    <div>
+        <h2 class="customer-h2">Customer says:</h2>
+        <p class="customer-p">{{message}}</p>
 
-    {% if (newIncome) %}
+        {% if (newIncome) %}
 
-        <p> You earned ${{newIncome}}!</p>
+            <p> You earned ${{newIncome}}!</p>
 
-        <form class="garden-enter">
-        <input type="submit" value="Next customer">
-        </form>
+            <form class="garden-enter">
+            <input type="submit" value="Next customer">
+            </form>
 
-    {% endif %}
+        {% endif %}
 
-    <p>Plants sold: {{numberSold}} st</p>
-    <p>Total income: ${{totalIncome}}</p>
+        <br>
+        <br>
+        <br>
+        <br>
 
-    <a href="{{ path("garden") }}">TO GARDEN</a>
-
+        <div class="economic-container">
+        <p class="economic">Plants sold: {{numberSold}} st</p>
+        <p class="economic">Total income: ${{totalIncome}}</p>
+        </div>
     </div>
+
+    <a href="{{ path("garden") }}"><img src="../../img/arrowRight.png" alt="flower 1" width="50" class="cursor-pointer"></a>
 
 {% endblock %}
 

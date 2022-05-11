@@ -5,9 +5,9 @@
 
 {% block content %}
 
-    <div class="garden-container">
 
-    <a href="{{ path("garden-customer") }}">TO CUSTOMER</a>
+    <a href="{{ path("garden-customer") }}"><img src="../../img/arrowLeft.png" alt="flower 1" width="50" class="cursor-pointer"></a>
+
 
     <div class="tool-container">
         <h2>Tools</h2>
@@ -46,7 +46,9 @@
         </div>
     </div>
 
-    </div>
+
+    <a href="{{ path("garden-customer") }}"><img src="../../img/arrowRight.png" alt="flower 1" width="50" class="cursor-pointer"></a>
+
 
     <script src="{{ asset("js/garden.js") }}"></script>
 
