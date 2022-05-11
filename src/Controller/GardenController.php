@@ -55,6 +55,7 @@ class GardenController extends AbstractController
     public function addProcess(Request $request, SessionInterface $session)
     {
         $garden = $session->get("garden");
+        // $garden->plantSeed('potato', 50, 0);
         $garden->plantSeed($request->get('name'), $request->get('price'), $request->get('index'));
 
         return $this->redirectToRoute('garden');

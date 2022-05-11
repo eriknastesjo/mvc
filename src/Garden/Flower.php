@@ -24,6 +24,13 @@ class Flower
         return $this->name;
     }
 
+    public function getImageName() {
+        if ($this->name === "empty") {
+            return $this->name;
+        }
+        return $this->name . $this->growthLevel;
+    }
+
     public function getPrice() {
         return $this->price;
     }
@@ -31,12 +38,13 @@ class Flower
     public function incrementGrowth() {
         if ($this->growthLevel < 2) {
             $this->growthLevel++;
-        } else {
-            $this->name = "puddle";
-            $this->growthLevel = 3;
-            $this->price = 0;
-            $this->status = "overflown";
         }
+        // else {
+        //     $this->name = "puddle";
+        //     $this->growthLevel = 3;
+        //     $this->price = 0;
+        //     $this->status = "overflown";
+        // }
     }
 
     public function setStatus(string $newStatus) {

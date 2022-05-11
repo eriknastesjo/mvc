@@ -11,9 +11,9 @@ class Garden
     public function __construct(int $groundNum)
     {
         for ($i = 1; $i <= $groundNum; $i++) {
-            $index = "ground" . strval($i);
-            $this->flowers[$index] = new Flower("empty", 0);
-            // array_push($this->flowers, null);
+            // $index = "ground" . strval($i);
+            // $this->flowers[$index] = new Flower("empty", 0);
+            array_push($this->flowers, new Flower("empty", 0));
         }
     }
 

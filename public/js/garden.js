@@ -15,6 +15,7 @@
         seedBox[i].addEventListener("click", function () {
             for (let j = 0; j < forms.length; j++) {
                 forms[j].action = "/proj/add";
+                forms[j].method = "post";
                 forms[j].elements["name"].value = seedBox[i].elements["name"].value;
                 forms[j].elements["price"].value = seedBox[i].elements["price"].value;
             }
@@ -24,6 +25,7 @@
     waterTool.addEventListener("click", function () {
         for (let i = 0; i < forms.length; i++) {
             forms[i].action = "/proj/incrementGrowth";
+            forms[i].method = "post";
         }
     });
 
