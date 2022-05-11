@@ -30,4 +30,17 @@ class Garden
         return $this->flowers;
     }
 
+    public function resetGarden(int $groundNum) {
+        $this->flowers = [];
+        $this->__construct($groundNum);
+    }
+
+    // public function getNamesPlants() {
+    //     $listReturn = [];
+    //     foreach ($this->flowers as $plant) {
+    //         $listReturn[] = $plant->getName();
+    //     }
+    //     return $listReturn;
+    // }
+
 }

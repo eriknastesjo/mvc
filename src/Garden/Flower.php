@@ -55,6 +55,10 @@ class Flower
         }
     }
 
+    public function getGrowthLevel() {
+        return $this->growthLevel;
+    }
+
     public function checkIfDestroyedOrPuddle() {
         if ($this->status === "destroyed") {
             $this->__construct("empty", 0);

@@ -84,12 +84,26 @@ class GardenController extends AbstractController
     public function customer(SessionInterface $session): Response
     {
         $seedBox = new SeedBox();
+        $garden = $session->get("garden") ?? new Garden(3);
+
         $customer = $session->get("customer") ?? new Customer($seedBox->getSeedNames());
 
+        $isMatched = $customer->matchOrder($garden->getGarden());
+
+        if ($isMatched) {
+            $garden->resetGarden(3);
+        };
+
         $data = [
-            'order' => $customer->getOrderMessage()
+            'message' => $customer->getOrderMessage()
         ];
 
+        if ($isMatched) {
+            $customer = null;
+        };
+
+        $session->set("garden", $garden);
+        $session->set("customer", $customer);
         return $this->render('garden/customer.html.twig', $data);
     }
 
