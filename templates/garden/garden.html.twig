@@ -1,11 +1,13 @@
 {% extends "garden/base.html.twig" %}
 {% block title %}
-	The Garden
+	The Garden | Garden
 {% endblock %}
 
 {% block content %}
 
     <div class="garden-container">
+
+    <a href="{{ path("garden-customer") }}">TO CUSTOMER</a>
 
     <div class="tool-container">
         <h2>Tools</h2>
@@ -44,7 +46,7 @@
         </div>
     </div>
 
-    </div>
+    </a>
 
     <script src="{{ asset("js/garden.js") }}"></script>
 

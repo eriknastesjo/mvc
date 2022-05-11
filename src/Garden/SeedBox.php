@@ -9,7 +9,7 @@ class SeedBox
 
     private array $seedBox = [];
 
-    private array $defaultSeeds = array(
+    private array $listSeeds = array(
         "potato" => 5,
         "tomato" => 13,
         "cucumber" => 6,
@@ -20,10 +20,10 @@ class SeedBox
 
     public function __construct(array $additionlSeeds = [])
     {
-        foreach ($this->defaultSeeds as $name => $price) {
-            $this->addSeed($name, $price);
-        }
         foreach ($additionlSeeds as $name => $price) {
+            $this->listSeeds[$name] = $price;
+        }
+        foreach ($this->listSeeds as $name => $price) {
             $this->addSeed($name, $price);
         }
     }
@@ -36,5 +36,13 @@ class SeedBox
     public function getSeedBox()
     {
         return $this->seedBox;
+    }
+
+    public function getSeedNames() {
+        $listReturn = [];
+        foreach ($this->listSeeds as $key => $value) {
+            $listReturn[] = $key;
+        }
+        return $listReturn;
     }
 }

@@ -15,6 +15,7 @@ use Doctrine\Persistence\ManagerRegistry;
 
 use App\Garden\SeedBox;
 use App\Garden\Garden;
+use App\Garden\Customer;
 
 class GardenController extends AbstractController
 {
@@ -75,6 +76,21 @@ class GardenController extends AbstractController
         // $garden->plantSeed($request->get('name'), $request->get('price'), $request->get('index'));
 
         return $this->redirectToRoute('garden');
+    }
+
+    /**
+     * @Route("/proj/customer", name="garden-customer", methods={"GET","HEAD"})
+     */
+    public function customer(SessionInterface $session): Response
+    {
+        $seedBox = new SeedBox();
+        $customer = $session->get("customer") ?? new Customer($seedBox->getSeedNames());
+
+        $data = [
+            'order' => $customer->getOrderMessage()
+        ];
+
+        return $this->render('garden/customer.html.twig', $data);
     }
 
 
