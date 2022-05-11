@@ -3,6 +3,7 @@
 
 namespace App\Garden;
 
+use Doctrine\ORM\Query\Expr\Func;
 
 class Flower
 {
@@ -24,7 +25,7 @@ class Flower
         return $this->name;
     }
 
-    public function getImageName() {
+    public function getImageURL() {
         if ($this->name === "empty") {
             return $this->name;
         }
@@ -35,20 +36,33 @@ class Flower
         return $this->price;
     }
 
-    public function incrementGrowth() {
-        if ($this->growthLevel < 2) {
-            $this->growthLevel++;
-        }
-        // else {
-        //     $this->name = "puddle";
-        //     $this->growthLevel = 3;
-        //     $this->price = 0;
-        //     $this->status = "overflown";
-        // }
+    public function getStatus() {
+        return $this->status;
     }
 
     public function setStatus(string $newStatus) {
         $this->status = $newStatus;
     }
+
+    public function incrementGrowth() {
+        if ($this->growthLevel < 2) {
+            $this->growthLevel++;
+        } else {
+            $this->name = "puddle";
+            $this->growthLevel = 3;
+            $this->price = 0;
+            $this->status = "overflown";
+        }
+    }
+
+    public function checkIfDestroyedOrPuddle() {
+        if ($this->status === "destroyed") {
+            $this->__construct("empty", 0);
+        } else if ($this->status === "overflown") {
+            $this->status = "destroyed";
+        }
+    }
+
+
 
 }

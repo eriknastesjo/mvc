@@ -8,3 +8,8 @@
 .img-icon:hover {
     cursor: pointer;
 }
+
+.puddle {
+    margin: auto;
+    margin-top: 0;
+}

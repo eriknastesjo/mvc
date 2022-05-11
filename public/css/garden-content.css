@@ -5,11 +5,15 @@
 .garden-container {
     display: flex;
     gap: 60px;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
 .plants-container {
     display: flex;
     gap: 30px;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
 .seed-bag {
@@ -19,6 +23,12 @@
 .seed-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+}
+
+.tool-container {
+    margin-top: auto;
+    margin-bottom: auto;
+    min-width: 143px;
 }
 
 .instructions {

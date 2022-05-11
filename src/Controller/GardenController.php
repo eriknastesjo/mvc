@@ -35,7 +35,10 @@ class GardenController extends AbstractController
         // $garden = new Garden(3);    // uncomment to reset
 
         $garden = $session->get("garden") ?? new Garden(3);
-        $session->set("garden", $garden);
+
+        foreach ($garden->getGarden() as $plant) {
+            $plant->checkIfDestroyedOrPuddle();
+        }
 
         $seedBox = new SeedBox();
 
@@ -46,6 +49,7 @@ class GardenController extends AbstractController
 
         // var_dump($garden);
 
+        $session->set("garden", $garden);
         return $this->render('garden/garden.html.twig', $data);
     }
 

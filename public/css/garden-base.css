@@ -1,6 +1,9 @@
+* {
+    overflow: hidden;
+}
+
 .body-garden {
     background-color: #eff7e7;
-
     /* cursor: url(../img/ToolWaterCan.png) 2 2, default; */
 }
 
@@ -33,4 +36,13 @@
     color: #e8d7c3;
     font-family: 'Patrick Hand', cursive;
     transform: scale(1, .9);
+}
+
+#cursor {
+    pointer-events: none;
+    max-width: 32px;
+}
+
+.cursor-pointer:hover {
+    cursor: pointer;
 }

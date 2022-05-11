@@ -7,21 +7,26 @@
 
     <div class="garden-container">
 
-    <div>
+    <div class="tool-container">
         <h2>Tools</h2>
         <div class="tools">
-            <img src="../../img/IconWaterCan.png" class="img-icon" id="water-tool" alt="water tool">
+            <img src="../../img/IconWaterCan.png" class="img-icon cursor-pointer" id="water-tool" alt="water tool">
+            <p>water can</p>
         </div>
     </div>
 
     <div class="plants-container">
         {% for i in 0..garden|length-1 %}
+            {% if garden[i].getStatus() is not same as "destroyed" %}
                 <form name="ground{{i}}" class="ground-form">
                     <input type="hidden" name="index" value="{{i}}">
                     <input type="hidden" name="name" value="empty">
                     <input type="hidden" name="price" value="0">
-                    <input type="image" src="../../img/{{garden[i].getImageName()}}.png" alt="flower 1" width="150">
+                    <input type="image" src="../../img/{{garden[i].getImageURL()}}.png" alt="flower 1" width="150" class="cursor-pointer">
                 </form>
+            {% else %}
+                <img type="image" src="../../img/puddle.png" alt="flower 1" width="150" class="puddle">
+            {% endif %}
         {% endfor %}
     </div>
 
@@ -32,6 +37,7 @@
                 <form class="seed">
                     <input type="hidden" id="name" name="name" , value={{seed.getName()}}>
                     <input type="hidden" id="price" name="price" , value={{seed.getPrice()}}>
+                    <img src="../../img/{{seed.getName()}}seed.png" alt="flower 1" width="50" class="cursor-pointer">
                     <p>{{seed.getName()}}</p>
                 </form>
             {% endfor %}
