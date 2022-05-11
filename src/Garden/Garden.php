@@ -7,6 +7,8 @@ namespace App\Garden;
 class Garden
 {
     private array $flowers = [];
+    private int $numberSold = 0;
+    private int $totalIncome = 0;
 
     public function __construct(int $groundNum)
     {
@@ -30,17 +32,27 @@ class Garden
         return $this->flowers;
     }
 
-    public function resetGarden(int $groundNum) {
+    public function sellAll() {
+        $newIncome = 0;
+        foreach ($this->flowers as $plant) {
+            $this->numberSold++;
+            $this->totalIncome += $plant->getPrice();
+            $newIncome += $plant->getPrice();
+        }
+        return $newIncome;
+    }
+
+    public function reset(int $groundNum) {
         $this->flowers = [];
         $this->__construct($groundNum);
     }
 
-    // public function getNamesPlants() {
-    //     $listReturn = [];
-    //     foreach ($this->flowers as $plant) {
-    //         $listReturn[] = $plant->getName();
-    //     }
-    //     return $listReturn;
-    // }
+    public function getTotalIncome() {
+        return $this->totalIncome;
+    }
+
+    public function getNumberSold() {
+        return $this->numberSold;
+    }
 
 }

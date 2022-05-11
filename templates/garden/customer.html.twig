@@ -9,6 +9,19 @@
 
     <p>{{message}}</p>
 
+    {% if (newIncome) %}
+
+        <p> You earned ${{newIncome}}!</p>
+
+        <form class="garden-enter">
+        <input type="submit" value="Next customer">
+        </form>
+
+    {% endif %}
+
+    <p>Plants sold: {{numberSold}} st</p>
+    <p>Total income: ${{totalIncome}}</p>
+
     <a href="{{ path("garden") }}">TO GARDEN</a>
 
     </div>

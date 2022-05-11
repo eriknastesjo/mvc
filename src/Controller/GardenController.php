@@ -83,6 +83,8 @@ class GardenController extends AbstractController
      */
     public function customer(SessionInterface $session): Response
     {
+        $newIncome = null;
+
         $seedBox = new SeedBox();
         $garden = $session->get("garden") ?? new Garden(3);
 
@@ -91,11 +93,15 @@ class GardenController extends AbstractController
         $isMatched = $customer->matchOrder($garden->getGarden());
 
         if ($isMatched) {
-            $garden->resetGarden(3);
+            $newIncome = $garden->sellAll();
+            $garden->reset(3);
         };
 
         $data = [
-            'message' => $customer->getOrderMessage()
+            'message' => $customer->getOrderMessage(),
+            'newIncome' => $newIncome,
+            'numberSold' => $garden->getNumberSold(),
+            'totalIncome' => $garden->getTotalIncome()
         ];
 
         if ($isMatched) {
