@@ -2,16 +2,13 @@
 
 namespace App\Controller;
 
-use DateTime;
-
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
 use Symfony\Component\HttpFoundation\Request;
-use App\Entity\GardenPlant;
-use App\Entity\GardenSales;
+
 use App\Repository\GardenPlantedSeedsRepository;
 use App\Repository\GardenSalesRepository;
 use Doctrine\Persistence\ManagerRegistry;
@@ -19,7 +16,6 @@ use Doctrine\Persistence\ManagerRegistry;
 use App\Garden\SeedBox;
 use App\Garden\Garden;
 use App\Garden\Customer;
-use App\Garden\Plant;
 
 class GardenController extends AbstractController
 {
