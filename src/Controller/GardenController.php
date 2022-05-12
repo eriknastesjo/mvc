@@ -12,8 +12,8 @@ use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\HttpFoundation\Request;
 use App\Entity\GardenPlant;
 use App\Entity\GardenSales;
-use App\Repository\GardenSaleRepository;
-use App\Repository\GardenPlantRepository;
+use App\Repository\GardenPlantedSeedsRepository;
+use App\Repository\GardenSalesRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 use App\Garden\SeedBox;
@@ -75,8 +75,8 @@ class GardenController extends AbstractController
 
         $newPlant = $garden->getPlant($index);
 
-        $dB = new Db();
-        $plantDb = $dB->addToTablePlant($doctrine, $newPlant);
+        $db = new Db();
+        $plantDb = $db->addToTablePlant($doctrine, $newPlant);
 
         $newPlant->setId($plantDb->getId());
 
@@ -138,13 +138,23 @@ class GardenController extends AbstractController
     /**
      * @Route("/proj/statistics", name="garden-statistics", methods={"GET","HEAD"})
      */
-    public function gardenStatistics(): Response
+    public function gardenStatistics(
+        GardenPlantedSeedsRepository $gardenPlantRepository,
+        GardenSalesRepository $gardenSalesRepository): Response
     {
-        $dB = new dB();
+        $db = new dB();
 
-        // tablePlants =
+        $tablePlantedSeeds = $db->getTableGardenPlant($gardenPlantRepository);
+        $tableSales = $db->getTableGardenSales($gardenSalesRepository);
 
-        return $this->render('garden/statistics.html.twig');
+        $data = [
+            'tablePlantedSeeds' => $tablePlantedSeeds,
+            'tableSales' => $tableSales
+        ];
+
+        var_dump($data);
+
+        return $this->render('garden/statistics.html.twig', $data);
     }
 
 }
