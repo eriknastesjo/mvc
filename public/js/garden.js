@@ -1,7 +1,9 @@
 (function () {
     'use strict';
 
-    // document.body.style.cursor = "wait";
+    // prevents scrolling - otherwise page will act weird with followCursor function
+    const body = document.getElementsByClassName("body-garden")[0];
+    body.style.overflow = "hidden";
 
     const forms = document.getElementsByClassName("ground-form");
     const seedBox = document.getElementsByClassName("seed");
