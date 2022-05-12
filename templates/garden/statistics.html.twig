@@ -3,7 +3,10 @@
 
 {% block content %}
 
-<a href="{{ path("garden") }}"><img src="../../img/arrowLeft.png" alt="flower 1" width="50" class="cursor-pointer"></a>
+<div class="arrow">
+	<a href="{{ path("garden") }}"><img src="../../img/arrowLeft.png" alt="flower 1" width="50" class="cursor-pointer"></a>
+	<p>GARDEN</p>
+</div>
 
 <div class="statistics-container">
 
@@ -38,7 +41,12 @@
 
 </div>
 
-<a href="{{ path("garden-customer") }}"><img src="../../img/arrowRight.png" alt="flower 1" width="50" class="cursor-pointer"></a>
+
+<div class="arrow">
+	<a href="{{ path("garden-customer") }}"><img src="../../img/arrowRight.png" alt="flower 1" width="50" class="cursor-pointer"></a>
+	<p>CUSTOMER</p>
+</div>
+
 
 {% endblock %}
 

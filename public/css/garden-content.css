@@ -50,3 +50,12 @@
     flex-direction: column;
 }
 
+.arrow p {
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: bold;
+    font-size: 0.9rem;
+    transform: scale(1, .9);
+    color: rgb(77, 125, 49);
+}
+
