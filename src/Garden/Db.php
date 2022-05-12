@@ -6,14 +6,16 @@ use DateTime;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-use App\Entity\GardenPlant;
+use App\Entity\GardenPlantedSeeds;
 use App\Entity\GardenSales;
-use App\Repository\GardenSaleRepository;
-use App\Repository\GardenPlantRepository;
+
+use App\Repository\GardenPlantedSeedsRepository;
+use App\Repository\GardenSalesRepository;
+
 use Doctrine\Persistence\ManagerRegistry;
 
 use App\Garden\Plant;
-use App\Repository\GardenSalesRepository;
+
 
 class Db extends AbstractController
 {
@@ -29,19 +31,19 @@ class Db extends AbstractController
 
         $currentDate = new DateTime();
 
-        $gardenPlant = new GardenPlant();
-        $gardenPlant->setPlant($plant->getName());
-        $gardenPlant->setDate($currentDate->format('y-m-d'));
-        $gardenPlant->setTime($currentDate->format('H:i'));
+        $gardenPlantedSeed = new GardenPlantedSeeds();
+        $gardenPlantedSeed->setPlant($plant->getName());
+        $gardenPlantedSeed->setDate($currentDate->format('y-m-d'));
+        $gardenPlantedSeed->setTime($currentDate->format('H:i'));
 
         // tell Doctrine you want to (eventually) save the plant
         // (no queries yet)
-        $entityManager->persist($gardenPlant);
+        $entityManager->persist($gardenPlantedSeed);
 
         // actually executes the queries (i.e. the INSERT query)
         $entityManager->flush();
 
-        return $gardenPlant;      // in method that called -> use $plant->getId() to get Id
+        return $gardenPlantedSeed;      // in method that called -> use $plant->getId() to get Id
     }
 
     /**
@@ -74,7 +76,7 @@ class Db extends AbstractController
 
     /**
      */
-    public function getTableGardenPlant(GardenPlantRepository $gardenPlantRepository)
+    public function getTableGardenPlant(GardenPlantedSeedsRepository $gardenPlantRepository)
     {
         return $gardenPlantRepository->findAll();
     }

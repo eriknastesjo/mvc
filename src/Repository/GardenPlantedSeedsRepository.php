@@ -2,7 +2,7 @@
 
 namespace App\Repository;
 
-use App\Entity\GardenPlant;
+use App\Entity\GardenPlantedSeeds;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\OptimisticLockException;
 use Doctrine\ORM\ORMException;
@@ -16,7 +16,7 @@ use Doctrine\Persistence\ManagerRegistry;
  * @method GardenPlant[]    findAll()
  * @method GardenPlant[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class GardenPlantRepository extends ServiceEntityRepository
+class GardenPlantedSeedsRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
@@ -27,7 +27,7 @@ class GardenPlantRepository extends ServiceEntityRepository
      * @throws ORMException
      * @throws OptimisticLockException
      */
-    public function add(GardenPlant $entity, bool $flush = true): void
+    public function add(GardenPlantedSeeds $entity, bool $flush = true): void
     {
         $this->_em->persist($entity);
         if ($flush) {
@@ -39,7 +39,7 @@ class GardenPlantRepository extends ServiceEntityRepository
      * @throws ORMException
      * @throws OptimisticLockException
      */
-    public function remove(GardenPlant $entity, bool $flush = true): void
+    public function remove(GardenPlantedSeeds $entity, bool $flush = true): void
     {
         $this->_em->remove($entity);
         if ($flush) {
@@ -48,7 +48,7 @@ class GardenPlantRepository extends ServiceEntityRepository
     }
 
     // /**
-    //  * @return GardenPlant[] Returns an array of GardenPlant objects
+    //  * @return GardenPlantedSeeds[] Returns an array of GardenPlantedSeeds objects
     //  */
     /*
     public function findByExampleField($value)
@@ -65,7 +65,7 @@ class GardenPlantRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?GardenPlant
+    public function findOneBySomeField($value): ?GardenPlantedSeeds
     {
         return $this->createQueryBuilder('g')
             ->andWhere('g.exampleField = :val')

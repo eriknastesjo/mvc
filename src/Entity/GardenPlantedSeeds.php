@@ -2,11 +2,11 @@
 
 namespace App\Entity;
 
-use App\Repository\GardenPlantRepository;
+use App\Repository\GardenPlantedSeedsRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: GardenPlantRepository::class)]
-class GardenPlant
+#[ORM\Entity(repositoryClass: GardenPlantedSeedsRepository::class)]
+class GardenPlantedSeeds
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
