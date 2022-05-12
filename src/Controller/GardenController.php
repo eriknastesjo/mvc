@@ -9,8 +9,10 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
 use Symfony\Component\HttpFoundation\Request;
-use App\Entity\Flower;
-use App\Repository\FlowerRepository;
+use App\Entity\GardenSale;
+use App\Entity\GardenPlant;
+use App\Repository\GardenSaleRepository;
+use App\Repository\GardenPlantRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 use App\Garden\SeedBox;
@@ -30,9 +32,8 @@ class GardenController extends AbstractController
     /**
      * @Route("/proj/garden", name="garden", methods={"GET","HEAD"})
      */
-    public function garden(FlowerRepository $flowerRepository, SessionInterface $session): Response
+    public function garden(SessionInterface $session): Response
     {
-        // $allFlowers = $flowerRepository->findAll();
         // $garden = new Garden(3);    // uncomment to reset
 
         $garden = $session->get("garden") ?? new Garden(3);
@@ -93,6 +94,7 @@ class GardenController extends AbstractController
         $isMatched = $customer->matchOrder($garden->getGarden());
 
         if ($isMatched) {
+
             $newIncome = $garden->sellAll();
             $garden->reset(3);
         };
@@ -114,30 +116,62 @@ class GardenController extends AbstractController
     }
 
 
-    // /**
-    //  * @Route("/proj/add", name="add-logg")
-    //  */
-    // private function addLog(
-    //     FlowerRepository $flowerRepository,
-    //     Request $request,
-    //     ManagerRegistry $doctrine
-    // ): Response {
-    //     $entityManager = $doctrine->getManager();
+    /**
+     */
+    private function addPlant(
+        GardenSaleRepository $gardenSaleRepository,
+        ManagerRegistry $doctrine,
+        array $plant,
+        string $date
+    ) {
+        $entityManager = $doctrine->getManager();
 
-    //     $flower = new Flower();
-    //     // $flower->setName($request->request->get('name'));    <-- instead directly from arguments
-    //     // $flower->setGrowthLevel($request->request->get('name'));    <-- instead directly from arguments
+        $plant = new GardenSale();
+        $plant->setName($plant->getName());
+        $plant->setDate($date);
 
+        // tell Doctrine you want to (eventually) save the flower
+        // (no queries yet)
+        $entityManager->persist($plant);
 
-    //     // tell Doctrine you want to (eventually) save the flower
-    //     // (no queries yet)
-    //     $entityManager->persist($flower);
+        // actually executes the queries (i.e. the INSERT query)
+        $entityManager->flush();
 
-    //     // actually executes the queries (i.e. the INSERT query)
-    //     $entityManager->flush();
+        return $plant;      // in method that called -> use $plant->getId() to get Id
 
-    //     return $this->redirectToRoute('garden');
-    // }
+        // OBS Använd nedanstående format för att få id (som kan skickas till addSale sen)
+        // $em->persist($user);
+        // $em->flush();
+        // $user->getId();
+    }
+
+    /**
+     */
+    private function addSale(
+        GardenSaleRepository $gardenSaleRepository,
+        ManagerRegistry $doctrine,
+        array $soldPlants,
+        string $date
+    ) {
+        $entityManager = $doctrine->getManager();
+
+        foreach ($soldPlants as $sale) {
+            $gardenSale = new GardenSale();
+            $gardenSale->setName($sale->getName());
+            $gardenSale->setName($sale->getName());
+            $gardenSale->setPrice($sale->getPrice());
+            $gardenSale->setDate($date);
+
+            // tell Doctrine you want to (eventually) save the flower
+            // (no queries yet)
+            $entityManager->persist($gardenSale);
+
+            // actually executes the queries (i.e. the INSERT query)
+            $entityManager->flush();
+        }
+
+        // return $this->redirectToRoute('garden');
+    }
 
 
 }
