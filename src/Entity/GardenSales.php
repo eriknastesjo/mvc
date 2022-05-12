@@ -2,25 +2,29 @@
 
 namespace App\Entity;
 
-use App\Repository\GardenSaleRepository;
+use App\Repository\GardenSalesRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Query\Expr\Func;
 
-#[ORM\Entity(repositoryClass: GardenSaleRepository::class)]
-class GardenSale
+#[ORM\Entity(repositoryClass: GardenSalesRepository::class)]
+class GardenSales
 {
-    #[ORM\Id]
     // #[ORM\GeneratedValue]
+    #[ORM\Id]
     #[ORM\Column(type: 'integer')]
     private $id;
 
-    #[ORM\Column(type: 'string', length: 20)]
-    private $name;
+    #[ORM\Column(type: 'string', length: 25)]
+    private $plant;
 
     #[ORM\Column(type: 'integer')]
     private $price;
 
-    #[ORM\Column(type: 'string', length: 15)]
+    #[ORM\Column(type: 'string', length: 20)]
     private $date;
+
+    #[ORM\Column(type: 'string', length: 10)]
+    private $time;
 
     public function getId(): ?int
     {
@@ -34,14 +38,14 @@ class GardenSale
         return $this;
     }
 
-    public function getName(): ?string
+    public function getPlant(): ?string
     {
-        return $this->name;
+        return $this->plant;
     }
 
-    public function setName(string $name): self
+    public function setPlant(string $plant): self
     {
-        $this->name = $name;
+        $this->plant = $plant;
 
         return $this;
     }
@@ -66,6 +70,18 @@ class GardenSale
     public function setDate(string $date): self
     {
         $this->date = $date;
+
+        return $this;
+    }
+
+    public function getTime(): ?string
+    {
+        return $this->time;
+    }
+
+    public function setTime(string $time): self
+    {
+        $this->time = $time;
 
         return $this;
     }

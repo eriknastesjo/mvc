@@ -2,32 +2,32 @@
 
 namespace App\Repository;
 
-use App\Entity\Flower;
+use App\Entity\GardenSales;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\OptimisticLockException;
 use Doctrine\ORM\ORMException;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<Flower>
+ * @extends ServiceEntityRepository<GardenSales>
  *
- * @method Flower|null find($id, $lockMode = null, $lockVersion = null)
- * @method Flower|null findOneBy(array $criteria, array $orderBy = null)
- * @method Flower[]    findAll()
- * @method Flower[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method GardenSales|null find($id, $lockMode = null, $lockVersion = null)
+ * @method GardenSales|null findOneBy(array $criteria, array $orderBy = null)
+ * @method GardenSales[]    findAll()
+ * @method GardenSales[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class FlowerRepository extends ServiceEntityRepository
+class GardenSalesRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Flower::class);
+        parent::__construct($registry, GardenSales::class);
     }
 
     /**
      * @throws ORMException
      * @throws OptimisticLockException
      */
-    public function add(Flower $entity, bool $flush = true): void
+    public function add(GardenSales $entity, bool $flush = true): void
     {
         $this->_em->persist($entity);
         if ($flush) {
@@ -39,7 +39,7 @@ class FlowerRepository extends ServiceEntityRepository
      * @throws ORMException
      * @throws OptimisticLockException
      */
-    public function remove(Flower $entity, bool $flush = true): void
+    public function remove(GardenSales $entity, bool $flush = true): void
     {
         $this->_em->remove($entity);
         if ($flush) {
@@ -48,15 +48,15 @@ class FlowerRepository extends ServiceEntityRepository
     }
 
     // /**
-    //  * @return Flower[] Returns an array of Flower objects
+    //  * @return GardenSales[] Returns an array of GardenSales objects
     //  */
     /*
     public function findByExampleField($value)
     {
-        return $this->createQueryBuilder('f')
-            ->andWhere('f.exampleField = :val')
+        return $this->createQueryBuilder('g')
+            ->andWhere('g.exampleField = :val')
             ->setParameter('val', $value)
-            ->orderBy('f.id', 'ASC')
+            ->orderBy('g.id', 'ASC')
             ->setMaxResults(10)
             ->getQuery()
             ->getResult()
@@ -65,10 +65,10 @@ class FlowerRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?Flower
+    public function findOneBySomeField($value): ?GardenSales
     {
-        return $this->createQueryBuilder('f')
-            ->andWhere('f.exampleField = :val')
+        return $this->createQueryBuilder('g')
+            ->andWhere('g.exampleField = :val')
             ->setParameter('val', $value)
             ->getQuery()
             ->getOneOrNullResult()

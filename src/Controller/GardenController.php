@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use DateTime;
+
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -10,6 +12,7 @@ use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\HttpFoundation\Request;
 use App\Entity\GardenSale;
 use App\Entity\GardenPlant;
+use App\Entity\GardenSales;
 use App\Repository\GardenSaleRepository;
 use App\Repository\GardenPlantRepository;
 use Doctrine\Persistence\ManagerRegistry;
@@ -70,7 +73,11 @@ class GardenController extends AbstractController
         $garden = $session->get("garden");
         $garden->plantSeed($name, $price, $index);
 
-        $this->addToTablePlant($doctrine, $garden->getPlant($index), "nu");
+        $newPlant = $garden->getPlant($index);
+
+        $plantDb = $this->addToTablePlant($doctrine, $newPlant);
+
+        $newPlant->setId($plantDb->getId());
 
         return $this->redirectToRoute('garden');
     }
@@ -89,7 +96,7 @@ class GardenController extends AbstractController
     /**
      * @Route("/proj/customer", name="garden-customer", methods={"GET","HEAD"})
      */
-    public function customer(SessionInterface $session): Response
+    public function customer(SessionInterface $session, ManagerRegistry $doctrine,): Response
     {
         $newIncome = null;
 
@@ -103,6 +110,9 @@ class GardenController extends AbstractController
         if ($isMatched) {
 
             $newIncome = $garden->sellAll();
+            foreach ($garden->getGarden() as $plant) {
+                $this->addToTableSale($doctrine, $plant);
+            }
             $garden->reset(3);
         };
 
@@ -127,14 +137,17 @@ class GardenController extends AbstractController
      */
     private function addToTablePlant(
         ManagerRegistry $doctrine,
-        Plant $plant,
-        string $date
+        Plant $plant
     ) {
+
         $entityManager = $doctrine->getManager();
 
+        $currentDate = new DateTime();
+
         $gardenPlant = new GardenPlant();
-        $gardenPlant->setName($plant->getName());
-        $gardenPlant->setDate($date);
+        $gardenPlant->setPlant($plant->getName());
+        $gardenPlant->setDate($currentDate->format('y-m-d'));
+        $gardenPlant->setTime($currentDate->format('H:i'));
 
         // tell Doctrine you want to (eventually) save the plant
         // (no queries yet)
@@ -144,36 +157,32 @@ class GardenController extends AbstractController
         $entityManager->flush();
 
         return $gardenPlant;      // in method that called -> use $plant->getId() to get Id
-
-        // OBS Använd nedanstående format för att få id (som kan skickas till addSale sen)
-        // $em->persist($user);
-        // $em->flush();
-        // $user->getId();
     }
 
     /**
      */
-    private function addToTabeSale(
+    private function addToTableSale(
         ManagerRegistry $doctrine,
-        array $soldPlants,
-        string $date
+        Plant $plant
     ) {
+
         $entityManager = $doctrine->getManager();
 
-        foreach ($soldPlants as $sale) {
-            $gardenSale = new GardenSale();
-            $gardenSale->setName($sale->getName());
-            $gardenSale->setName($sale->getName());
-            $gardenSale->setPrice($sale->getPrice());
-            $gardenSale->setDate($date);
+        $currentDate = new DateTime();
 
-            // tell Doctrine you want to (eventually) save the sale
-            // (no queries yet)
-            $entityManager->persist($gardenSale);
+        $gardenSale = new GardenSales();
+        $gardenSale->setId($plant->getId());
+        $gardenSale->setPlant($plant->getName());
+        $gardenSale->setPrice($plant->getPrice());
+        $gardenSale->setDate($currentDate->format('y-m-d'));
+        $gardenSale->setTime($currentDate->format('H:i'));
 
-            // actually executes the queries (i.e. the INSERT query)
-            $entityManager->flush();
-        }
+        // tell Doctrine you want to (eventually) save the sale
+        // (no queries yet)
+        $entityManager->persist($gardenSale);
+
+        // actually executes the queries (i.e. the INSERT query)
+        $entityManager->flush();
 
         // return $this->redirectToRoute('garden');
     }
