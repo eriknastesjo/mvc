@@ -152,7 +152,7 @@ class GardenController extends AbstractController
             'tableSales' => $tableSales
         ];
 
-        var_dump($data);
+        // var_dump($data);
 
         return $this->render('garden/statistics.html.twig', $data);
     }

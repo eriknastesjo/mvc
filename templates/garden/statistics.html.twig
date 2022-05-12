@@ -10,7 +10,7 @@
 
 <div class="statistics-container">
 
-	<h1>Statistics</h1>
+	<h1>History</h1>
 
 	<p class="p-header">Planted seeds</p>
 
@@ -22,22 +22,39 @@
 
 		</tr>
 		<tr>
-		<td>Carrot </td>
-		<td>22-05-12</td>
-		<td>12:50</td>
-		</tr>
-		{# {% for pokemon in allPokemon %}
+		{% for entry in tablePlantedSeeds %}
 			<tr>
-				<td>dfg </td>
-				<td>fg </td>
-				<td>fdg</td>
-				<td>dfg</td>
-				<td>werf</td>
+				<td>{{entry.plant}}</td>
+				<td>{{entry.date}}</td>
+				<td>{{entry.time}}</td>
 			</tr>
-		{% endfor %} #}
+		{% endfor %}
+		</tr>
+
 	</table>
 
-	<p class="p-header">Sold plants</p>
+	<p class="p-header">Plants sold</p>
+
+	<table class="table">
+		<tr>
+			<th>Plant</th>
+			<th>Price</th>
+			<th>Datum</th>
+			<th>Tid</th>
+
+		</tr>
+		<tr>
+		{% for entry in tableSales %}
+			<tr>
+				<td>{{entry.plant}}</td>
+				<td>${{entry.price}}</td>
+				<td>{{entry.date}}</td>
+				<td>{{entry.time}}</td>
+			</tr>
+		{% endfor %}
+		</tr>
+
+	</table>
 
 </div>
 

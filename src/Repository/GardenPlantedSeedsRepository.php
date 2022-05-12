@@ -9,18 +9,18 @@ use Doctrine\ORM\ORMException;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<GardenPlant>
+ * @extends ServiceEntityRepository<GardenPlantedSeeds>
  *
- * @method GardenPlant|null find($id, $lockMode = null, $lockVersion = null)
- * @method GardenPlant|null findOneBy(array $criteria, array $orderBy = null)
- * @method GardenPlant[]    findAll()
- * @method GardenPlant[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method GardenPlantedSeeds|null find($id, $lockMode = null, $lockVersion = null)
+ * @method GardenPlantedSeeds|null findOneBy(array $criteria, array $orderBy = null)
+ * @method GardenPlantedSeeds[]    findAll()
+ * @method GardenPlantedSeeds[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
 class GardenPlantedSeedsRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, GardenPlant::class);
+        parent::__construct($registry, GardenPlantedSeeds::class);
     }
 
     /**
