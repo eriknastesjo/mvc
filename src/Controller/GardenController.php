@@ -140,6 +140,10 @@ class GardenController extends AbstractController
      */
     public function gardenStatistics(): Response
     {
+        $dB = new dB();
+
+        // tablePlants =
+
         return $this->render('garden/statistics.html.twig');
     }
 

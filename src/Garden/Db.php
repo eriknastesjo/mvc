@@ -13,6 +13,7 @@ use App\Repository\GardenPlantRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 use App\Garden\Plant;
+use App\Repository\GardenSalesRepository;
 
 class Db extends AbstractController
 {
@@ -70,4 +71,19 @@ class Db extends AbstractController
 
         // return $this->redirectToRoute('garden');
     }
+
+    /**
+     */
+    public function getTableGardenPlant(GardenPlantRepository $gardenPlantRepository)
+    {
+        return $gardenPlantRepository->findAll();
+    }
+
+    /**
+     */
+    public function getTableGardenSales(GardenSalesRepository $gardenSalesRepository)
+    {
+        return $gardenSalesRepository->findAll();
+    }
+
 }
