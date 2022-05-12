@@ -2,14 +2,20 @@
     margin-bottom: 10px;
 }
 
+.garden {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    gap: 30px;
+}
+
 .plants-container {
     display: flex;
     gap: 30px;
-    margin-top: auto;
-    margin-bottom: auto;
+    margin: auto;
 }
 
 .seed-bag {
+    margin: auto;
     text-align: center;
 }
 
@@ -19,8 +25,7 @@
 }
 
 .tool-container {
-    margin-top: auto;
-    margin-bottom: auto;
+    margin: auto;
     min-width: 143px;
 }
 

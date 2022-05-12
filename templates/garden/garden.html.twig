@@ -9,6 +9,8 @@
     <a href="{{ path("garden-customer") }}"><img src="../../img/arrowLeft.png" alt="flower 1" width="50" class="cursor-pointer"></a>
 
 
+    <div class="garden">
+
     <div class="tool-container">
         <h2>Tools</h2>
         <div class="tools">
@@ -24,7 +26,7 @@
                     <input type="hidden" name="index" value="{{i}}">
                     <input type="hidden" name="name" value="empty">
                     <input type="hidden" name="price" value="0">
-                    <input type="image" src="../../img/{{garden[i].getImageURL()}}.png" alt="flower 1" width="150" class="cursor-pointer">
+                    <input type="image" src="../../img/{{garden[i].getImageURL()}}.png" alt="flower 1" class="img" class="cursor-pointer">
                 </form>
             {% else %}
                 <img type="image" src="../../img/puddle.png" alt="flower 1" width="150" class="puddle">
@@ -46,6 +48,7 @@
         </div>
     </div>
 
+    </div>
 
     <a href="{{ path("garden-customer") }}"><img src="../../img/arrowRight.png" alt="flower 1" width="50" class="cursor-pointer"></a>
 

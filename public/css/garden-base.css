@@ -19,7 +19,7 @@
 
 .garden-container {
     display: flex;
-    gap: 60px;
+    /* gap: 60px; */
     margin-top: auto;
     margin-bottom: auto;
     justify-content: space-evenly;
