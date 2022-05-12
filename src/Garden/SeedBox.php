@@ -30,7 +30,7 @@ class SeedBox
 
     public function addSeed(string $name, int $price)
     {
-        $this->seedBox[] = new Flower($name, $price);
+        $this->seedBox[] = new Plant($name, $price);
     }
 
     public function getSeedBox()

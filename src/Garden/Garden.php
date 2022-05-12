@@ -6,35 +6,33 @@ namespace App\Garden;
 
 class Garden
 {
-    private array $flowers = [];
+    private array $plants = [];
     private int $numberSold = 0;
     private int $totalIncome = 0;
 
     public function __construct(int $groundNum)
     {
         for ($i = 1; $i <= $groundNum; $i++) {
-            // $index = "ground" . strval($i);
-            // $this->flowers[$index] = new Flower("empty", 0);
-            array_push($this->flowers, new Flower("empty", 0));
+            array_push($this->plants, new Plant("empty", 0));
         }
     }
 
     public function plantSeed(string $name, int $price, string $index)
     {
-        $this->flowers[$index] = new Flower($name, $price);
+        $this->plants[$index] = new Plant($name, $price);
     }
 
-    public function waterFlower(string $index) {
-        $this->flowers[$index]->incrementGrowth();
+    public function waterPlant(string $index) {
+        $this->plants[$index]->incrementGrowth();
     }
 
     public function getGarden() {
-        return $this->flowers;
+        return $this->plants;
     }
 
     public function sellAll() {
         $newIncome = 0;
-        foreach ($this->flowers as $plant) {
+        foreach ($this->plants as $plant) {
             $this->numberSold++;
             $this->totalIncome += $plant->getPrice();
             $newIncome += $plant->getPrice();
@@ -43,7 +41,7 @@ class Garden
     }
 
     public function reset(int $groundNum) {
-        $this->flowers = [];
+        $this->plants = [];
         $this->__construct($groundNum);
     }
 

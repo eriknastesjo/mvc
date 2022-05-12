@@ -2,7 +2,6 @@
 
 namespace App\Controller;
 
-use App\Card\Player21;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -58,10 +57,12 @@ class GardenController extends AbstractController
     /**
      * @Route("/proj/add", name="add-process", methods={"POST"})
      */
-    public function addProcess(Request $request, SessionInterface $session)
+    public function addProcess(
+        ManagerRegistry $doctrine,
+        Request $request,
+        SessionInterface $session)
     {
         $garden = $session->get("garden");
-        // $garden->plantSeed('potato', 50, 0);
         $garden->plantSeed($request->get('name'), $request->get('price'), $request->get('index'));
 
         return $this->redirectToRoute('garden');
@@ -73,8 +74,7 @@ class GardenController extends AbstractController
     public function incrementGrowth(Request $request, SessionInterface $session)
     {
         $garden = $session->get("garden");
-        $garden->waterFlower($request->get('index'));
-        // $garden->plantSeed($request->get('name'), $request->get('price'), $request->get('index'));
+        $garden->waterPlant($request->get('index'));
 
         return $this->redirectToRoute('garden');
     }
@@ -119,18 +119,17 @@ class GardenController extends AbstractController
     /**
      */
     private function addPlant(
-        GardenSaleRepository $gardenSaleRepository,
         ManagerRegistry $doctrine,
         array $plant,
         string $date
     ) {
         $entityManager = $doctrine->getManager();
 
-        $plant = new GardenSale();
+        $plant = new GardenPlant();
         $plant->setName($plant->getName());
         $plant->setDate($date);
 
-        // tell Doctrine you want to (eventually) save the flower
+        // tell Doctrine you want to (eventually) save the plant
         // (no queries yet)
         $entityManager->persist($plant);
 
@@ -148,7 +147,6 @@ class GardenController extends AbstractController
     /**
      */
     private function addSale(
-        GardenSaleRepository $gardenSaleRepository,
         ManagerRegistry $doctrine,
         array $soldPlants,
         string $date
@@ -162,7 +160,7 @@ class GardenController extends AbstractController
             $gardenSale->setPrice($sale->getPrice());
             $gardenSale->setDate($date);
 
-            // tell Doctrine you want to (eventually) save the flower
+            // tell Doctrine you want to (eventually) save the sale
             // (no queries yet)
             $entityManager->persist($gardenSale);
 

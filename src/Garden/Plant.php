@@ -3,9 +3,8 @@
 
 namespace App\Garden;
 
-use Doctrine\ORM\Query\Expr\Func;
 
-class Flower
+class Plant
 {
 
     private string $name;
