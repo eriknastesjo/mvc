@@ -132,7 +132,7 @@ class GardenController extends AbstractController
 
 
     /**
-     * @Route("/proj/statistics", name="garden-statistics", methods={"GET","HEAD"})
+     * @Route("/proj/history", name="garden-statistics", methods={"GET","HEAD"})
      */
     public function gardenStatistics(
         GardenPlantedSeedsRepository $gardenPlantRepository,
