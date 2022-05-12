@@ -1,0 +1,44 @@
+{% extends "garden/base.html.twig" %}
+{% block title %} The Garden | Statistics {% endblock %}
+
+{% block content %}
+
+<a href="{{ path("garden") }}"><img src="../../img/arrowLeft.png" alt="flower 1" width="50" class="cursor-pointer"></a>
+
+<div class="statistics-container">
+
+	<h1>Statistics</h1>
+
+	<p class="p-header">Planted seeds</p>
+
+	<table class="table">
+		<tr>
+			<th>Seed</th>
+			<th>Datum</th>
+			<th>Tid</th>
+
+		</tr>
+		<tr>
+		<td>Carrot </td>
+		<td>22-05-12</td>
+		<td>12:50</td>
+		</tr>
+		{# {% for pokemon in allPokemon %}
+			<tr>
+				<td>dfg </td>
+				<td>fg </td>
+				<td>fdg</td>
+				<td>dfg</td>
+				<td>werf</td>
+			</tr>
+		{% endfor %} #}
+	</table>
+
+	<p class="p-header">Sold plants</p>
+
+</div>
+
+<a href="{{ path("garden-customer") }}"><img src="../../img/arrowRight.png" alt="flower 1" width="50" class="cursor-pointer"></a>
+
+{% endblock %}
+

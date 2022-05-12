@@ -45,3 +45,8 @@
     gap: 20px;
 }
 
+.statistics-container {
+    display: flex;
+    flex-direction: column;
+}
+
