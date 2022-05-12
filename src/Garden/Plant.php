@@ -12,12 +12,21 @@ class Plant
     private int $price;
     private string $status;
 
-    public function __construct(string $name, int $price, int $growthLevel = 0, string $status = "unsold")
+    public function __construct(string $name, int $price, int $growthLevel = 0, string $status = "unsold", int $id = -1)
     {
         $this->name = $name;
         $this->growthLevel = $growthLevel;
         $this->price = $price;
         $this->status = $status;
+        $this->id = $id;
+    }
+
+    public function getId() {
+        return $this->id;
+    }
+
+    public function setId(int $id) {
+        $this->id = $id;
     }
 
     public function getName() {

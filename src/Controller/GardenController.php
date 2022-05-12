@@ -17,6 +17,7 @@ use Doctrine\Persistence\ManagerRegistry;
 use App\Garden\SeedBox;
 use App\Garden\Garden;
 use App\Garden\Customer;
+use App\Garden\Plant;
 
 class GardenController extends AbstractController
 {
@@ -62,8 +63,14 @@ class GardenController extends AbstractController
         Request $request,
         SessionInterface $session)
     {
+        $name = $request->get('name');
+        $price = $request->get('price');
+        $index = $request->get('index');
+
         $garden = $session->get("garden");
-        $garden->plantSeed($request->get('name'), $request->get('price'), $request->get('index'));
+        $garden->plantSeed($name, $price, $index);
+
+        $this->addToTablePlant($doctrine, $garden->getPlant($index), "nu");
 
         return $this->redirectToRoute('garden');
     }
@@ -118,25 +125,25 @@ class GardenController extends AbstractController
 
     /**
      */
-    private function addPlant(
+    private function addToTablePlant(
         ManagerRegistry $doctrine,
-        array $plant,
+        Plant $plant,
         string $date
     ) {
         $entityManager = $doctrine->getManager();
 
-        $plant = new GardenPlant();
-        $plant->setName($plant->getName());
-        $plant->setDate($date);
+        $gardenPlant = new GardenPlant();
+        $gardenPlant->setName($plant->getName());
+        $gardenPlant->setDate($date);
 
         // tell Doctrine you want to (eventually) save the plant
         // (no queries yet)
-        $entityManager->persist($plant);
+        $entityManager->persist($gardenPlant);
 
         // actually executes the queries (i.e. the INSERT query)
         $entityManager->flush();
 
-        return $plant;      // in method that called -> use $plant->getId() to get Id
+        return $gardenPlant;      // in method that called -> use $plant->getId() to get Id
 
         // OBS Använd nedanstående format för att få id (som kan skickas till addSale sen)
         // $em->persist($user);
@@ -146,7 +153,7 @@ class GardenController extends AbstractController
 
     /**
      */
-    private function addSale(
+    private function addToTabeSale(
         ManagerRegistry $doctrine,
         array $soldPlants,
         string $date

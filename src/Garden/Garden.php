@@ -26,6 +26,10 @@ class Garden
         $this->plants[$index]->incrementGrowth();
     }
 
+    public function getPlant($index) {
+        return $this->plants[$index];
+    }
+
     public function getGarden() {
         return $this->plants;
     }
