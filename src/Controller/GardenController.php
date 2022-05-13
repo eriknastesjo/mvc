@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Entity\GardenPlantedSeeds;
+use App\Entity\GardenSales;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -148,9 +150,27 @@ class GardenController extends AbstractController
             'tableSales' => $tableSales
         ];
 
-        // var_dump($data);
+
 
         return $this->render('garden/statistics.html.twig', $data);
+    }
+
+    /**
+     * @Route("/proj/reset", name="garden-reset", methods={"GET","HEAD"})
+     */
+    public function gardenReset(
+        ManagerRegistry $doctrine,
+        SessionInterface $session
+    ): Response {
+
+        $db = new dB();
+
+        $db->resetTableGardenPlantedSeeds($doctrine);
+        $db->resetTableGardenSales($doctrine);
+
+        $session->set("garden", new Garden(3));
+
+        return $this->redirectToRoute('garden');
     }
 
 }

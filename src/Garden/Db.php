@@ -88,4 +88,34 @@ class Db extends AbstractController
         return $gardenSalesRepository->findAll();
     }
 
+    /**
+     */
+    public function resetTableGardenPlantedSeeds(ManagerRegistry $doctrine)
+    {
+        $entityManager = $doctrine->getManager();
+
+        $gardenPlantedSeeds = $entityManager->getRepository(GardenPlantedSeeds::class)->findAll();
+
+        foreach ($gardenPlantedSeeds as $row) {
+            $entityManager->remove($row);
+        }
+
+        $entityManager->flush();
+    }
+
+    /**
+     */
+    public function resetTableGardenSales(ManagerRegistry $doctrine)
+    {
+        $entityManager = $doctrine->getManager();
+
+        $gardenSales = $entityManager->getRepository(GardenSales::class)->findAll();
+
+        foreach ($gardenSales as $row) {
+            $entityManager->remove($row);
+        }
+
+        $entityManager->flush();
+    }
+
 }
