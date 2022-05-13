@@ -4,10 +4,9 @@ namespace App\Card;
 
 class Player21 extends PlayerDraw
 {
-
     private $isFinished = false;
 
-    function __construct()
+    public function __construct()
     {
         $this->deck = new CardHand21();
         $this->deck->fillWithCards();
@@ -31,19 +30,23 @@ class Player21 extends PlayerDraw
         return $this->players[0]->getOptimalValueCards();
     }
 
-    private function isOver21($cardHand) {
+    private function isOver21($cardHand)
+    {
         return $cardHand->getOptimalValueCards() > 21;
     }
 
-    public function setIsFinished($boolVal) {
+    public function setIsFinished($boolVal)
+    {
         $this->isFinished = $boolVal;
     }
 
-    public function isFinished() {
+    public function isFinished()
+    {
         return $this->isFinished;
     }
 
-    public function playerDrawCard() {
+    public function playerDrawCard()
+    {
         $player = $this->players[0];
         $this->singlePlayerDrawCards(0, 1);
         if ($this->isOver21($player)) {
@@ -51,7 +54,8 @@ class Player21 extends PlayerDraw
         }
     }
 
-    private function bankDrawCard() {
+    private function bankDrawCard()
+    {
         $this->singlePlayerDrawCards(1, 1);
     }
 

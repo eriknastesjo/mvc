@@ -821,40 +821,40 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Garden-Customer.html#property_hasFinishedOrder"
         },                {
-            "fqsen": "\\App\\Controller\\Db",
+            "fqsen": "\\App\\Garden\\Db",
             "name": "Db",
             "summary": "",
-            "url": "classes/App-Controller-Db.html"
+            "url": "classes/App-Garden-Db.html"
         },                {
-            "fqsen": "\\App\\Controller\\Db\u003A\u003AaddToTablePlant\u0028\u0029",
+            "fqsen": "\\App\\Garden\\Db\u003A\u003AaddToTablePlant\u0028\u0029",
             "name": "addToTablePlant",
             "summary": "",
-            "url": "classes/App-Controller-Db.html#method_addToTablePlant"
+            "url": "classes/App-Garden-Db.html#method_addToTablePlant"
         },                {
-            "fqsen": "\\App\\Controller\\Db\u003A\u003AaddToTableSale\u0028\u0029",
+            "fqsen": "\\App\\Garden\\Db\u003A\u003AaddToTableSale\u0028\u0029",
             "name": "addToTableSale",
             "summary": "",
-            "url": "classes/App-Controller-Db.html#method_addToTableSale"
+            "url": "classes/App-Garden-Db.html#method_addToTableSale"
         },                {
-            "fqsen": "\\App\\Controller\\Db\u003A\u003AgetTableGardenPlant\u0028\u0029",
+            "fqsen": "\\App\\Garden\\Db\u003A\u003AgetTableGardenPlant\u0028\u0029",
             "name": "getTableGardenPlant",
             "summary": "",
-            "url": "classes/App-Controller-Db.html#method_getTableGardenPlant"
+            "url": "classes/App-Garden-Db.html#method_getTableGardenPlant"
         },                {
-            "fqsen": "\\App\\Controller\\Db\u003A\u003AgetTableGardenSales\u0028\u0029",
+            "fqsen": "\\App\\Garden\\Db\u003A\u003AgetTableGardenSales\u0028\u0029",
             "name": "getTableGardenSales",
             "summary": "",
-            "url": "classes/App-Controller-Db.html#method_getTableGardenSales"
+            "url": "classes/App-Garden-Db.html#method_getTableGardenSales"
         },                {
-            "fqsen": "\\App\\Controller\\Db\u003A\u003AresetTableGardenPlantedSeeds\u0028\u0029",
+            "fqsen": "\\App\\Garden\\Db\u003A\u003AresetTableGardenPlantedSeeds\u0028\u0029",
             "name": "resetTableGardenPlantedSeeds",
             "summary": "",
-            "url": "classes/App-Controller-Db.html#method_resetTableGardenPlantedSeeds"
+            "url": "classes/App-Garden-Db.html#method_resetTableGardenPlantedSeeds"
         },                {
-            "fqsen": "\\App\\Controller\\Db\u003A\u003AresetTableGardenSales\u0028\u0029",
+            "fqsen": "\\App\\Garden\\Db\u003A\u003AresetTableGardenSales\u0028\u0029",
             "name": "resetTableGardenSales",
             "summary": "",
-            "url": "classes/App-Controller-Db.html#method_resetTableGardenSales"
+            "url": "classes/App-Garden-Db.html#method_resetTableGardenSales"
         },                {
             "fqsen": "\\App\\Garden\\Garden",
             "name": "Garden",

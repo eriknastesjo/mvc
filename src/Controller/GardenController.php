@@ -8,13 +8,10 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
-
 use Symfony\Component\HttpFoundation\Request;
-
 use App\Repository\GardenPlantedSeedsRepository;
 use App\Repository\GardenSalesRepository;
 use Doctrine\Persistence\ManagerRegistry;
-
 use App\Garden\SeedBox;
 use App\Garden\Garden;
 use App\Garden\Customer;
@@ -22,7 +19,6 @@ use App\Garden\Db;
 
 class GardenController extends AbstractController
 {
-
     /**
      * @Route("/proj", name="garden-home", methods={"GET","HEAD"})
      */
@@ -63,8 +59,8 @@ class GardenController extends AbstractController
     public function addProcess(
         ManagerRegistry $doctrine,
         Request $request,
-        SessionInterface $session)
-    {
+        SessionInterface $session
+    ) {
         $name = $request->get('name');
         $price = $request->get('price');
         $index = $request->get('index');
@@ -96,7 +92,7 @@ class GardenController extends AbstractController
     /**
      * @Route("/proj/customer", name="garden-customer", methods={"GET","HEAD"})
      */
-    public function customer(SessionInterface $session, ManagerRegistry $doctrine,): Response
+    public function customer(SessionInterface $session, ManagerRegistry $doctrine): Response
     {
         $newIncome = null;
 
@@ -108,7 +104,6 @@ class GardenController extends AbstractController
         $isMatched = $customer->matchOrder($garden->getGarden());
 
         if ($isMatched) {
-
             $newIncome = $garden->sellAll();
             $dB = new Db();
             foreach ($garden->getGarden() as $plant) {
@@ -139,8 +134,8 @@ class GardenController extends AbstractController
      */
     public function history(
         GardenPlantedSeedsRepository $gardenPlantRepository,
-        GardenSalesRepository $gardenSalesRepository): Response
-    {
+        GardenSalesRepository $gardenSalesRepository
+    ): Response {
         $db = new dB();
 
         $tablePlantedSeeds = $db->getTableGardenPlant($gardenPlantRepository);
@@ -163,7 +158,6 @@ class GardenController extends AbstractController
         ManagerRegistry $doctrine,
         SessionInterface $session
     ): Response {
-
         $db = new dB();
 
         $db->resetTableGardenPlantedSeeds($doctrine);
@@ -181,5 +175,4 @@ class GardenController extends AbstractController
     {
         return $this->render('garden/about.html.twig');
     }
-
 }

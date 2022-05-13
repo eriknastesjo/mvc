@@ -1,12 +1,9 @@
 <?php
 
-
 namespace App\Garden;
-
 
 class SeedBox
 {
-
     private array $seedBox = [];
 
     private array $listSeeds = array(
@@ -38,7 +35,8 @@ class SeedBox
         return $this->seedBox;
     }
 
-    public function getSeedNames() {
+    public function getSeedNames()
+    {
         $listReturn = [];
         foreach ($this->listSeeds as $key => $value) {
             $listReturn[] = $key;

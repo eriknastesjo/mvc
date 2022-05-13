@@ -73,7 +73,6 @@ class CardController extends AbstractController
      */
     public function drawProcess(SessionInterface $session): Response
     {
-
         $playerDraw = $session->get("playerDraw");
         $playerDraw->playersDrawCards();
 
@@ -87,7 +86,6 @@ class CardController extends AbstractController
      */
     public function drawNum(SessionInterface $session, int $numCards): Response
     {
-
         $playerDraw = $session->get("playerDraw");
         $playerDraw->playersDrawCards($numCards);
 

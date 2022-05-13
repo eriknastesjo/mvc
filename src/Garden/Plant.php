@@ -1,12 +1,9 @@
 <?php
 
-
 namespace App\Garden;
-
 
 class Plant
 {
-
     private string $name;
     private int $growthLevel;
     private int $price;
@@ -22,38 +19,46 @@ class Plant
         $this->id = $id;
     }
 
-    public function getId() {
+    public function getId()
+    {
         return $this->id;
     }
 
-    public function setId(int $id) {
+    public function setId(int $id)
+    {
         $this->id = $id;
     }
 
-    public function getName() {
+    public function getName()
+    {
         return $this->name;
     }
 
-    public function getImageURL() {
+    public function getImageURL()
+    {
         if ($this->name === "empty") {
             return $this->name;
         }
         return $this->name . $this->growthLevel;
     }
 
-    public function getPrice() {
+    public function getPrice()
+    {
         return $this->price;
     }
 
-    public function getStatus() {
+    public function getStatus()
+    {
         return $this->status;
     }
 
-    public function setStatus(string $newStatus) {
+    public function setStatus(string $newStatus)
+    {
         $this->status = $newStatus;
     }
 
-    public function incrementGrowth() {
+    public function incrementGrowth()
+    {
         if ($this->growthLevel < 2) {
             $this->growthLevel++;
         } else {
@@ -64,18 +69,17 @@ class Plant
         }
     }
 
-    public function getGrowthLevel() {
+    public function getGrowthLevel()
+    {
         return $this->growthLevel;
     }
 
-    public function checkIfDestroyedOrPuddle() {
+    public function checkIfDestroyedOrPuddle()
+    {
         if ($this->status === "destroyed") {
             $this->__construct("empty", 0);
-        } else if ($this->status === "overflown") {
+        } elseif ($this->status === "overflown") {
             $this->status = "destroyed";
         }
     }
-
-
-
 }

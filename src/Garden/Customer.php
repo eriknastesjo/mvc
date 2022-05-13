@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Garden;
-
 
 class Customer
 {
@@ -15,16 +13,24 @@ class Customer
         $this->orderItems = array_slice($listPossiblePlants, 0, 3);
     }
 
-    public function getOrderMessage() {
+    public function getOrderMessage()
+    {
         if ($this->hasFinishedOrder) {
             return "Thank you, very nice!";
         }
         $orderItems = $this->orderItems;
-        $message = "Hi, I would like one " . $orderItems[0] . ", " . $orderItems[1] . " and " . $orderItems[2] . ", please!";
+        $message = "Hi, I would like one " .
+        $orderItems[0] .
+        ", " .
+        $orderItems[1] .
+        " and " .
+        $orderItems[2] .
+        ", please!";
         return $message;
     }
 
-    public function matchOrder(array $garden) {
+    public function matchOrder(array $garden)
+    {
         $isCorrectItems = true;
 
         // checks if plants are full grown

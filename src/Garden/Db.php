@@ -3,30 +3,22 @@
 namespace App\Garden;
 
 use DateTime;
-
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-
 use App\Entity\GardenPlantedSeeds;
 use App\Entity\GardenSales;
-
 use App\Repository\GardenPlantedSeedsRepository;
 use App\Repository\GardenSalesRepository;
-
 use Doctrine\Persistence\ManagerRegistry;
-
 use App\Garden\Plant;
-
 
 class Db extends AbstractController
 {
-
     /**
      */
     public function addToTablePlant(
         ManagerRegistry $doctrine,
         Plant $plant
     ) {
-
         $entityManager = $doctrine->getManager();
 
         $currentDate = new DateTime();
@@ -52,7 +44,6 @@ class Db extends AbstractController
         ManagerRegistry $doctrine,
         Plant $plant
     ) {
-
         $entityManager = $doctrine->getManager();
 
         $currentDate = new DateTime();
@@ -117,5 +108,4 @@ class Db extends AbstractController
 
         $entityManager->flush();
     }
-
 }

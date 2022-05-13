@@ -99,6 +99,7 @@
         "lint": [
             "@csfix",
             "@phpcs",
+            "@phpcbf",
             "@phpcpd",
             "@phpmd",
             "@phpstan"

@@ -6,7 +6,6 @@
 
 namespace App\Card;
 
-
 /**
  * Can hold several Card objects and pick cards from other Card Hand objects.
  */
@@ -26,7 +25,8 @@ class PlayerDraw
         }
     }
 
-    public function playersDrawCards($cardNum = 1) {
+    public function playersDrawCards($cardNum = 1)
+    {
         foreach ($this->players as $player) {
             for ($i = 1; $i <= $cardNum; $i++) {
                 $player->pickRandomCard($this->deck);
@@ -34,7 +34,8 @@ class PlayerDraw
         }
     }
 
-    public function singlePlayerDrawCards($playerIndex, $cardNum = 1) {
+    public function singlePlayerDrawCards($playerIndex, $cardNum = 1)
+    {
         for ($i = 1; $i <= $cardNum; $i++) {
             $this->players[$playerIndex]->pickRandomCard($this->deck);
         }
@@ -50,7 +51,8 @@ class PlayerDraw
         return $this->deck->getCardIllustrations();
     }
 
-    public function getCardIllustrationsPlayers() {
+    public function getCardIllustrationsPlayers()
+    {
         $listReturn = [];
         foreach ($this->players as $player) {
             $listReturn[] = $player->getCardIllustrations();

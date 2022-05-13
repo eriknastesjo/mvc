@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Garden;
-
 
 class Garden
 {
@@ -22,19 +20,23 @@ class Garden
         $this->plants[$index] = new Plant($name, $price);
     }
 
-    public function waterPlant(string $index) {
+    public function waterPlant(string $index)
+    {
         $this->plants[$index]->incrementGrowth();
     }
 
-    public function getPlant($index) {
+    public function getPlant($index)
+    {
         return $this->plants[$index];
     }
 
-    public function getGarden() {
+    public function getGarden()
+    {
         return $this->plants;
     }
 
-    public function sellAll() {
+    public function sellAll()
+    {
         $newIncome = 0;
         foreach ($this->plants as $plant) {
             $this->numberSold++;
@@ -44,17 +46,19 @@ class Garden
         return $newIncome;
     }
 
-    public function reset(int $groundNum) {
+    public function reset(int $groundNum)
+    {
         $this->plants = [];
         $this->__construct($groundNum);
     }
 
-    public function getTotalIncome() {
+    public function getTotalIncome()
+    {
         return $this->totalIncome;
     }
 
-    public function getNumberSold() {
+    public function getNumberSold()
+    {
         return $this->numberSold;
     }
-
 }

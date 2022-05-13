@@ -8,7 +8,6 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class MetricsController extends AbstractController
 {
-
     /**
      * @Route("/metrics", name="metrics"), methods={"GET","HEAD"})
      */
@@ -16,5 +15,4 @@ class MetricsController extends AbstractController
     {
         return $this->render('metrics/index.html.twig');
     }
-
 }
