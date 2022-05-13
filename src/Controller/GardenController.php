@@ -18,6 +18,7 @@ use Doctrine\Persistence\ManagerRegistry;
 use App\Garden\SeedBox;
 use App\Garden\Garden;
 use App\Garden\Customer;
+use App\Garden\Db;
 
 class GardenController extends AbstractController
 {
