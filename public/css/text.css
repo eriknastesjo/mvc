@@ -59,3 +59,11 @@ figcaption {
     font-style: italic;
     margin-bottom: 40px;
 }
+
+.siteheader-garden {
+    text-align: center;
+    color: #39531e;
+    text-decoration: none;
+    font-family: 'Pangolin', cursive;
+    font-size: 1rem;
+}

@@ -11,6 +11,7 @@ class Plant
     private int $growthLevel;
     private int $price;
     private string $status;
+    private int $id;
 
     public function __construct(string $name, int $price, int $growthLevel = 0, string $status = "unsold", int $id = -1)
     {
