@@ -38,7 +38,7 @@ class SeedBox
     public function getSeedNames()
     {
         $listReturn = [];
-        foreach ($this->listSeeds as $key => $value) {
+        foreach (array_keys($this->listSeeds) as $key) {
             $listReturn[] = $key;
         }
         return $listReturn;

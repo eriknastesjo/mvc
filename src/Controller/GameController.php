@@ -30,10 +30,10 @@ class GameController extends AbstractController
 
         if ($game->isFinished()) {
             return $this->render('game/session-finished.html.twig', $game->getEndData());
-        } else {
-            $data = $game->getCurrentData();
-            return $this->render('game/session-player.html.twig', $data);
         }
+
+        $data = $game->getCurrentData();
+        return $this->render('game/session-player.html.twig', $data);
     }
 
     /**

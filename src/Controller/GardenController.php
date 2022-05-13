@@ -15,7 +15,7 @@ use Doctrine\Persistence\ManagerRegistry;
 use App\Garden\SeedBox;
 use App\Garden\Garden;
 use App\Garden\Customer;
-use App\Garden\Db;
+use App\Garden\Database;
 
 class GardenController extends AbstractController
 {
@@ -70,7 +70,7 @@ class GardenController extends AbstractController
 
         $newPlant = $garden->getPlant($index);
 
-        $db = new Db();
+        $db = new Database();
         $plantDb = $db->addToTablePlant($doctrine, $newPlant);
 
         $newPlant->setId($plantDb->getId());
@@ -105,9 +105,9 @@ class GardenController extends AbstractController
 
         if ($isMatched) {
             $newIncome = $garden->sellAll();
-            $dB = new Db();
+            $database = new Database();
             foreach ($garden->getGarden() as $plant) {
-                $dB->addToTableSale($doctrine, $plant);
+                $database->addToTableSale($doctrine, $plant);
             }
             $garden->reset(3);
         };
@@ -133,13 +133,13 @@ class GardenController extends AbstractController
      * @Route("/proj/history", name="garden-statistics", methods={"GET","HEAD"})
      */
     public function history(
-        GardenPlantedSeedsRepository $gardenPlantRepository,
-        GardenSalesRepository $gardenSalesRepository
+        GardenPlantedSeedsRepository $gardenPlantRep,
+        GardenSalesRepository $gardenSalesRep
     ): Response {
-        $db = new dB();
+        $db = new Database();
 
-        $tablePlantedSeeds = $db->getTableGardenPlant($gardenPlantRepository);
-        $tableSales = $db->getTableGardenSales($gardenSalesRepository);
+        $tablePlantedSeeds = $db->getTableGardenPlant($gardenPlantRep);
+        $tableSales = $db->getTableGardenSales($gardenSalesRep);
 
         $data = [
             'tablePlantedSeeds' => $tablePlantedSeeds,
@@ -158,7 +158,7 @@ class GardenController extends AbstractController
         ManagerRegistry $doctrine,
         SessionInterface $session
     ): Response {
-        $db = new dB();
+        $db = new Database();
 
         $db->resetTableGardenPlantedSeeds($doctrine);
         $db->resetTableGardenSales($doctrine);

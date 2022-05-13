@@ -11,7 +11,7 @@ use App\Repository\GardenSalesRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use App\Garden\Plant;
 
-class Db extends AbstractController
+class Database extends AbstractController
 {
     /**
      */
@@ -67,16 +67,16 @@ class Db extends AbstractController
 
     /**
      */
-    public function getTableGardenPlant(GardenPlantedSeedsRepository $gardenPlantRepository)
+    public function getTableGardenPlant(GardenPlantedSeedsRepository $gardenPlantRep)
     {
-        return $gardenPlantRepository->findAll();
+        return $gardenPlantRep->findAll();
     }
 
     /**
      */
-    public function getTableGardenSales(GardenSalesRepository $gardenSalesRepository)
+    public function getTableGardenSales(GardenSalesRepository $gardenSalesRep)
     {
-        return $gardenSalesRepository->findAll();
+        return $gardenSalesRep->findAll();
     }
 
     /**
