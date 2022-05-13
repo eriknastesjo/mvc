@@ -62,5 +62,23 @@
 .about-container {
     display: flex;
     flex-direction: column;
+    max-width: 650px;
 }
 
+.about-text-container {
+    border: 3px solid rgb(77, 125, 49);
+    border-radius: 10px;
+    padding: 20px;
+    background-color: rgb(231, 243, 225);;
+}
+
+.about-text-container h2 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 1.3rem;
+}
+
+.about-text-container p {
+    text-align: left;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 1rem;
+}
