@@ -21,7 +21,7 @@ class PlayerDraw
         $this->deck->shuffleHand();
 
         for ($i = 1; $i <= $playerNum; $i++) {
-            $this->players[] = new \App\Card\CardHand();
+            $this->players[] = new CardHand();
         }
     }
 

@@ -10,12 +10,17 @@ class CardHand21 extends CardHand
     public function getValueCardsMin(): int
     {
         $val = 0;
+        // foreach ($this->hand as $card) {
+        //     if ($card->getValue() === 14) {
+        //         $val += 1;
+        //     } else {
+        //         $val += $card->getValue();
+        //     }
+        // }
+
         foreach ($this->hand as $card) {
-            if ($card->getValue() === 14) {
-                $val += 1;
-            } else {
-                $val += $card->getValue();
-            }
+            $valAdd = $card->getValue() === 14 ? 1 : $card->getValue();
+            $val += $valAdd;
         }
         return $val;
     }

@@ -7,8 +7,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
-// use Symfony\Component\HttpFoundation\Request;
-// use Symfony\Component\HttpFoundation\Session\SessionInterface;
+use App\Card\CardHand;
 
 class CardControllerJson extends AbstractController
 {
@@ -17,12 +16,9 @@ class CardControllerJson extends AbstractController
      */
     public function apiDeck(): Response
     {
-        $deck = new \App\Card\CardHand();
+        $deck = new CardHand();
         $deck->fillWithCards();
-        // $data = [
-        //     'title' => 'Deck',
-        //     'cardDeck' => $deck->getAllRaw()
-        // ];
+
         return new JsonResponse($deck->getAllRaw());
     }
 }

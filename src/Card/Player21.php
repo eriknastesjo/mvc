@@ -12,8 +12,11 @@ class Player21 extends PlayerDraw
         $this->deck->fillWithCards();
         $this->deck->shuffleHand();
 
-        $this->players[] = new \App\Card\CardHand21();  //player is players[0]
-        $this->players[] = new \App\Card\CardHand21();  // bank is players[1]
+        // $this->players[] = new \App\Card\CardHand21();  //player is players[0]
+        // $this->players[] = new \App\Card\CardHand21();  // bank is players[1]
+
+        $this->players[] = new CardHand21();
+        $this->players[] = new CardHand21();
 
         $this->players[0]->pickRandomCard($this->deck, 2);
 
@@ -68,7 +71,7 @@ class Player21 extends PlayerDraw
         $bank = $this->players[1];
 
         if ($this->isOver21($player) === false) {
-            while ($bank->getValueCards() < 17) {
+            while ($bank->getOptimalValueCards() < 17) {
                 $this->bankDrawCard();
             }
         }
@@ -78,17 +81,21 @@ class Player21 extends PlayerDraw
             'player' => $player->getCardIllustrations(),
             'playerPoints' => $player->getOptimalValueCards(),
             'bank' => $bank->getCardIllustrations(),
-            'bankPoints' => $bank->getValueCards()
+            'bankPoints' => $bank->getOptimalValueCards()
         ];
-        if ($bank->getValueCards() <= 21) {
-            if ($player->getOptimalValueCards() > 21 || $player->getOptimalValueCards() <= $bank->getValueCards()) {
-                $data['message'] = 'You lost!';
-            } else {
-                $data['message'] = 'You won!';
-            }
-        } else {
+
+
+        if ($bank->getValueCards() > 21) {
             $data['message'] = 'You won!';
+            return $data;
         }
+
+        if ($bank->getValueCards() <= 21) {
+            $data['message'] = $player->getOptimalValueCards() > 21
+                || $player->getOptimalValueCards() <= $bank->getOptimalValueCards() ?
+                'You lost!' : 'You won!';
+        }
+
         return $data;
     }
 

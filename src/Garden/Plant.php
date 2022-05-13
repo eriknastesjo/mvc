@@ -61,12 +61,12 @@ class Plant
     {
         if ($this->growthLevel < 2) {
             $this->growthLevel++;
-        } else {
-            $this->name = "puddle";
-            $this->growthLevel = 3;
-            $this->price = 0;
-            $this->status = "overflown";
+            return;
         }
+        $this->name = "puddle";
+        $this->growthLevel = 3;
+        $this->price = 0;
+        $this->status = "overflown";
     }
 
     public function getGrowthLevel()
