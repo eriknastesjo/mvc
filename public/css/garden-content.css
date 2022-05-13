@@ -59,3 +59,8 @@
     color: rgb(77, 125, 49);
 }
 
+.about-container {
+    display: flex;
+    flex-direction: column;
+}
+

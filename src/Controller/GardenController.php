@@ -136,7 +136,7 @@ class GardenController extends AbstractController
     /**
      * @Route("/proj/history", name="garden-statistics", methods={"GET","HEAD"})
      */
-    public function gardenStatistics(
+    public function history(
         GardenPlantedSeedsRepository $gardenPlantRepository,
         GardenSalesRepository $gardenSalesRepository): Response
     {
@@ -158,7 +158,7 @@ class GardenController extends AbstractController
     /**
      * @Route("/proj/reset", name="garden-reset", methods={"GET","HEAD"})
      */
-    public function gardenReset(
+    public function reset(
         ManagerRegistry $doctrine,
         SessionInterface $session
     ): Response {
@@ -171,6 +171,14 @@ class GardenController extends AbstractController
         $session->set("garden", new Garden(3));
 
         return $this->redirectToRoute('garden');
+    }
+
+    /**
+     * @Route("/proj/about", name="garden-about", methods={"GET","HEAD"})
+     */
+    public function about(): Response
+    {
+        return $this->render('garden/about.html.twig');
     }
 
 }

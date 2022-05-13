@@ -1,0 +1,27 @@
+{% extends "garden/base.html.twig" %}
+{% block title %} The Garden | About {% endblock %}
+
+{% block content %}
+
+	<div class="arrow">
+		<a href="{{ path("garden-statistics") }}"><img src="../../img/arrowLeft.png" alt="flower 1" width="50" class="cursor-pointer"></a>
+		<p>HISTORY</p>
+	</div>
+
+
+	<div class="about-container">
+
+    <h1>About</h1>
+
+	{{ include('garden/md/about.markdown.twig')|markdown_to_html }}
+
+	</div>
+
+	<div class="arrow">
+		<a href="{{ path("garden-statistics") }}"><img src="../../img/arrowRight.png" alt="flower 1" width="50" class="cursor-pointer"></a>
+		<p>HISTORY</p>
+	</div>
+
+
+{% endblock %}
+
