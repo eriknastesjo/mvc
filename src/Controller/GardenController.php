@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * Module with GardenController class.
+ */
+
 namespace App\Controller;
 
 use App\Entity\GardenPlantedSeeds;
@@ -17,9 +21,14 @@ use App\Garden\Garden;
 use App\Garden\Customer;
 use App\Garden\Database;
 
+
+/**
+ * Controls the routes of Garden pages.
+ */
 class GardenController extends AbstractController
 {
     /**
+     * Renders landing page.
      * @Route("/proj", name="garden-home", methods={"GET","HEAD"})
      */
     public function gardenHome(): Response
@@ -28,6 +37,7 @@ class GardenController extends AbstractController
     }
 
     /**
+     * Renders garden page with Garden object and SeedBox object.
      * @Route("/proj/garden", name="garden", methods={"GET","HEAD"})
      */
     public function garden(SessionInterface $session): Response
@@ -54,6 +64,7 @@ class GardenController extends AbstractController
     }
 
     /**
+     * Processing page, adding a plant to Garden object and to database table.
      * @Route("/proj/add", name="add-process", methods={"POST"})
      */
     public function addProcess(
@@ -79,6 +90,7 @@ class GardenController extends AbstractController
     }
 
     /**
+     * Processing page, increasing growth level by 1 for a plant.
      * @Route("/proj/incrementGrowth", name="increment-growth", methods={"POST"})
      */
     public function incrementGrowth(Request $request, SessionInterface $session)
@@ -90,6 +102,7 @@ class GardenController extends AbstractController
     }
 
     /**
+     * Renders customer page, checking if order matches plants in garden.
      * @Route("/proj/customer", name="garden-customer", methods={"GET","HEAD"})
      */
     public function customer(SessionInterface $session, ManagerRegistry $doctrine): Response
@@ -130,6 +143,7 @@ class GardenController extends AbstractController
 
 
     /**
+     * Renders history with rows from database tables.
      * @Route("/proj/history", name="garden-statistics", methods={"GET","HEAD"})
      */
     public function history(
@@ -154,6 +168,7 @@ class GardenController extends AbstractController
     }
 
     /**
+     * Resets database tables and Garden object, redirects to garden page.
      * @Route("/proj/reset", name="garden-reset", methods={"GET","HEAD"})
      */
     public function reset(
@@ -171,6 +186,7 @@ class GardenController extends AbstractController
     }
 
     /**
+     * Renders about page.
      * @Route("/proj/about", name="garden-about", methods={"GET","HEAD"})
      */
     public function about(): Response

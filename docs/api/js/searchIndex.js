@@ -378,47 +378,47 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Controller\\GardenController",
             "name": "GardenController",
-            "summary": "",
+            "summary": "Controls\u0020the\u0020routes\u0020of\u0020Garden\u0020pages.",
             "url": "classes/App-Controller-GardenController.html"
         },                {
             "fqsen": "\\App\\Controller\\GardenController\u003A\u003AgardenHome\u0028\u0029",
             "name": "gardenHome",
-            "summary": "",
+            "summary": "Renders\u0020landing\u0020page.",
             "url": "classes/App-Controller-GardenController.html#method_gardenHome"
         },                {
             "fqsen": "\\App\\Controller\\GardenController\u003A\u003Agarden\u0028\u0029",
             "name": "garden",
-            "summary": "",
+            "summary": "Renders\u0020garden\u0020page\u0020with\u0020Garden\u0020object\u0020and\u0020SeedBox\u0020object.",
             "url": "classes/App-Controller-GardenController.html#method_garden"
         },                {
             "fqsen": "\\App\\Controller\\GardenController\u003A\u003AaddProcess\u0028\u0029",
             "name": "addProcess",
-            "summary": "",
+            "summary": "Processing\u0020page,\u0020adding\u0020a\u0020plant\u0020to\u0020Garden\u0020object\u0020and\u0020to\u0020database\u0020table.",
             "url": "classes/App-Controller-GardenController.html#method_addProcess"
         },                {
             "fqsen": "\\App\\Controller\\GardenController\u003A\u003AincrementGrowth\u0028\u0029",
             "name": "incrementGrowth",
-            "summary": "",
+            "summary": "Processing\u0020page,\u0020increasing\u0020growth\u0020level\u0020by\u00201\u0020for\u0020a\u0020plant.",
             "url": "classes/App-Controller-GardenController.html#method_incrementGrowth"
         },                {
             "fqsen": "\\App\\Controller\\GardenController\u003A\u003Acustomer\u0028\u0029",
             "name": "customer",
-            "summary": "",
+            "summary": "Renders\u0020customer\u0020page,\u0020checking\u0020if\u0020order\u0020matches\u0020plants\u0020in\u0020garden.",
             "url": "classes/App-Controller-GardenController.html#method_customer"
         },                {
             "fqsen": "\\App\\Controller\\GardenController\u003A\u003Ahistory\u0028\u0029",
             "name": "history",
-            "summary": "",
+            "summary": "Renders\u0020history\u0020with\u0020rows\u0020from\u0020database\u0020tables.",
             "url": "classes/App-Controller-GardenController.html#method_history"
         },                {
             "fqsen": "\\App\\Controller\\GardenController\u003A\u003Areset\u0028\u0029",
             "name": "reset",
-            "summary": "",
+            "summary": "Resets\u0020database\u0020tables\u0020and\u0020Garden\u0020object,\u0020redirects\u0020to\u0020garden\u0020page.",
             "url": "classes/App-Controller-GardenController.html#method_reset"
         },                {
             "fqsen": "\\App\\Controller\\GardenController\u003A\u003Aabout\u0028\u0029",
             "name": "about",
-            "summary": "",
+            "summary": "Renders\u0020about\u0020page.",
             "url": "classes/App-Controller-GardenController.html#method_about"
         },                {
             "fqsen": "\\App\\Controller\\MetricsController",
