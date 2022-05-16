@@ -6,7 +6,7 @@
 {% block content %}
 
     <div class="arrow">
-        <a href="{{ path("garden-customer") }}"><img src="../../img/arrowLeft.png" alt="flower 1" width="50" class="cursor-pointer"></a>
+        <a href="{{ path("garden-customer") }}"><img src="../../img/arrowLeft.png" alt="path to customer page" width="50" class="cursor-pointer"></a>
         <p>CUSTOMER</p>
     </div>
 
@@ -28,11 +28,11 @@
                     <input type="hidden" name="index" value="{{i}}">
                     <input type="hidden" name="name" value="empty">
                     <input type="hidden" name="price" value="0">
-                    <input type="image" src="../../img/{{garden[i].getImageURL()}}.png" alt="flower 1" class="img cursor-pointer">
+                    <input type="image" src="../../img/{{garden[i].getImageURL()}}.png" alt="plant {{i + 1}}" class="img cursor-pointer">
 
                 </form>
             {% else %}
-                <img type="image" src="../../img/puddle.png" alt="flower 1" width="150" class="puddle">
+                <img type="image" src="../../img/puddle.png" alt="puddle" width="150" class="puddle">
             {% endif %}
         {% endfor %}
     </div>
@@ -44,7 +44,7 @@
                 <form class="seed">
                     <input type="hidden" id="name" name="name" , value={{name}}>
                     <input type="hidden" id="price" name="price" , value={{price}}>
-                    <img src="../../img/{{name}}seed.png" alt="flower 1" width="50" class="cursor-pointer">
+                    <img src="../../img/{{name}}seed.png" alt="seed toool {{name}}" width="50" class="cursor-pointer">
                     <p>{{name}}</p>
                 </form>
             {% endfor %}
@@ -54,7 +54,7 @@
     </div>
 
     <div class="arrow">
-        <a href="{{ path("garden-about") }}"><img src="../../img/arrowRight.png" alt="flower 1" width="50" class="cursor-pointer"></a>
+        <a href="{{ path("garden-about") }}"><img src="../../img/arrowRight.png" alt="path to about page" width="50" class="cursor-pointer"></a>
         <p>ABOUT</p>
     </div>
 

@@ -45,7 +45,7 @@
     gap: 20px;
 }
 
-.statistics-container {
+.history-container {
     display: flex;
     flex-direction: column;
 }

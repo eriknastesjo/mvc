@@ -141,7 +141,7 @@ class GardenController extends AbstractController
 
     /**
      * Renders history with rows from database tables.
-     * @Route("/proj/history", name="garden-statistics", methods={"GET","HEAD"})
+     * @Route("/proj/history", name="garden-history", methods={"GET","HEAD"})
      */
     public function history(
         GardenPlantedSeedsRepository $gardenPlantRep,
@@ -161,7 +161,7 @@ class GardenController extends AbstractController
 
 
 
-        return $this->render('garden/statistics.html.twig', $data);
+        return $this->render('garden/history.html.twig', $data);
     }
 
     /**
