@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * Module with Database class.
+ */
+
 namespace App\Garden;
 
 use DateTime;
@@ -11,14 +15,21 @@ use App\Repository\GardenSalesRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use App\Garden\Plant;
 
+
+/**
+ * Holds methods to set and get data from Garden tables.
+ */
 class Database extends AbstractController
 {
+
     /**
+     * Adds a new row to the table GardenPlantedSeeds. Return the entity of the row.
      */
     public function addToTablePlant(
         ManagerRegistry $doctrine,
         Plant $plant
-    ) {
+    ): GardenPlantedSeeds {
+
         $entityManager = $doctrine->getManager();
 
         $currentDate = new DateTime();
@@ -35,15 +46,17 @@ class Database extends AbstractController
         // actually executes the queries (i.e. the INSERT query)
         $entityManager->flush();
 
-        return $gardenPlantedSeed;      // in method that called -> use $plant->getId() to get Id
+        return $gardenPlantedSeed;
     }
 
     /**
+     * Adds a new row to the table GardenSales. Return the entity of the row.
      */
     public function addToTableSale(
         ManagerRegistry $doctrine,
         Plant $plant
-    ) {
+    ): GardenSales {
+
         $entityManager = $doctrine->getManager();
 
         $currentDate = new DateTime();
@@ -62,26 +75,29 @@ class Database extends AbstractController
         // actually executes the queries (i.e. the INSERT query)
         $entityManager->flush();
 
-        // return $this->redirectToRoute('garden');
+        return $gardenSale;
     }
 
     /**
+     * Get all rows from the table GardenPlantedSeeds
      */
-    public function getTableGardenPlant(GardenPlantedSeedsRepository $gardenPlantRep)
+    public function getTableGardenPlant(GardenPlantedSeedsRepository $gardenPlantRep): array
     {
         return $gardenPlantRep->findAll();
     }
 
     /**
+     * Get all rows from the table GardenSales
      */
-    public function getTableGardenSales(GardenSalesRepository $gardenSalesRep)
+    public function getTableGardenSales(GardenSalesRepository $gardenSalesRep): array
     {
         return $gardenSalesRep->findAll();
     }
 
     /**
+     * Deleting all rows from GardenPlantedSeeds
      */
-    public function resetTableGardenPlantedSeeds(ManagerRegistry $doctrine)
+    public function resetTableGardenPlantedSeeds(ManagerRegistry $doctrine): void
     {
         $entityManager = $doctrine->getManager();
 
@@ -95,8 +111,9 @@ class Database extends AbstractController
     }
 
     /**
+     * Deleting all rows from GardenSales
      */
-    public function resetTableGardenSales(ManagerRegistry $doctrine)
+    public function resetTableGardenSales(ManagerRegistry $doctrine): void
     {
         $entityManager = $doctrine->getManager();
 

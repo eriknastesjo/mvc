@@ -793,22 +793,22 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Garden\\Customer",
             "name": "Customer",
-            "summary": "",
+            "summary": "Holds\u0020information\u0020about\u0020an\u0020order\u0020and\u0020matches\u0020it\u0020to\u0020defiened\u0020plants.",
             "url": "classes/App-Garden-Customer.html"
         },                {
             "fqsen": "\\App\\Garden\\Customer\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "Constructor\u0020injects\u0020a\u0020list\u0020of\u0020possible\u0020plants\u0020and\u0020chooses\u0020three\u0020random\u0020ones.",
             "url": "classes/App-Garden-Customer.html#method___construct"
         },                {
             "fqsen": "\\App\\Garden\\Customer\u003A\u003AgetOrderMessage\u0028\u0029",
             "name": "getOrderMessage",
-            "summary": "",
+            "summary": "Returns\u0020an\u0020appropriate\u0020message\u0020depending\u0020if\u0020the\u0020order\u0020has\u0020been\u0020matched\u0020or\u0020not.",
             "url": "classes/App-Garden-Customer.html#method_getOrderMessage"
         },                {
             "fqsen": "\\App\\Garden\\Customer\u003A\u003AmatchOrder\u0028\u0029",
             "name": "matchOrder",
-            "summary": "",
+            "summary": "Both\u0020checks\u0020if\u0020all\u0020plants\u0020are\u0020full\u0020grown\u0020and\u0020if\u0020they\u0020match\u0020the\u0020order.",
             "url": "classes/App-Garden-Customer.html#method_matchOrder"
         },                {
             "fqsen": "\\App\\Garden\\Customer\u003A\u003A\u0024orderItems",
@@ -821,89 +821,54 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Garden-Customer.html#property_hasFinishedOrder"
         },                {
-            "fqsen": "\\App\\Garden\\Db",
-            "name": "Db",
-            "summary": "",
-            "url": "classes/App-Garden-Db.html"
-        },                {
-            "fqsen": "\\App\\Garden\\Db\u003A\u003AaddToTablePlant\u0028\u0029",
-            "name": "addToTablePlant",
-            "summary": "",
-            "url": "classes/App-Garden-Db.html#method_addToTablePlant"
-        },                {
-            "fqsen": "\\App\\Garden\\Db\u003A\u003AaddToTableSale\u0028\u0029",
-            "name": "addToTableSale",
-            "summary": "",
-            "url": "classes/App-Garden-Db.html#method_addToTableSale"
-        },                {
-            "fqsen": "\\App\\Garden\\Db\u003A\u003AgetTableGardenPlant\u0028\u0029",
-            "name": "getTableGardenPlant",
-            "summary": "",
-            "url": "classes/App-Garden-Db.html#method_getTableGardenPlant"
-        },                {
-            "fqsen": "\\App\\Garden\\Db\u003A\u003AgetTableGardenSales\u0028\u0029",
-            "name": "getTableGardenSales",
-            "summary": "",
-            "url": "classes/App-Garden-Db.html#method_getTableGardenSales"
-        },                {
-            "fqsen": "\\App\\Garden\\Db\u003A\u003AresetTableGardenPlantedSeeds\u0028\u0029",
-            "name": "resetTableGardenPlantedSeeds",
-            "summary": "",
-            "url": "classes/App-Garden-Db.html#method_resetTableGardenPlantedSeeds"
-        },                {
-            "fqsen": "\\App\\Garden\\Db\u003A\u003AresetTableGardenSales\u0028\u0029",
-            "name": "resetTableGardenSales",
-            "summary": "",
-            "url": "classes/App-Garden-Db.html#method_resetTableGardenSales"
-        },                {
             "fqsen": "\\App\\Garden\\Garden",
             "name": "Garden",
-            "summary": "",
+            "summary": "A\u0020Garden\u0020handles\u0020one\u0020or\u0020more\u0020Plant\u0020objects.",
             "url": "classes/App-Garden-Garden.html"
         },                {
             "fqsen": "\\App\\Garden\\Garden\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "Constructor",
             "url": "classes/App-Garden-Garden.html#method___construct"
         },                {
             "fqsen": "\\App\\Garden\\Garden\u003A\u003AplantSeed\u0028\u0029",
             "name": "plantSeed",
-            "summary": "",
+            "summary": "Will\u0020create\u0020a\u0020plant\u0020with\u0020growth\u0020level\u00200.",
             "url": "classes/App-Garden-Garden.html#method_plantSeed"
         },                {
             "fqsen": "\\App\\Garden\\Garden\u003A\u003AwaterPlant\u0028\u0029",
             "name": "waterPlant",
-            "summary": "",
+            "summary": "Will\u0020increase\u0020growth\u0020level\u0020of\u0020a\u0020plant\u0020by\u00201.",
             "url": "classes/App-Garden-Garden.html#method_waterPlant"
         },                {
             "fqsen": "\\App\\Garden\\Garden\u003A\u003AgetPlant\u0028\u0029",
             "name": "getPlant",
-            "summary": "",
+            "summary": "Get\u0020a\u0020Plant\u0020object\u0020from\u0020the\u0020garden",
             "url": "classes/App-Garden-Garden.html#method_getPlant"
         },                {
             "fqsen": "\\App\\Garden\\Garden\u003A\u003AgetGarden\u0028\u0029",
             "name": "getGarden",
-            "summary": "",
+            "summary": "Get\u0020an\u0020array\u0020with\u0020all\u0020Plant\u0020Objects\u0020from\u0020the\u0020garden",
             "url": "classes/App-Garden-Garden.html#method_getGarden"
         },                {
             "fqsen": "\\App\\Garden\\Garden\u003A\u003AsellAll\u0028\u0029",
             "name": "sellAll",
-            "summary": "",
+            "summary": "This\u0020will\u0020calculate\u0020and\u0020return\u0020the\u0020price\u0020sum\u0020of\u0020the\u0020Plant\u0020Objects\u0020in\u0020the\u0020garden\u0020and\u0020also\u0020add\u0020it\u0020to\u0020the\u0020total\u0020income.",
             "url": "classes/App-Garden-Garden.html#method_sellAll"
         },                {
             "fqsen": "\\App\\Garden\\Garden\u003A\u003Areset\u0028\u0029",
             "name": "reset",
-            "summary": "",
+            "summary": "Deleting\u0020current\u0020Plant\u0020objects\u0020in\u0020garden\u0020and\u0020adds\u0020new\u0020empty\u0020Plant\u0020objects.",
             "url": "classes/App-Garden-Garden.html#method_reset"
         },                {
             "fqsen": "\\App\\Garden\\Garden\u003A\u003AgetTotalIncome\u0028\u0029",
             "name": "getTotalIncome",
-            "summary": "",
+            "summary": "Returns\u0020the\u0020total\u0020of\u0020income\u0020for\u0020all\u0020the\u0020Plant\u0020objects\u0020that\u0020has\u0020been\u0020sold.",
             "url": "classes/App-Garden-Garden.html#method_getTotalIncome"
         },                {
             "fqsen": "\\App\\Garden\\Garden\u003A\u003AgetNumberSold\u0028\u0029",
             "name": "getNumberSold",
-            "summary": "",
+            "summary": "Returns\u0020the\u0020number\u0020of\u0020Plant\u0020objects\u0020that\u0020has\u0020been\u0020sold.",
             "url": "classes/App-Garden-Garden.html#method_getNumberSold"
         },                {
             "fqsen": "\\App\\Garden\\Garden\u003A\u003A\u0024plants",
@@ -923,62 +888,62 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Garden\\Plant",
             "name": "Plant",
-            "summary": "",
+            "summary": "Holds\u0020information\u0020and\u0020simple\u0020methods\u0020about\u0020a\u0020plant",
             "url": "classes/App-Garden-Plant.html"
         },                {
             "fqsen": "\\App\\Garden\\Plant\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "Constructor",
             "url": "classes/App-Garden-Plant.html#method___construct"
         },                {
             "fqsen": "\\App\\Garden\\Plant\u003A\u003AgetId\u0028\u0029",
             "name": "getId",
-            "summary": "",
+            "summary": "Returns\u0020the\u0020id\u0020of\u0020the\u0020plant.",
             "url": "classes/App-Garden-Plant.html#method_getId"
         },                {
             "fqsen": "\\App\\Garden\\Plant\u003A\u003AsetId\u0028\u0029",
             "name": "setId",
-            "summary": "",
+            "summary": "Sets\u0020the\u0020id\u0020of\u0020the\u0020plant.",
             "url": "classes/App-Garden-Plant.html#method_setId"
         },                {
             "fqsen": "\\App\\Garden\\Plant\u003A\u003AgetName\u0028\u0029",
             "name": "getName",
-            "summary": "",
+            "summary": "Returns\u0020the\u0020name\u0020of\u0020the\u0020plant.",
             "url": "classes/App-Garden-Plant.html#method_getName"
         },                {
             "fqsen": "\\App\\Garden\\Plant\u003A\u003AgetImageURL\u0028\u0029",
             "name": "getImageURL",
-            "summary": "",
+            "summary": "Returns\u0020the\u0020appropriate\u0020image\u0020url.\u0020Includes\u0020growth\u0020level\u0020except\u0020when\u0020plant\u0020name\u0020is\u0020\u0022empty\u0022.",
             "url": "classes/App-Garden-Plant.html#method_getImageURL"
         },                {
             "fqsen": "\\App\\Garden\\Plant\u003A\u003AgetPrice\u0028\u0029",
             "name": "getPrice",
-            "summary": "",
+            "summary": "Returns\u0020the\u0020price\u0020of\u0020the\u0020plant.",
             "url": "classes/App-Garden-Plant.html#method_getPrice"
         },                {
             "fqsen": "\\App\\Garden\\Plant\u003A\u003AgetStatus\u0028\u0029",
             "name": "getStatus",
-            "summary": "",
+            "summary": "Returns\u0020the\u0020status\u0020of\u0020the\u0020plant.",
             "url": "classes/App-Garden-Plant.html#method_getStatus"
         },                {
             "fqsen": "\\App\\Garden\\Plant\u003A\u003AsetStatus\u0028\u0029",
             "name": "setStatus",
-            "summary": "",
+            "summary": "Sets\u0020the\u0020status\u0020of\u0020the\u0020plant.",
             "url": "classes/App-Garden-Plant.html#method_setStatus"
         },                {
             "fqsen": "\\App\\Garden\\Plant\u003A\u003AincrementGrowth\u0028\u0029",
             "name": "incrementGrowth",
-            "summary": "",
+            "summary": "Increses\u0020growth\u0020level\u0020by\u00201.\u0020If\u0020growth\u0020level\u0020is\u0020already\u00202\u0020the\u0020plant\u0020will\u0020turn\u0020into\u0020a\u0020puddle\u0020instead.",
             "url": "classes/App-Garden-Plant.html#method_incrementGrowth"
         },                {
             "fqsen": "\\App\\Garden\\Plant\u003A\u003AgetGrowthLevel\u0028\u0029",
             "name": "getGrowthLevel",
-            "summary": "",
+            "summary": "Returns\u0020the\u0020growth\u0020level\u0020of\u0020the\u0020plant.",
             "url": "classes/App-Garden-Plant.html#method_getGrowthLevel"
         },                {
             "fqsen": "\\App\\Garden\\Plant\u003A\u003AcheckIfDestroyedOrPuddle\u0028\u0029",
             "name": "checkIfDestroyedOrPuddle",
-            "summary": "",
+            "summary": "If\u0020the\u0020plant\u0020status\u0020is\u0020\u0022overflown\u0022\u0020it\u0020will\u0020change\u0020status\u0020to\u0020\u0022destroyed.",
             "url": "classes/App-Garden-Plant.html#method_checkIfDestroyedOrPuddle"
         },                {
             "fqsen": "\\App\\Garden\\Plant\u003A\u003A\u0024name",
@@ -1008,27 +973,27 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Garden\\SeedBox",
             "name": "SeedBox",
-            "summary": "",
+            "summary": "Holds\u0020information\u0020of\u0020seeds\u0020you\u0020can\u0020plant\u0020in\u0020garden",
             "url": "classes/App-Garden-SeedBox.html"
         },                {
             "fqsen": "\\App\\Garden\\SeedBox\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "Constructor.\u0020If\u0020no\u0020alternative\u0020seeds\u0020are\u0020stated\u0020the\u0020seed\u0020box\u0020will\u0020be\u0020filled\u0020with\u0020a\u0020default\u0020list\u0020of\u0020seeds.",
             "url": "classes/App-Garden-SeedBox.html#method___construct"
         },                {
             "fqsen": "\\App\\Garden\\SeedBox\u003A\u003AaddSeed\u0028\u0029",
             "name": "addSeed",
-            "summary": "",
+            "summary": "Adds\u0020a\u0020seed\u0020that\u0020seed\u0020box\u0020hold.",
             "url": "classes/App-Garden-SeedBox.html#method_addSeed"
         },                {
             "fqsen": "\\App\\Garden\\SeedBox\u003A\u003AgetSeedBox\u0028\u0029",
             "name": "getSeedBox",
-            "summary": "",
+            "summary": "Returns\u0020an\u0020array\u0020with\u0020all\u0020seeds.",
             "url": "classes/App-Garden-SeedBox.html#method_getSeedBox"
         },                {
             "fqsen": "\\App\\Garden\\SeedBox\u003A\u003AgetSeedNames\u0028\u0029",
             "name": "getSeedNames",
-            "summary": "",
+            "summary": "Returns\u0020an\u0020array\u0020with\u0020all\u0020seed\u0020names.",
             "url": "classes/App-Garden-SeedBox.html#method_getSeedNames"
         },                {
             "fqsen": "\\App\\Garden\\SeedBox\u003A\u003A\u0024seedBox",
@@ -1036,10 +1001,10 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Garden-SeedBox.html#property_seedBox"
         },                {
-            "fqsen": "\\App\\Garden\\SeedBox\u003A\u003A\u0024listSeeds",
-            "name": "listSeeds",
+            "fqsen": "\\App\\Garden\\SeedBox\u003A\u003A\u0024defaultList",
+            "name": "defaultList",
             "summary": "",
-            "url": "classes/App-Garden-SeedBox.html#property_listSeeds"
+            "url": "classes/App-Garden-SeedBox.html#property_defaultList"
         },                {
             "fqsen": "\\App\\Repository\\GardenPlantedSeedsRepository",
             "name": "GardenPlantedSeedsRepository",
@@ -1120,6 +1085,41 @@ Search.appendIndex(
             "name": "remove",
             "summary": "",
             "url": "classes/App-Repository-ProductRepository.html#method_remove"
+        },                {
+            "fqsen": "\\App\\Garden\\Database",
+            "name": "Database",
+            "summary": "Holds\u0020methods\u0020to\u0020set\u0020and\u0020get\u0020data\u0020from\u0020Garden\u0020tables.",
+            "url": "classes/App-Garden-Database.html"
+        },                {
+            "fqsen": "\\App\\Garden\\Database\u003A\u003AaddToTablePlant\u0028\u0029",
+            "name": "addToTablePlant",
+            "summary": "Adds\u0020a\u0020new\u0020row\u0020to\u0020the\u0020table\u0020GardenPlantedSeeds.\u0020Return\u0020the\u0020entity\u0020of\u0020the\u0020row.",
+            "url": "classes/App-Garden-Database.html#method_addToTablePlant"
+        },                {
+            "fqsen": "\\App\\Garden\\Database\u003A\u003AaddToTableSale\u0028\u0029",
+            "name": "addToTableSale",
+            "summary": "Adds\u0020a\u0020new\u0020row\u0020to\u0020the\u0020table\u0020GardenSales.\u0020Return\u0020the\u0020entity\u0020of\u0020the\u0020row.",
+            "url": "classes/App-Garden-Database.html#method_addToTableSale"
+        },                {
+            "fqsen": "\\App\\Garden\\Database\u003A\u003AgetTableGardenPlant\u0028\u0029",
+            "name": "getTableGardenPlant",
+            "summary": "Get\u0020all\u0020rows\u0020from\u0020the\u0020table\u0020GardenPlantedSeeds",
+            "url": "classes/App-Garden-Database.html#method_getTableGardenPlant"
+        },                {
+            "fqsen": "\\App\\Garden\\Database\u003A\u003AgetTableGardenSales\u0028\u0029",
+            "name": "getTableGardenSales",
+            "summary": "Get\u0020all\u0020rows\u0020from\u0020the\u0020table\u0020GardenSales",
+            "url": "classes/App-Garden-Database.html#method_getTableGardenSales"
+        },                {
+            "fqsen": "\\App\\Garden\\Database\u003A\u003AresetTableGardenPlantedSeeds\u0028\u0029",
+            "name": "resetTableGardenPlantedSeeds",
+            "summary": "Deleting\u0020all\u0020rows\u0020from\u0020GardenPlantedSeeds",
+            "url": "classes/App-Garden-Database.html#method_resetTableGardenPlantedSeeds"
+        },                {
+            "fqsen": "\\App\\Garden\\Database\u003A\u003AresetTableGardenSales\u0028\u0029",
+            "name": "resetTableGardenSales",
+            "summary": "Deleting\u0020all\u0020rows\u0020from\u0020GardenSales",
+            "url": "classes/App-Garden-Database.html#method_resetTableGardenSales"
         },                {
             "fqsen": "\\",
             "name": "\\",

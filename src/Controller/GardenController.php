@@ -141,6 +141,8 @@ class GardenController extends AbstractController
         $tablePlantedSeeds = $db->getTableGardenPlant($gardenPlantRep);
         $tableSales = $db->getTableGardenSales($gardenSalesRep);
 
+        var_dump($tablePlantedSeeds);
+
         $data = [
             'tablePlantedSeeds' => $tablePlantedSeeds,
             'tableSales' => $tableSales

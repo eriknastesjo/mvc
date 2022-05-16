@@ -1,19 +1,34 @@
 <?php
 
+/**
+ * Module with Customer class.
+ */
+
 namespace App\Garden;
 
+/**
+ * Holds information about an order and matches it to defiened plants.
+ */
 class Customer
 {
-    private $orderItems;
-    private $hasFinishedOrder = false;
+    private array $orderItems;
+    private bool $hasFinishedOrder = false;
 
+    /**
+     * Constructor injects a list of possible plants and chooses three random ones.
+     * @param string[] $listPossiblePlants Use array of string names.
+     * @return void
+     */
     public function __construct(array $listPossiblePlants)
     {
         shuffle($listPossiblePlants);
         $this->orderItems = array_slice($listPossiblePlants, 0, 3);
     }
 
-    public function getOrderMessage()
+    /**
+     * Returns an appropriate message depending if the order has been matched or not.
+     */
+    public function getOrderMessage(): string
     {
         if ($this->hasFinishedOrder) {
             return "Thank you, very nice!";
@@ -29,7 +44,11 @@ class Customer
         return $message;
     }
 
-    public function matchOrder(array $garden)
+    /**
+     * Both checks if all plants are full grown and if they match the order.
+     * @param Garden[] $garden Use array of Garden objects.
+     */
+    public function matchOrder(array $garden): bool
     {
         $isCorrectItems = true;
 
