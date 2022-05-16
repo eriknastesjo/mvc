@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * Module with GardenSalesRepository class.
+ */
+
 namespace App\Repository;
 
 use App\Entity\GardenSales;
@@ -9,6 +13,8 @@ use Doctrine\ORM\ORMException;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
+ * Can add or remove from table GardenSales.
+ *
  * @extends ServiceEntityRepository<GardenSales>
  *
  * @method GardenSales|null find($id, $lockMode = null, $lockVersion = null)
@@ -24,6 +30,7 @@ class GardenSalesRepository extends ServiceEntityRepository
     }
 
     /**
+     * Adds data to table GardenSales.
      * @throws ORMException
      * @throws OptimisticLockException
      */
@@ -36,6 +43,7 @@ class GardenSalesRepository extends ServiceEntityRepository
     }
 
     /**
+     * Removes data from table GardenSales.
      * @throws ORMException
      * @throws OptimisticLockException
      */

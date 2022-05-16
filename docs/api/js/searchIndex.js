@@ -578,57 +578,57 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Entity\\GardenSales",
             "name": "GardenSales",
-            "summary": "",
+            "summary": "Holds\u0020data\u0020of\u0020sold\u0020plants,\u0020including\u0020id,\u0020name,\u0020price,\u0020date\u0020and\u0020time.",
             "url": "classes/App-Entity-GardenSales.html"
         },                {
             "fqsen": "\\App\\Entity\\GardenSales\u003A\u003AgetId\u0028\u0029",
             "name": "getId",
-            "summary": "",
+            "summary": "Returns\u0020id.",
             "url": "classes/App-Entity-GardenSales.html#method_getId"
         },                {
             "fqsen": "\\App\\Entity\\GardenSales\u003A\u003AsetId\u0028\u0029",
             "name": "setId",
-            "summary": "",
+            "summary": "Set\u0020id.",
             "url": "classes/App-Entity-GardenSales.html#method_setId"
         },                {
             "fqsen": "\\App\\Entity\\GardenSales\u003A\u003AgetPlant\u0028\u0029",
             "name": "getPlant",
-            "summary": "",
+            "summary": "Returns\u0020plantName.",
             "url": "classes/App-Entity-GardenSales.html#method_getPlant"
         },                {
             "fqsen": "\\App\\Entity\\GardenSales\u003A\u003AsetPlant\u0028\u0029",
             "name": "setPlant",
-            "summary": "",
+            "summary": "Sets\u0020plantName.",
             "url": "classes/App-Entity-GardenSales.html#method_setPlant"
         },                {
             "fqsen": "\\App\\Entity\\GardenSales\u003A\u003AgetPrice\u0028\u0029",
             "name": "getPrice",
-            "summary": "",
+            "summary": "Returns\u0020price\u0020of\u0020plant.",
             "url": "classes/App-Entity-GardenSales.html#method_getPrice"
         },                {
             "fqsen": "\\App\\Entity\\GardenSales\u003A\u003AsetPrice\u0028\u0029",
             "name": "setPrice",
-            "summary": "",
+            "summary": "Sets\u0020price\u0020of\u0020plant.",
             "url": "classes/App-Entity-GardenSales.html#method_setPrice"
         },                {
             "fqsen": "\\App\\Entity\\GardenSales\u003A\u003AgetDate\u0028\u0029",
             "name": "getDate",
-            "summary": "",
+            "summary": "Returns\u0020the\u0020date\u0020when\u0020the\u0020plant\u0020was\u0020sold.",
             "url": "classes/App-Entity-GardenSales.html#method_getDate"
         },                {
             "fqsen": "\\App\\Entity\\GardenSales\u003A\u003AsetDate\u0028\u0029",
             "name": "setDate",
-            "summary": "",
+            "summary": "Sets\u0020the\u0020date\u0020when\u0020the\u0020plant\u0020was\u0020sold.",
             "url": "classes/App-Entity-GardenSales.html#method_setDate"
         },                {
             "fqsen": "\\App\\Entity\\GardenSales\u003A\u003AgetTime\u0028\u0029",
             "name": "getTime",
-            "summary": "",
+            "summary": "Returns\u0020the\u0020time\u0020when\u0020the\u0020plant\u0020was\u0020sold.",
             "url": "classes/App-Entity-GardenSales.html#method_getTime"
         },                {
             "fqsen": "\\App\\Entity\\GardenSales\u003A\u003AsetTime\u0028\u0029",
             "name": "setTime",
-            "summary": "",
+            "summary": "Sets\u0020the\u0020time\u0020when\u0020the\u0020plant\u0020was\u0020sold.",
             "url": "classes/App-Entity-GardenSales.html#method_setTime"
         },                {
             "fqsen": "\\App\\Entity\\GardenSales\u003A\u003A\u0024id",
@@ -1008,7 +1008,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Repository\\GardenPlantedSeedsRepository",
             "name": "GardenPlantedSeedsRepository",
-            "summary": "",
+            "summary": "Can\u0020add\u0020or\u0020remove\u0020from\u0020table\u0020GardenPlantedSeeds.",
             "url": "classes/App-Repository-GardenPlantedSeedsRepository.html"
         },                {
             "fqsen": "\\App\\Repository\\GardenPlantedSeedsRepository\u003A\u003A__construct\u0028\u0029",
@@ -1018,17 +1018,17 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Repository\\GardenPlantedSeedsRepository\u003A\u003Aadd\u0028\u0029",
             "name": "add",
-            "summary": "",
+            "summary": "Adds\u0020data\u0020to\u0020table\u0020GardenPlantedSeeds.",
             "url": "classes/App-Repository-GardenPlantedSeedsRepository.html#method_add"
         },                {
             "fqsen": "\\App\\Repository\\GardenPlantedSeedsRepository\u003A\u003Aremove\u0028\u0029",
             "name": "remove",
-            "summary": "",
+            "summary": "Removes\u0020data\u0020from\u0020table\u0020GardenPlantedSeeds.",
             "url": "classes/App-Repository-GardenPlantedSeedsRepository.html#method_remove"
         },                {
             "fqsen": "\\App\\Repository\\GardenSalesRepository",
             "name": "GardenSalesRepository",
-            "summary": "",
+            "summary": "Can\u0020add\u0020or\u0020remove\u0020from\u0020table\u0020GardenSales.",
             "url": "classes/App-Repository-GardenSalesRepository.html"
         },                {
             "fqsen": "\\App\\Repository\\GardenSalesRepository\u003A\u003A__construct\u0028\u0029",
@@ -1038,12 +1038,12 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Repository\\GardenSalesRepository\u003A\u003Aadd\u0028\u0029",
             "name": "add",
-            "summary": "",
+            "summary": "Adds\u0020data\u0020to\u0020table\u0020GardenSales.",
             "url": "classes/App-Repository-GardenSalesRepository.html#method_add"
         },                {
             "fqsen": "\\App\\Repository\\GardenSalesRepository\u003A\u003Aremove\u0028\u0029",
             "name": "remove",
-            "summary": "",
+            "summary": "Removes\u0020data\u0020from\u0020table\u0020GardenSales.",
             "url": "classes/App-Repository-GardenSalesRepository.html#method_remove"
         },                {
             "fqsen": "\\App\\Repository\\PokemonRepository",
