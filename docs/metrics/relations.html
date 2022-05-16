@@ -49,7 +49,7 @@
 <div class="page">
     <div class="content content-first">
         <div class="report-details">
-            Created at 2022-05-06 12:42:47        , with PHPMetrics v2.8.1 (<a href="https://twitter.com/Halleck45">Jean-François Lépine</a>).
+            Created at 2022-05-16 15:54:08        , with PHPMetrics v2.8.1 (<a href="https://twitter.com/Halleck45">Jean-François Lépine</a>).
         </div>
 
         
@@ -343,6 +343,83 @@
         ]
     },
     {
+        "name": "\\App\\Controller\\GardenController",
+        "size": 3000,
+        "relations": [
+            "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
+            "\\Symfony\\Component\\HttpFoundation\\Response",
+            "\\Symfony\\Component\\Routing\\Annotation\\Route",
+            "\\Symfony\\Component\\HttpFoundation\\Session\\SessionInterface",
+            "\\App\\Garden\\Garden",
+            "\\App\\Garden\\SeedBox",
+            "\\Doctrine\\Persistence\\ManagerRegistry",
+            "\\Symfony\\Component\\HttpFoundation\\Request",
+            "\\App\\Garden\\Database",
+            "\\App\\Garden\\Customer",
+            "\\App\\Repository\\GardenPlantedSeedsRepository",
+            "\\App\\Repository\\GardenSalesRepository"
+        ]
+    },
+    {
+        "name": "\\App\\Garden\\Garden",
+        "size": 3000,
+        "relations": [
+            "\\App\\Garden\\Plant"
+        ]
+    },
+    {
+        "name": "\\App\\Garden\\SeedBox",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\Doctrine\\Persistence\\ManagerRegistry",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\Symfony\\Component\\HttpFoundation\\Request",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\App\\Garden\\Database",
+        "size": 3000,
+        "relations": [
+            "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
+            "\\App\\Entity\\GardenPlantedSeeds",
+            "\\Doctrine\\Persistence\\ManagerRegistry",
+            "\\App\\Garden\\Plant",
+            "\\DateTime",
+            "\\App\\Entity\\GardenSales",
+            "\\App\\Repository\\GardenPlantedSeedsRepository",
+            "\\App\\Repository\\GardenSalesRepository"
+        ]
+    },
+    {
+        "name": "\\App\\Garden\\Customer",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\App\\Repository\\GardenPlantedSeedsRepository",
+        "size": 3000,
+        "relations": [
+            "\\Doctrine\\Bundle\\DoctrineBundle\\Repository\\ServiceEntityRepository",
+            "\\Doctrine\\Persistence\\ManagerRegistry",
+            "\\App\\Entity\\GardenPlantedSeeds"
+        ]
+    },
+    {
+        "name": "\\App\\Repository\\GardenSalesRepository",
+        "size": 3000,
+        "relations": [
+            "\\Doctrine\\Bundle\\DoctrineBundle\\Repository\\ServiceEntityRepository",
+            "\\Doctrine\\Persistence\\ManagerRegistry",
+            "\\App\\Entity\\GardenSales"
+        ]
+    },
+    {
         "name": "\\App\\Controller\\LuckyControllerJson",
         "size": 3000,
         "relations": [
@@ -372,16 +449,6 @@
             "\\App\\Entity\\Pokemon",
             "\\App\\Repository\\PokemonRepository"
         ]
-    },
-    {
-        "name": "\\Doctrine\\Persistence\\ManagerRegistry",
-        "size": 3000,
-        "relations": []
-    },
-    {
-        "name": "\\Symfony\\Component\\HttpFoundation\\Request",
-        "size": 3000,
-        "relations": []
     },
     {
         "name": "\\App\\Entity\\Pokemon",
@@ -431,6 +498,26 @@
             "\\Symfony\\Component\\HttpFoundation\\Response",
             "\\Symfony\\Component\\Routing\\Annotation\\Route"
         ]
+    },
+    {
+        "name": "\\App\\Entity\\GardenPlantedSeeds",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\App\\Entity\\GardenSales",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\App\\Garden\\Plant",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\DateTime",
+        "size": 3000,
+        "relations": []
     },
     {
         "name": "\\App\\Kernel",

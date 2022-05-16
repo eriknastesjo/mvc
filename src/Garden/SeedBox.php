@@ -24,7 +24,8 @@ class SeedBox
 
     /**
      * Constructor. If no alternative seeds are stated the seed box will be filled with a default list of seeds.
-     * @param array<string, int> $alternativeSeeds Use name as key and price as value. If left null the seed box will be filled with a default list of seeds.
+     * @param array<string, int> $alternativeSeeds Use name as key and price as value.
+     * If left empty the seed box will be filled with a default list of seeds.
      * @return void
      */
     public function __construct(array $alternativeSeeds = [])

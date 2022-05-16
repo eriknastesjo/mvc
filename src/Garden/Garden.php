@@ -29,7 +29,8 @@ class Garden
 
     /**
      * Will create a plant with growth level 0.
-     * @param int $plantIndex Relates to the list of plants that the object holds. State a number between 0 and number of held plants.
+     * @param int $plantIndex Relates to the list of plants that the object holds.
+     * State a number between 0 and number of held plants.
      * @return void
      */
     public function plantSeed(string $plantName, int $price, int $plantIndex)
@@ -39,7 +40,8 @@ class Garden
 
     /**
      * Will increase growth level of a plant by 1.
-     * @param int $plantIndex Relates to the list of plants that the object holds. State a number between 0 and number of held plants.
+     * @param int $plantIndex Relates to the list of plants that the object holds.
+     * State a number between 0 and number of held plants.
      * @return void
      */
     public function waterPlant(int $plantIndex)
@@ -49,7 +51,8 @@ class Garden
 
     /**
      * Get a Plant object from the garden
-     * @param int $plantIndex Relates to the list of plants that the object holds. State a number between 0 and number of held plants.
+     * @param int $plantIndex Relates to the list of plants that the object holds.
+     * State a number between 0 and number of held plants.
      * @return Plant
      */
     public function getPlant($plantIndex): Plant
@@ -67,7 +70,8 @@ class Garden
     }
 
     /**
-     * This will calculate and return the price sum of the Plant Objects in the garden and also add it to the total income.
+     * This will calculate and return the price sum of the Plant Objects in the garden.
+     * This will also add it to the total income.
      */
     public function sellAll(): int
     {

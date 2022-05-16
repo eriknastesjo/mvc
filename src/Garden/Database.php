@@ -15,13 +15,11 @@ use App\Repository\GardenSalesRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use App\Garden\Plant;
 
-
 /**
  * Holds methods to set and get data from Garden tables.
  */
 class Database extends AbstractController
 {
-
     /**
      * Adds a new row to the table GardenPlantedSeeds. Return the entity of the row.
      */
@@ -29,7 +27,6 @@ class Database extends AbstractController
         ManagerRegistry $doctrine,
         Plant $plant
     ): GardenPlantedSeeds {
-
         $entityManager = $doctrine->getManager();
 
         $currentDate = new DateTime();
@@ -56,7 +53,6 @@ class Database extends AbstractController
         ManagerRegistry $doctrine,
         Plant $plant
     ): GardenSales {
-
         $entityManager = $doctrine->getManager();
 
         $currentDate = new DateTime();

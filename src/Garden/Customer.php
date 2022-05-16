@@ -46,7 +46,7 @@ class Customer
 
     /**
      * Both checks if all plants are full grown and if they match the order.
-     * @param Garden[] $garden Use array of Garden objects.
+     * @param Plant[] $garden Use array of Plant objects.
      */
     public function matchOrder(array $garden): bool
     {

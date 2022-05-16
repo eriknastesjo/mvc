@@ -21,7 +21,6 @@ use App\Garden\Garden;
 use App\Garden\Customer;
 use App\Garden\Database;
 
-
 /**
  * Controls the routes of Garden pages.
  */
