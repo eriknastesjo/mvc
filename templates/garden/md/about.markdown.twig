@@ -28,8 +28,18 @@ On the front end Javascript and CSS has been used to style the pages. Javascript
 
 ## Code Quality
 
-Keeping a high code quality has been an important part of this project. This priority has been targeted in different ways.
+Keeping a high code quality has been an important part of this project. This priority has been targeted in different ways. First, the SRP (single-responsibility principle) has been kept in mind on both method- and module level. On method level it means that a method would sometimes have to be broken into two or more smaller methods to handle different parts of the process. For exampel the method sellAll() in Garden class first included code to reset object in addition to handle the price variables. Later this code was instead implemented in a separate method reset(). On module level the code was separated depending on its purpose. For example all the code that managed the database was first kept in the GardenController. Since this purpose was different than keeping track of routes and session variables the code was implemented in a separate Database class.
 
+Another way to keep code quality high was to keep the volume and complexity low. The main way to keep the volume low was to separate a module into two or more smaller modules. This also worked to uphold the SRP as stated above. The complexity issue could sometimes be tackled in a similar way. Another way to tackle the complexity issue was to look for unnecessary if-statements. This could be done by using the tool phpmd that especially reacted to "else"-statements. Another great tool that was used is phpMetrics. An metrics analysis showed that average complexity increased by 0.23 units. This is probably due to some parts of the bode being difficult to break down in smaller parts. The relative system complexity was relativly high in GardenController (625 compared to next highest number 256) which could explain the result. Still the maintainability index (fig 1) was kept quite high despite implementing 10 new classes in the garden project with no new module lower than 70.
+
+
+<p>
+	<a href="img/gardenPhpMetrics.png"><img src="../../img/gardenPhpMetrics.png" class="img-vert metrics-img" alt="Representation of maintainability index and cyclomatic complexity from phpMetrics."></a>
+
+	<figcaption>Fig 1. The size and color of the balls represents the maintainability index and cyclomatic complexity of the classes. Red means that maintainability index is under 70. The two red balls in this illustration represent classes created prior to the garden project.</figcaption>
+</p>
+
+Finally high code quality was maintained by keeping consistent and comprehensible variable and method names. This sounds simple but the hard part was to do it throughout different classes and methods. This sometimes meant to go through names in several modules when a name was no longer relevant. For example the garden was first meant to plant flowers and not vegetables. The "flower" apperead in several different modules both as variable name and as a part of method name. This was later changed to the word "plant".
 
 ## Additional info
 
