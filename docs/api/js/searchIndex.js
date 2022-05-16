@@ -518,42 +518,42 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Entity\\GardenPlantedSeeds",
             "name": "GardenPlantedSeeds",
-            "summary": "",
+            "summary": "Holds\u0020data\u0020of\u0020planted\u0020seeds,\u0020including\u0020id,\u0020name,\u0020date\u0020and\u0020time.",
             "url": "classes/App-Entity-GardenPlantedSeeds.html"
         },                {
             "fqsen": "\\App\\Entity\\GardenPlantedSeeds\u003A\u003AgetId\u0028\u0029",
             "name": "getId",
-            "summary": "",
+            "summary": "Returns\u0020id.",
             "url": "classes/App-Entity-GardenPlantedSeeds.html#method_getId"
         },                {
             "fqsen": "\\App\\Entity\\GardenPlantedSeeds\u003A\u003AgetPlant\u0028\u0029",
             "name": "getPlant",
-            "summary": "",
+            "summary": "Returns\u0020plantName.",
             "url": "classes/App-Entity-GardenPlantedSeeds.html#method_getPlant"
         },                {
             "fqsen": "\\App\\Entity\\GardenPlantedSeeds\u003A\u003AsetPlant\u0028\u0029",
             "name": "setPlant",
-            "summary": "",
+            "summary": "Sets\u0020plantName.",
             "url": "classes/App-Entity-GardenPlantedSeeds.html#method_setPlant"
         },                {
             "fqsen": "\\App\\Entity\\GardenPlantedSeeds\u003A\u003AgetDate\u0028\u0029",
             "name": "getDate",
-            "summary": "",
+            "summary": "Returns\u0020the\u0020date\u0020when\u0020the\u0020seed\u0020was\u0020planted.",
             "url": "classes/App-Entity-GardenPlantedSeeds.html#method_getDate"
         },                {
             "fqsen": "\\App\\Entity\\GardenPlantedSeeds\u003A\u003AsetDate\u0028\u0029",
             "name": "setDate",
-            "summary": "",
+            "summary": "Sets\u0020the\u0020date\u0020when\u0020the\u0020seed\u0020was\u0020planted.",
             "url": "classes/App-Entity-GardenPlantedSeeds.html#method_setDate"
         },                {
             "fqsen": "\\App\\Entity\\GardenPlantedSeeds\u003A\u003AgetTime\u0028\u0029",
             "name": "getTime",
-            "summary": "",
+            "summary": "Returns\u0020the\u0020time\u0020when\u0020the\u0020seed\u0020was\u0020planted.",
             "url": "classes/App-Entity-GardenPlantedSeeds.html#method_getTime"
         },                {
             "fqsen": "\\App\\Entity\\GardenPlantedSeeds\u003A\u003AsetTime\u0028\u0029",
             "name": "setTime",
-            "summary": "",
+            "summary": "Sets\u0020the\u0020time\u0020when\u0020the\u0020seed\u0020was\u0020planted.",
             "url": "classes/App-Entity-GardenPlantedSeeds.html#method_setTime"
         },                {
             "fqsen": "\\App\\Entity\\GardenPlantedSeeds\u003A\u003A\u0024id",
