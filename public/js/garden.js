@@ -17,20 +17,24 @@
                 const name = seedBox[i].elements["name"].value;
                 const price = seedBox[i].elements["price"].value;
 
-                forms[j].action = "/proj/add";
+                forms[j].action = "./add";   // funkar bara lokalt
+                // forms[j].action = "/~erna21/dbwebb-kurser/mvc/me/report/public/proj/add";
+                // forms[j].action = getAbsoluteUrl('/add');
                 forms[j].method = "post";
                 forms[j].elements["name"].value = name;
                 forms[j].elements["price"].value = price;
 
                 followCursor.init();
-                followCursor.changeCursor("../img/"+ name + "Seed" + ".png");
+                followCursor.changeCursor("../img/"+ name + "seed" + ".png");
             }
         });
     }
 
     waterTool.addEventListener("click", function () {
         for (let i = 0; i < forms.length; i++) {
-            forms[i].action = "/proj/incrementGrowth";
+            forms[i].action = "./incrementGrowth";   // funkar bara lokalt
+            // forms[i].action = "/~erna21/dbwebb-kurser/mvc/me/report/public/proj/incrementGrowth";
+            // forms[i].action = getAbsoluteUrl('/incrementGrowth');
             forms[i].method = "post";
             followCursor.init();
             followCursor.changeCursor("../img/ToolWaterCan.png");
