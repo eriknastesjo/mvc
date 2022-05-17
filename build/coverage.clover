@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1652771460">
-  <project timestamp="1652771460">
+<coverage generated="1652776175">
+  <project timestamp="1652776175">
     <file name="C:\Users\erikn\dbwebb-kurser\mvc\me\report\src\Card\Card.php">
       <class name="App\Card\Card" namespace="global">
         <metrics complexity="10" methods="5" coveredmethods="5" conditionals="0" coveredconditionals="0" statements="19" coveredstatements="19" elements="24" coveredelements="24"/>
@@ -760,24 +760,24 @@
     </file>
     <file name="C:\Users\erikn\dbwebb-kurser\mvc\me\report\src\Garden\SeedBox.php">
       <class name="App\Garden\SeedBox" namespace="global">
-        <metrics complexity="8" methods="4" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="11" coveredstatements="0" elements="15" coveredelements="0"/>
+        <metrics complexity="8" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="11" coveredstatements="11" elements="15" coveredelements="15"/>
       </class>
-      <line num="31" type="method" name="__construct" visibility="public" complexity="4" crap="20" count="0"/>
-      <line num="33" type="stmt" count="0"/>
-      <line num="34" type="stmt" count="0"/>
-      <line num="35" type="stmt" count="0"/>
-      <line num="38" type="stmt" count="0"/>
-      <line num="39" type="stmt" count="0"/>
-      <line num="47" type="method" name="addSeed" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="49" type="stmt" count="0"/>
-      <line num="56" type="method" name="getSeedBox" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="58" type="stmt" count="0"/>
-      <line num="65" type="method" name="getSeedNames" visibility="public" complexity="2" crap="6" count="0"/>
-      <line num="67" type="stmt" count="0"/>
-      <line num="68" type="stmt" count="0"/>
-      <line num="69" type="stmt" count="0"/>
-      <line num="71" type="stmt" count="0"/>
-      <metrics loc="74" ncloc="51" classes="1" methods="4" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="11" coveredstatements="0" elements="15" coveredelements="0"/>
+      <line num="31" type="method" name="__construct" visibility="public" complexity="4" crap="4" count="4"/>
+      <line num="33" type="stmt" count="4"/>
+      <line num="34" type="stmt" count="3"/>
+      <line num="35" type="stmt" count="3"/>
+      <line num="38" type="stmt" count="1"/>
+      <line num="39" type="stmt" count="1"/>
+      <line num="47" type="method" name="addSeed" visibility="public" complexity="1" crap="1" count="4"/>
+      <line num="49" type="stmt" count="4"/>
+      <line num="56" type="method" name="getSeedBox" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="58" type="stmt" count="1"/>
+      <line num="65" type="method" name="getSeedNames" visibility="public" complexity="2" crap="2" count="1"/>
+      <line num="67" type="stmt" count="1"/>
+      <line num="68" type="stmt" count="1"/>
+      <line num="69" type="stmt" count="1"/>
+      <line num="71" type="stmt" count="1"/>
+      <metrics loc="74" ncloc="51" classes="1" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="11" coveredstatements="11" elements="15" coveredelements="15"/>
     </file>
     <file name="C:\Users\erikn\dbwebb-kurser\mvc\me\report\src\Kernel.php">
       <class name="App\Kernel" namespace="global">
@@ -849,6 +849,6 @@
       <line num="46" type="stmt" count="0"/>
       <metrics loc="79" ncloc="36" classes="1" methods="3" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="7" coveredstatements="0" elements="10" coveredelements="0"/>
     </file>
-    <metrics files="29" loc="2571" ncloc="1892" classes="28" methods="157" coveredmethods="39" conditionals="0" coveredconditionals="0" statements="517" coveredstatements="129" elements="674" coveredelements="168"/>
+    <metrics files="29" loc="2571" ncloc="1892" classes="28" methods="157" coveredmethods="43" conditionals="0" coveredconditionals="0" statements="517" coveredstatements="140" elements="674" coveredelements="183"/>
   </project>
 </coverage>
