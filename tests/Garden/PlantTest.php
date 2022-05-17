@@ -12,7 +12,7 @@ class PlantTest extends TestCase
     /**
      * Construct Plant objects with different arguments and verify that the objects are of expected instance.
      */
-    public function testCreateCardWithDifferentValues()
+    public function testCreatePlantWithDifferentValues()
     {
         $plant = new Plant("strawberry", 10, 2, "yummy", 43);
         $this->assertInstanceOf("\App\Garden\Plant", $plant);
@@ -126,16 +126,45 @@ class PlantTest extends TestCase
     }
 
     /**
-     * Increment growth level, then get it and verify that it is of expected value.
+     * Increment growth level, then get it and verify that it is of expected value. If growthLevel already reached max the name should be changed to "puddle" and status to "overflown".
      */
     public function testSetGrowthLevel()
     {
+        $plant = new Plant("strawberry", 10, 2, "yummy", 43, 3);
+        $plant->incrementGrowth();
+        $this->assertEquals(3, $plant->getGrowthLevel());
+
         $plant = new Plant("strawberry", 10, 2, "yummy", 43);
         $plant->incrementGrowth();
         $this->assertEquals(2, $plant->getGrowthLevel());
+        $this->assertEquals("puddle", $plant->getName());
+        $this->assertEquals("overflown", $plant->getStatus());
 
-        $plant = new Plant("strawberry", 22, 99, "red", 70);
-        $this->assertEquals(99, $plant->getGrowthLevel());
+        $plant = new Plant("strawberry", 10, 2, "yummy", 43, 1);
+        $plant->incrementGrowth();
+        $this->assertEquals(2, $plant->getGrowthLevel());
+        $this->assertEquals("puddle", $plant->getName());
+        $this->assertEquals("overflown", $plant->getStatus());
+    }
+
+    /**
+     * Check if status is destroyed or overflown. If destroyed, the object should re-construct with name "empty". If overflown, the status should change to "destroyed".
+     */
+    public function testCheckIfDestroyedOrPuddle()
+    {
+        $plant = new Plant("strawberry", 10, 2, "yummy", 43);
+        $plant->checkIfDestroyedOrPuddle();
+        $this->assertEquals("strawberry", $plant->getName());
+        $this->assertEquals("yummy", $plant->getStatus());
+
+        $plant = new Plant("strawberry", 10, 2, "overflown", 43);
+        $plant->checkIfDestroyedOrPuddle();
+        $this->assertEquals("strawberry", $plant->getName());
+        $this->assertEquals("destroyed", $plant->getStatus());
+
+        $plant = new Plant("strawberry", 10, 2, "destroyed", 43);
+        $plant->checkIfDestroyedOrPuddle();
+        $this->assertEquals("empty", $plant->getName());
     }
 
 }

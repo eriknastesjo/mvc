@@ -16,6 +16,7 @@ class Plant
     private int $price;
     private string $status;
     private int $id;
+    private int $maxGrowthLevel;
 
     /**
      * Constructor
@@ -23,13 +24,14 @@ class Plant
      * @param int $id Can be used to relate to row placement in a database table
      * @return void
      */
-    public function __construct(string $name, int $price, int $growthLevel = 0, string $status = "unsold", int $id = -1)
+    public function __construct(string $name, int $price, int $growthLevel = 0, string $status = "unsold", int $id = -1, $maxGrowthLevel = 2)
     {
         $this->name = $name;
         $this->growthLevel = $growthLevel;
         $this->price = $price;
         $this->status = $status;
         $this->id = $id;
+        $this->maxGrowthLevel = $maxGrowthLevel;
     }
 
     /**
@@ -96,12 +98,11 @@ class Plant
      */
     public function incrementGrowth(): void
     {
-        if ($this->growthLevel < 2) {
+        if ($this->growthLevel < $this->maxGrowthLevel) {
             $this->growthLevel++;
             return;
         }
         $this->name = "puddle";
-        $this->growthLevel = 3;
         $this->price = 0;
         $this->status = "overflown";
     }
@@ -112,6 +113,14 @@ class Plant
     public function getGrowthLevel(): int
     {
         return $this->growthLevel;
+    }
+
+    /**
+     * Returns the growth level of the plant.
+     */
+    public function getMaxGrowthLevel(): int
+    {
+        return $this->maxGrowthLevel;
     }
 
     /**

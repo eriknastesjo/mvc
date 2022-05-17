@@ -20,7 +20,7 @@ class Garden
      * @param int $emptySpotNum Equals how many plants it can hold.
      * @return void
      */
-    public function __construct(int $emptySpotNum)
+    public function __construct(int $emptySpotNum = 3)
     {
         for ($i = 1; $i <= $emptySpotNum; $i++) {
             array_push($this->plants, new Plant("empty", 0));
@@ -64,7 +64,7 @@ class Garden
      * Get an array with all Plant Objects from the garden
      * @return Plant[]
      */
-    public function getGarden(): array
+    public function getAllPlants(): array
     {
         return $this->plants;
     }

@@ -43,14 +43,14 @@ class GardenController extends AbstractController
 
         $garden = $session->get("garden") ?? new Garden(3);
 
-        foreach ($garden->getGarden() as $plant) {
+        foreach ($garden->getAllPlants() as $plant) {
             $plant->checkIfDestroyedOrPuddle();
         }
 
         $seedBox = new SeedBox();
 
         $data = [
-            'garden' => $garden->getGarden(),
+            'garden' => $garden->getAllPlants(),
             'seedBox' => $seedBox->getSeedBox()
         ];
 
@@ -111,12 +111,12 @@ class GardenController extends AbstractController
 
         $customer = $session->get("customer") ?? new Customer($seedBox->getSeedNames());
 
-        $isMatched = $customer->matchOrder($garden->getGarden());
+        $isMatched = $customer->matchOrder($garden->getAllPlants());
 
         if ($isMatched) {
             $newIncome = $garden->sellAll();
             $database = new Database();
-            foreach ($garden->getGarden() as $plant) {
+            foreach ($garden->getAllPlants() as $plant) {
                 $database->addToTableSale($doctrine, $plant);
             }
             $garden->reset(3);

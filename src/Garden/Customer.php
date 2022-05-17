@@ -46,24 +46,25 @@ class Customer
 
     /**
      * Both checks if all plants are full grown and if they match the order.
-     * @param Plant[] $garden Use array of Plant objects.
+     * @param Plant[] $allPlants Use array of Plant objects.
      */
-    public function matchOrder(array $garden): bool
+    public function matchOrder(array $allPlants): bool
     {
         $isCorrectItems = true;
+        $listNames = [];
 
         // checks if plants are full grown
-        foreach ($garden as $plant) {
-            if ($plant->getGrowthLevel() !== 2) {
+        foreach ($allPlants as $plant) {
+            if ($plant->getGrowthLevel() !== $plant->getMaxGrowthLevel()) {
                 $isCorrectItems = false;
             }
+            $listNames[] = $plant->getName();
         }
 
-        // checks if plants are the correct types
-        foreach ($garden as $plant) {
-            if (!in_array($plant->getName(), $this->orderItems, true)) {
-                $isCorrectItems = false;
-            }
+        // checks if all plant names from order
+        // are represented in garden
+        if (!empty(array_diff($this->orderItems, $listNames))) {
+            $isCorrectItems = false;
         }
 
         if ($isCorrectItems) {
