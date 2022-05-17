@@ -24,8 +24,14 @@ class Plant
      * @param int $id Can be used to relate to row placement in a database table
      * @return void
      */
-    public function __construct(string $name, int $price, int $growthLevel = 0, string $status = "unsold", int $id = -1, $maxGrowthLevel = 2)
-    {
+    public function __construct(
+        string $name,
+        int $price,
+        int $growthLevel = 0,
+        string $status = "unsold",
+        int $id = -1,
+        $maxGrowthLevel = 2
+    ) {
         $this->name = $name;
         $this->growthLevel = $growthLevel;
         $this->price = $price;

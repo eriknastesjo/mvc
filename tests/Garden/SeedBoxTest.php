@@ -54,5 +54,4 @@ class SeedBoxTest extends TestCase
         $this->assertEquals(true, empty(array_diff($names, $seedBox->getSeedNames())));
         $this->assertEquals(true, empty(array_diff($seedBox->getSeedNames(), $names)));
     }
-
 }

@@ -38,6 +38,4 @@ class Player21Test extends TestCase
         $player21->setIsFinished(false);
         $this->assertEquals(false, $player21->isFinished());
     }
-
-
 }

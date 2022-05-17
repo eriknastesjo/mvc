@@ -181,5 +181,4 @@ class GardenTest extends TestCase
         $garden->sellAll();
         $this->assertEquals(4, $garden->getNumberSold());
     }
-
 }

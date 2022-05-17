@@ -52,6 +52,4 @@ class PlayerDrawTest extends TestCase
         $this->assertContains('[♦Q]', $playerDraw->getCardIllustrationsDeck());
         $this->assertContains('[♠K]', $playerDraw->getCardIllustrationsDeck());
     }
-
-
 }

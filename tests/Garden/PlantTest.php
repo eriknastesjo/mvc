@@ -166,5 +166,4 @@ class PlantTest extends TestCase
         $plant->checkIfDestroyedOrPuddle();
         $this->assertEquals("empty", $plant->getName());
     }
-
 }

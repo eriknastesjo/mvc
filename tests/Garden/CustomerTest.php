@@ -60,7 +60,6 @@ class CustomerTest extends TestCase
      */
     public function testMatchOrderMissingPlant()
     {
-
         $seedList = ["banana", "apple", "robot"];
         $customer = new Customer($seedList);
 
@@ -77,7 +76,6 @@ class CustomerTest extends TestCase
      */
     public function testMatchOrderWrongGrowthLevel()
     {
-
         $seedList = ["banana", "apple", "robot"];
         $customer = new Customer($seedList);
 
@@ -94,7 +92,6 @@ class CustomerTest extends TestCase
      */
     public function testGetOrderMessageUnfinished()
     {
-
         $seedList = ["banana", "apple", "robot"];
         $customer = new Customer($seedList);
 
