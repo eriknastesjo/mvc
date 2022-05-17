@@ -846,14 +846,14 @@ Search.appendIndex(
             "summary": "Get\u0020a\u0020Plant\u0020object\u0020from\u0020the\u0020garden",
             "url": "classes/App-Garden-Garden.html#method_getPlant"
         },                {
-            "fqsen": "\\App\\Garden\\Garden\u003A\u003AgetGarden\u0028\u0029",
-            "name": "getGarden",
+            "fqsen": "\\App\\Garden\\Garden\u003A\u003AgetAllPlants\u0028\u0029",
+            "name": "getAllPlants",
             "summary": "Get\u0020an\u0020array\u0020with\u0020all\u0020Plant\u0020Objects\u0020from\u0020the\u0020garden",
-            "url": "classes/App-Garden-Garden.html#method_getGarden"
+            "url": "classes/App-Garden-Garden.html#method_getAllPlants"
         },                {
             "fqsen": "\\App\\Garden\\Garden\u003A\u003AsellAll\u0028\u0029",
             "name": "sellAll",
-            "summary": "This\u0020will\u0020calculate\u0020and\u0020return\u0020the\u0020price\u0020sum\u0020of\u0020the\u0020Plant\u0020Objects\u0020in\u0020the\u0020garden\u0020and\u0020also\u0020add\u0020it\u0020to\u0020the\u0020total\u0020income.",
+            "summary": "This\u0020will\u0020calculate\u0020and\u0020return\u0020the\u0020price\u0020sum\u0020of\u0020the\u0020Plant\u0020Objects\u0020in\u0020the\u0020garden.",
             "url": "classes/App-Garden-Garden.html#method_sellAll"
         },                {
             "fqsen": "\\App\\Garden\\Garden\u003A\u003Areset\u0028\u0029",
@@ -941,6 +941,11 @@ Search.appendIndex(
             "summary": "Returns\u0020the\u0020growth\u0020level\u0020of\u0020the\u0020plant.",
             "url": "classes/App-Garden-Plant.html#method_getGrowthLevel"
         },                {
+            "fqsen": "\\App\\Garden\\Plant\u003A\u003AgetMaxGrowthLevel\u0028\u0029",
+            "name": "getMaxGrowthLevel",
+            "summary": "Returns\u0020the\u0020growth\u0020level\u0020of\u0020the\u0020plant.",
+            "url": "classes/App-Garden-Plant.html#method_getMaxGrowthLevel"
+        },                {
             "fqsen": "\\App\\Garden\\Plant\u003A\u003AcheckIfDestroyedOrPuddle\u0028\u0029",
             "name": "checkIfDestroyedOrPuddle",
             "summary": "If\u0020the\u0020plant\u0020status\u0020is\u0020\u0022overflown\u0022\u0020it\u0020will\u0020change\u0020status\u0020to\u0020\u0022destroyed.",
@@ -970,6 +975,11 @@ Search.appendIndex(
             "name": "id",
             "summary": "",
             "url": "classes/App-Garden-Plant.html#property_id"
+        },                {
+            "fqsen": "\\App\\Garden\\Plant\u003A\u003A\u0024maxGrowthLevel",
+            "name": "maxGrowthLevel",
+            "summary": "",
+            "url": "classes/App-Garden-Plant.html#property_maxGrowthLevel"
         },                {
             "fqsen": "\\App\\Garden\\SeedBox",
             "name": "SeedBox",
