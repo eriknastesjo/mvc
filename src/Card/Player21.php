@@ -12,9 +12,6 @@ class Player21 extends PlayerDraw
         $this->deck->fillWithCards();
         $this->deck->shuffleHand();
 
-        // $this->players[] = new \App\Card\CardHand21();  //player is players[0]
-        // $this->players[] = new \App\Card\CardHand21();  // bank is players[1]
-
         $this->players[] = new CardHand21();
         $this->players[] = new CardHand21();
 
