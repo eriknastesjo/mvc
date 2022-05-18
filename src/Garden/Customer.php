@@ -19,10 +19,10 @@ class Customer
      * @param string[] $listPossiblePlants Use array of string names.
      * @return void
      */
-    public function __construct(array $listPossiblePlants)
+    public function __construct(array $listPossiblePlants, int $itemNum = 3)
     {
         shuffle($listPossiblePlants);
-        $this->orderItems = array_slice($listPossiblePlants, 0, 3);
+        $this->orderItems = array_slice($listPossiblePlants, 0, $itemNum);
     }
 
     /**

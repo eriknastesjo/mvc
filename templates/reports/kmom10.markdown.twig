@@ -1,0 +1,33 @@
+{% apply markdown_to_html %}
+
+
+
+## Kmom06
+
+### För varje krav du implementerat, dvs 1-3, 4, 5, 6, skriver du ett textstycke om ca 5-10 meningar där du beskriver hur du löste kravet.
+
+#### Krav 1-3
+
+Jag valde att skapa ett eget projekt, eller åtminstone en egen variant på äventyrsspel. Projektet var inte alltför omfattande men det blev mer fokus utseende och användarbarhet än vad jag hade trott från början. Här var det särskilt kul att få använda lite ny och gammal kunskap i Javascript. Javascript användes för att ändra muspekaren till en bild och ändra parametrar på formulär beroende på vad användaren klickar på.
+
+Under utvecklingen av koden så fokuserade jag på att ha god struktur, dvs att inte blanda in så mycket logik i kontrollern utan delegera det till andra klasser. Detta lyckades någorlunda, särskilt genom att lägga all kod som sköter koppling till databasen i en separat klass. Jag siktade också på att skapa ett så generaliserbart API med så få hårdkodade bitar som möjligt. Exempelvis kan man skapa egna frön/plantor, ha olika många Plant objekt i Garden och olika antal orderprodukter från kunden.
+
+Vidare valde jag att skapa ett Plant objekt och ett Garden objekt som inte har en direkt koppling till Doctrine ORM. Information skickas istället indirekt till ett par olika tabeller i samband med att ett frö planteras eller när plantor blir sålda. Tanken från början var att sedan koppla ihop dessa tabeller. Detta är anledningen varför id:et från när frö:et planteras sparas i Plant objektet och i ett senare skede skickas vidare till tabellen för sålda plantor. Tyvärr så verkar det inte vara riktigt så som man kopplar tabeller i ORM och därför övergavs idén.
+
+I övrigt var kraven ganska rättfram. De olika verktygen användes för kodstil och linters. En del tips från phpmd ignorerades. De flesta handlade om att ett bool-värde används som argument i metoder i Repository modulerna. Detta ville jag inte ändra på då det riskerade att undergräva funktionaliteten. Ett klagomål på else-sats ignorerades också då jag inte kom på något rimligt sätt skriva om koden på.
+
+Slutligen valde jag vid skapandet av enhetstester att inkludera modulen Database. Detta för att jag inte kom på något bra sätt att hantera argumenten ManagerRegistry och Repository. Dokumentation med adekvata doc blocks genomfördes. Metrics analys genomfördes och jag kände inte att den krävde någon större förändring av koden. Inte heller analys från Scrutinizer krävde någon större förändring.
+
+#### Krav 4
+
+Här valde jag att redovisa kring kodkvalitet på muntligt vis. Det var roligt att grotta ner sig i begreppet och försöka få till ett rimligt anförande på så kort tid. Jag använde OBS för att spela in videon. Under inspelningen använde jag en andra skärm med stödord. Bilder bestod av en samling av skärmdumpar av egen kod och nedladdade bilder från pexels.
+
+### Skriv ett allmänt stycke om hur projektet gick att genomföra.
+
+Projektet var bland det roligaste jag gjort under detta första år på programmet. Den största utmaningen bestod egentligen i att visa rätt bilder i Twig-filerna och att styra skeendet med Javascript. Det var i alla fall lärorikt och lite av en "ego boost" att få implementera en egen idé. Från början hade jag fler idéer men jag förstod snart att jag inte skulle hinna med att implementera dem. Jag upplever att storleken på projektet i slutändan blev rimligt men att det var svårt att hinna med alla optionella kraven.
+
+### Avsluta med ett sista stycke med dina tankar om kursen och vad du anser om materialet och handledningen.
+
+Detta kommer jag att redogöra för i kursutvärderingen istället.
+
+{% endapply %}
