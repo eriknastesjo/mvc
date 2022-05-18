@@ -39,8 +39,6 @@ class GardenController extends AbstractController
      */
     public function garden(SessionInterface $session): Response
     {
-        // $garden = new Garden(3);    // uncomment to reset
-
         $garden = $session->get("garden") ?? new Garden(3);
 
         foreach ($garden->getAllPlants() as $plant) {
@@ -53,8 +51,6 @@ class GardenController extends AbstractController
             'garden' => $garden->getAllPlants(),
             'seedBox' => $seedBox->getSeedBox()
         ];
-
-        // var_dump($garden);
 
         $session->set("garden", $garden);
         return $this->render('garden/garden.html.twig', $data);
