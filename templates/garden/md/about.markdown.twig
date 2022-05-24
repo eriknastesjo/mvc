@@ -56,7 +56,22 @@ Finally, a minimum requirement and necessity for high code quality is that the c
 ## More about code quality:
 Click <a href="https://docs.google.com/document/d/e/2PACX-1vRrRem8HZBavIb9FfImvfjNeIgq499eBhvE2UZqe0yMX6nTIl6T8GfeZ2R5pQ7QdqPuTsmd7jMGUK59/pub">here</a> to show the slides from an oral presentation of code quality as a general concept.
 
+
+
+
+## ORM
+
+As stated above, ORM was used to map class objects to a database. This happens at two points, one when a seed is planted and one when a plant is sold. Therefore the database contains two connected tables GardenPlantedSeeds and GardenSoldPlants (fig 2). When new data is put into table GardenPlantedSeeds the id value is returned and saved in the Plant object. This value is then used when new data is put into table GardenSoldPlants. That way the two tables can succesfully be joined through id property.
+
 </p>
+
+
+<a href="{{asset("img/er.png")}}"><img src="{{asset("img/er.png")}}" class="img-horiz metrics-img" alt="Representation of maintainability index and cyclomatic complexity from phpMetrics."></a>
+
+
+<figcaption>Fig 2. An entity diagram of the two tables GardenPlantedSeeds (planted seeds) and GardenSoldPlants (sold plants).</figcaption>
+
+
 
 ## Additional info
 
