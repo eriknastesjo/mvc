@@ -57,6 +57,7 @@ class GardenSalesRepository extends ServiceEntityRepository
 
 
     /**
+     * Returns joined data from table GardenPlantedSeeds and GardenSales.
      */
     public function joinedTables(): array
     {
@@ -69,8 +70,10 @@ class GardenSalesRepository extends ServiceEntityRepository
                     WHERE s.id = p.id'
         );
 
+        // Elements with even index will be sold plants and odd once will be planted seeds.
         $result = $query->getArrayResult();
 
+        // Here we pair every two elements into one element.
         $listReturn = [];
 
         for ($i = 0; $i < count($result); $i++) {

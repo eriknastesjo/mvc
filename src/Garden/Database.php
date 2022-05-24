@@ -123,7 +123,11 @@ class Database extends AbstractController
         $entityManager->flush();
     }
 
-    public function joinedTables(GardenSalesRepository $gardenSalesRep) {
+    /**
+     * Returns joined data from table GardenPlantedSeeds and GardenSales.
+     */
+    public function joinedTables(GardenSalesRepository $gardenSalesRep): array {
         return $gardenSalesRep->joinedTables();
     }
+
 }
