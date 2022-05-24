@@ -30,7 +30,42 @@ class GardenController extends AbstractController
      */
     public function gardenHome(): Response
     {
+        // check if sessionVar userId is null
         return $this->render('garden/home.html.twig');
+        // if not redirect to profile page instead
+        // return $this->render('garden/profile.html.twig');    <-- put in separate control method
+    }
+
+    /**
+     * Checking new user data.
+     * Register if meeting criterias.
+     * @Route("/proj/register", name="register-process", methods={"POST"})
+     */
+    public function registerProcess(
+        ManagerRegistry $doctrine,
+        Request $request,
+        SessionInterface $session
+    ) {
+        // check length of user first name and seconds name
+        // if checks out then create acronym out of first and last name
+        // and store as a row in table User (firtname, lastname, acronym, status - rest is null)
+        // and get id and store in sessionvar userId
+        return $this->redirectToRoute('garden-home');
+    }
+
+    /**
+     * Checking login data.
+     * Log in if meeting criterias.
+     * @Route("/proj/login", name="login-process", methods={"POST"})
+     */
+    public function logInProcess(
+        ManagerRegistry $doctrine,
+        Request $request,
+        SessionInterface $session
+    ) {
+        // check if acronym is in table User property acronym
+        // if checks out get id and store in sessionvar userId
+        return $this->redirectToRoute('garden-home');
     }
 
     /**
