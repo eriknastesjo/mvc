@@ -55,6 +55,41 @@ class GardenSalesRepository extends ServiceEntityRepository
         }
     }
 
+
+    /**
+     */
+    public function joinedTables(): array
+    {
+        $entityManager = $this->getEntityManager();
+
+        $query = $entityManager->createQuery(
+            'SELECT p, s
+            FROM App\Entity\GardenSales s
+                INNER JOIN App\Entity\GardenPlantedSeeds p
+                    WHERE s.id = p.id'
+        );
+
+        $result = $query->getArrayResult();
+
+        $listReturn = [];
+
+        for ($i = 0; $i < count($result); $i++) {
+            if ($i % 2 === 0) {
+                $row = array(
+                    "id" => $result[$i]['id'],
+                    "plant" => $result[$i]['plant'],
+                    "datePlanted" => $result[$i + 1]['date'],
+                    "timePlanted" => $result[$i + 1]['time'],
+                    "dateSold" => $result[$i]['date'],
+                    "timeSold" => $result[$i]['time']
+                );
+                $listReturn[] = $row;
+            }
+        }
+
+        return $listReturn;
+    }
+
     // /**
     //  * @return GardenSales[] Returns an array of GardenSales objects
     //  */

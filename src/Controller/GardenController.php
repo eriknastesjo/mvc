@@ -69,7 +69,7 @@ class GardenController extends AbstractController
         $price = $request->get('price');
         $index = $request->get('index');
 
-        $garden = $session->get("garden");
+        $garden = $session->get("garden") ?? new Garden(3);
         $garden->plantSeed($name, $price, $index);
 
         $newPlant = $garden->getPlant($index);
@@ -79,6 +79,7 @@ class GardenController extends AbstractController
 
         $newPlant->setId($plantDb->getId());
 
+        $session->set("garden", $garden);
         return $this->redirectToRoute('garden');
     }
 
@@ -88,9 +89,10 @@ class GardenController extends AbstractController
      */
     public function incrementGrowth(Request $request, SessionInterface $session)
     {
-        $garden = $session->get("garden");
+        $garden = $session->get("garden") ?? new Garden(3);
         $garden->waterPlant($request->get('index'));
 
+        $session->set("garden", $garden);
         return $this->redirectToRoute('garden');
     }
 
@@ -147,15 +149,13 @@ class GardenController extends AbstractController
 
         $tablePlantedSeeds = $db->getTableGardenPlant($gardenPlantRep);
         $tableSales = $db->getTableGardenSales($gardenSalesRep);
-
-        // var_dump($tablePlantedSeeds);
+        $tableJoined = $db->joinedTables($gardenSalesRep);
 
         $data = [
             'tablePlantedSeeds' => $tablePlantedSeeds,
-            'tableSales' => $tableSales
+            'tableSales' => $tableSales,
+            'tableJoined' => $tableJoined
         ];
-
-
 
         return $this->render('garden/history.html.twig', $data);
     }

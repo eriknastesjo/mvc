@@ -60,6 +60,34 @@
 	</table>
 	</div>
 
+	<div class="lastTable">
+	<table class="table">
+	<p class="p-header">Plants sold life cycle</p>
+		<tr>
+			<th>Id</th>
+			<th>Plant</th>
+			<th>Planted Date</th>
+			<th>Planted Time</th>
+			<th>Sold Time</th>
+			<th>Sold Time</th>
+
+		</tr>
+		<tr>
+		{% for entry in tableJoined %}
+			<tr>
+				<td>{{entry.id}}</td>
+				<td>{{entry.plant}}</td>
+				<td>{{entry.datePlanted}}</td>
+				<td>{{entry.timePlanted}}</td>
+				<td>{{entry.dateSold}}</td>
+				<td>{{entry.timeSold}}</td>
+			</tr>
+		{% endfor %}
+		</tr>
+
+	</table>
+	</div>
+
 	</div>
 
 </div>

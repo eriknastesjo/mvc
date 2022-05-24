@@ -8,6 +8,10 @@
     gap: 30px;
 }
 
+.lastTable {
+    grid-column: span 2;
+}
+
 .plants-container {
     display: flex;
     gap: 30px;

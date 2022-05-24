@@ -95,6 +95,7 @@ class Database extends AbstractController
      */
     public function resetTableGardenPlantedSeeds(ManagerRegistry $doctrine): void
     {
+
         $entityManager = $doctrine->getManager();
 
         $gardenPlantedSeeds = $entityManager->getRepository(GardenPlantedSeeds::class)->findAll();
@@ -120,5 +121,9 @@ class Database extends AbstractController
         }
 
         $entityManager->flush();
+    }
+
+    public function joinedTables(GardenSalesRepository $gardenSalesRep) {
+        return $gardenSalesRep->joinedTables();
     }
 }

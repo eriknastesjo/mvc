@@ -1,6 +1,8 @@
 .table-container {
-    display: flex;
-    gap: 70px;
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    grid-column-gap: 70px;
+    grid-row-gap: 30px;
 }
 
 .table {
@@ -10,7 +12,7 @@
     margin-bottom: 30px;
     color: #2e3f1c;
     font-size: 1rem;
-        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .table td,
