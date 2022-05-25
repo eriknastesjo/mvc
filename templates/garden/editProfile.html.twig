@@ -1,0 +1,33 @@
+{% extends "garden/base.html.twig" %}
+{% block title %} Edit profile {% endblock %}
+
+{% block content %}
+	<div>
+	<h1>Edit profile</h1>
+
+		{% if (userId) %}
+
+    <form action="" method="post">
+        <input type="hidden" id="id" name="id" value={{userId}}>
+
+        <p>Describe yourself:</p>
+		<textarea rows="5" cols="80" id="description" name="description" value="{{description}}"></textarea><br><br>
+
+        <p>Set URL to image:</p>
+        <input type="text" size="70" id="imgURL" name="imgURL" value={{imgURL}}><br><br>
+
+        <div class="flex-row">
+        <input type="submit" value="Uppdatera">
+        <a href="{{path("garden-home")}}"><button type="button">Tillbaka</button></a>
+        </div>
+    </form>
+
+
+		{% else %}
+
+		<p>Please log in to edit your profile!</p>
+
+		{% endif %}
+	</div>
+{% endblock %}
+

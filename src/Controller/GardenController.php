@@ -44,7 +44,7 @@ class GardenController extends AbstractController
             'description' => null
         ];
 
-        // find row info from table to put in data
+        // find row info from table User
         if ($userId) {
             $db = new Database;
             $row = $db->getRowByIdTableUser($userRep, $userId);
@@ -57,7 +57,6 @@ class GardenController extends AbstractController
                 'description' => $row->getDescription()
             ];
         }
-
 
         return $this->render('garden/home.html.twig', $data);
     }
@@ -113,6 +112,39 @@ class GardenController extends AbstractController
             $session->set("userId", $id);
         }
         return $this->redirectToRoute('garden-home');
+    }
+
+    /**
+     * Renders editing profile page.
+     * @Route("/proj/editProfile", name="garden-edit-profile", methods={"GET","HEAD"})
+     */
+    public function editProfile(UserRepository $userRep, SessionInterface $session): Response
+    {
+
+        $userId = $session->get("userId");
+
+        $data = [
+            'userId' => null,
+            'fName' => null,
+            'lName' => null,
+            'imgURL' => null,
+            'description' => null
+        ];
+
+        // find row info from table User
+        if ($userId) {
+            $db = new Database;
+            $row = $db->getRowByIdTableUser($userRep, $userId);
+            $data = [
+                'userId' => $userId,
+                'fName' => $row->getFirstName(),
+                'lName' => $row->getLastName(),
+                'imgURL' => $row->getImgURL(),
+                'description' => $row->getDescription()
+            ];
+        }
+
+        return $this->render('garden/editProfile.html.twig', $data);
     }
 
     /**
