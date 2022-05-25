@@ -18,6 +18,11 @@
     margin-top: 0;
 }
 
+.logo-container {
+    display: block;
+    text-align: center;
+}
+
 .img-logo {
     max-width: 200px;
     max-height: 200px;

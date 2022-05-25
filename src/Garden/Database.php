@@ -138,6 +138,7 @@ class Database
         $newUser->setPassword($password);
         $newUser->setFirstName($firstName);
         $newUser->setLastName($lastName);
+        $newUser->setImgURL("https://images.pexels.com/photos/1072824/pexels-photo-1072824.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
         $newUser->setStatus("user");
 
 
@@ -154,9 +155,43 @@ class Database
     /**
      * Get row through id from the table User
      */
-    public function getRowByIdTableUser(UserRepository $userRep, string $id): User
+    public function getRowByIdTableUser(UserRepository $userRep, int $id): User
     {
         return $userRep->findOneById($id);
+    }
+
+    /**
+     * Update row by id in table User
+     */
+    public function updateUserInfo(
+        ManagerRegistry $doctrine,
+        UserRepository $userRep,
+        int $id,
+        string $description,
+        string $imgURL): User
+    {
+        $entityManager = $doctrine->getManager();
+
+        $rowToUpdate = $this->getRowByIdTableUser($userRep, $id);
+
+        $rowToUpdate->setDescription($description);
+        $rowToUpdate->setImgURL($imgURL);
+
+        // tell Doctrine you want to (eventually) save the plant
+        // (no queries yet)
+        $entityManager->persist($rowToUpdate);
+
+        // actually executes the queries (i.e. the INSERT query)
+        $entityManager->flush();
+
+        return $rowToUpdate;
+
+        // $updateInfo = new User();
+        // $updateInfo->setId($id);
+        // $updateInfo->setDescription($description);
+
+        // $entityManager->merge($updateInfo);
+        // $entityManager->flush();
     }
 
     /**

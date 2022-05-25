@@ -32,11 +32,11 @@
 		<h2>Logged in as {{acronym}}</h2>
 
 		{% if (imgURL) %}
-			<a href="{{imgURL}}"><img src="{{imgURL}}" class="img-logo" alt="profile image"></a>
+			<a href="{{imgURL}}" class="logo-container"><img src="{{imgURL}}" class="img-logo" alt="profile image"></a>
 		{% endif %}
 
-		{% if(description) %}
 			<h2>About you:</h2>
+		{% if(description) %}
 			<p>{{description}}</p>
 		{% else %}
 			<p>Du har inte lagt till någon beskrivning om dig ännu :(</p>

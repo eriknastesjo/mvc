@@ -7,20 +7,20 @@
 
 		{% if (userId) %}
 
-    <form action="" method="post">
-        <input type="hidden" id="id" name="id" value={{userId}}>
+		<form action="{{path("user-update")}}" method="post">
+			<input type="hidden" id="id" name="id" value={{userId}}>
 
-        <p>Describe yourself:</p>
-		<textarea rows="5" cols="80" id="description" name="description" value="{{description}}"></textarea><br><br>
+			<p>Describe yourself:</p>
+			<textarea rows="5" cols="80" id="description" name="description" placeholder='E.g. "I am the greatest gardener!"'>{{description}}</textarea><br><br>
 
-        <p>Set URL to image:</p>
-        <input type="text" size="70" id="imgURL" name="imgURL" value={{imgURL}}><br><br>
+			<p>Set URL to image:</p>
+			<input type="text" size="70" id="imgURL" name="imgURL" value={{imgURL}} placeholder='E.g. "https://images.pexels.com/photos/1072824/pexels-photo-1072824.jpeg"'><br><br>
 
-        <div class="flex-row">
-        <input type="submit" value="Uppdatera">
-        <a href="{{path("garden-home")}}"><button type="button">Tillbaka</button></a>
-        </div>
-    </form>
+			<div class="flex-row">
+			<input type="submit" value="Uppdatera">
+			<a href="{{path("garden-home")}}"><button type="button">Tillbaka</button></a>
+			</div>
+		</form>
 
 
 		{% else %}

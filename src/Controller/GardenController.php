@@ -147,6 +147,26 @@ class GardenController extends AbstractController
         return $this->render('garden/editProfile.html.twig', $data);
     }
 
+
+    /**
+     * Update user info
+     * @Route("/proj/user-update", name="user-update", methods={"POST"})
+     */
+    public function userUpdateProcess(
+        ManagerRegistry $doctrine,
+        Request $request,
+        UserRepository $userRep
+    ) {
+        $userId = $request->get('id');
+        $description = $request->get('description');
+        $imgURL = $request->get('imgURL');
+
+        $db = new Database;
+        $db->updateUserInfo($doctrine, $userRep, $userId, $description, $imgURL);
+
+        return $this->redirectToRoute('garden-home');
+    }
+
     /**
      * Log out by setting session variable userId to null
      * @Route("/proj/logout", name="logout-process", methods={"POST"})
