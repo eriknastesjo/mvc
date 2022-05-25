@@ -13,7 +13,10 @@ use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\HttpFoundation\Request;
 use App\Repository\GardenPlantedSeedsRepository;
 use App\Repository\GardenSalesRepository;
+use App\Repository\UserRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use App\Garden\ConvertStrings;
+
 use App\Garden\SeedBox;
 use App\Garden\Garden;
 use App\Garden\Customer;
@@ -28,28 +31,64 @@ class GardenController extends AbstractController
      * Renders landing page.
      * @Route("/proj", name="garden-home", methods={"GET","HEAD"})
      */
-    public function gardenHome(): Response
+    public function gardenHome(UserRepository $userRep, SessionInterface $session): Response
     {
-        // check if sessionVar userId is null
-        return $this->render('garden/home.html.twig');
-        // if not redirect to profile page instead
-        // return $this->render('garden/profile.html.twig');    <-- put in separate control method
+        $userId = $session->get("userId");
+
+        $data = [
+            'userId' => null,
+            'acronym' => null,
+            'fName' => null,
+            'lName' => null,
+            'imgURL' => null,
+            'description' => null
+        ];
+
+        // find row info from table to put in data
+        if ($userId) {
+            $db = new Database;
+            $row = $db->getRowByIdTableUser($userRep, $userId);
+            $data = [
+                'userId' => $userId,
+                'acronym' => $row->getAcronym(),
+                'fName' => $row->getFirstName(),
+                'lName' => $row->getLastName(),
+                'imgURL' => $row->getImgURL(),
+                'description' => $row->getDescription()
+            ];
+        }
+
+
+        return $this->render('garden/home.html.twig', $data);
     }
 
     /**
-     * Checking new user data.
-     * Register if meeting criterias.
+     * Register new user
      * @Route("/proj/register", name="register-process", methods={"POST"})
      */
     public function registerProcess(
         ManagerRegistry $doctrine,
         Request $request,
-        SessionInterface $session
+        SessionInterface $session,
+        UserRepository $userRep
     ) {
-        // check length of user first name and seconds name
-        // if checks out then create acronym out of first and last name
-        // and store as a row in table User (firtname, lastname, acronym, status - rest is null)
-        // and get id and store in sessionvar userId
+        $convStr = new ConvertStrings;
+
+        $firstName = $request->get('fname');
+        $lastName = $request->get('lname');
+        $password = $request->get('password');
+
+        if (strlen($firstName) >= 2 && strlen($lastName) >= 2) {
+            $db = new Database;
+
+            $newAcronym = substr($convStr->fromSwe(strtolower($firstName)), 0, 2)
+                        . substr($convStr->fromSwe(strtolower($lastName)), 0, 2);
+
+            $newAcronym = $db->newAcronymToDB($userRep, $newAcronym);
+
+            $newUser = $db->addToTableUser($doctrine, $newAcronym, $password, $firstName, $lastName);
+            $session->set("userId", $newUser->getId());
+        }
         return $this->redirectToRoute('garden-home');
     }
 
@@ -61,10 +100,29 @@ class GardenController extends AbstractController
     public function logInProcess(
         ManagerRegistry $doctrine,
         Request $request,
+        SessionInterface $session,
+        UserRepository $userRep
+    ) {
+        $acronymName = $request->get('acronym');
+        $password = $request->get('password');
+
+        $db = new Database;
+        $id = $db->getIdThroughAcrAndPassw($userRep, $acronymName, $password);
+
+        if ($id) {
+            $session->set("userId", $id);
+        }
+        return $this->redirectToRoute('garden-home');
+    }
+
+    /**
+     * Log out by setting session variable userId to null
+     * @Route("/proj/logout", name="logout-process", methods={"POST"})
+     */
+    public function logOutProcess(
         SessionInterface $session
     ) {
-        // check if acronym is in table User property acronym
-        // if checks out get id and store in sessionvar userId
+        $session->set("userId", null);
         return $this->redirectToRoute('garden-home');
     }
 

@@ -7,18 +7,19 @@
 namespace App\Garden;
 
 use DateTime;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use App\Entity\GardenPlantedSeeds;
 use App\Entity\GardenSales;
+use App\Entity\User;
 use App\Repository\GardenPlantedSeedsRepository;
 use App\Repository\GardenSalesRepository;
+use App\Repository\UserRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use App\Garden\Plant;
 
 /**
  * Holds methods to set and get data from Garden tables.
  */
-class Database extends AbstractController
+class Database
 {
     /**
      * Adds a new row to the table GardenPlantedSeeds. Return the entity of the row.
@@ -72,6 +73,90 @@ class Database extends AbstractController
         $entityManager->flush();
 
         return $gardenSale;
+    }
+
+    /**
+     * Returns an unique acronym name that is not already in database
+     */
+    public function newAcronymToDB(
+        UserRepository $userRep,
+        String $acronymName
+    ): String {
+
+        $allUsers = $userRep->findAll();
+
+        $num = 1;
+
+        foreach ($allUsers as $user) {
+            if ($user->getAcronym() === $acronymName) {
+                $num++;
+            }
+        }
+
+        if ($num > 1) {
+            return $acronymName . $num;
+        }
+        return $acronymName;
+    }
+
+    /**
+     * Checks if acronym and password is correct.
+     * Will return id if true otherwise false.
+     */
+    public function getIdThroughAcrAndPassw(
+        UserRepository $userRep,
+        String $acronymName,
+        String $password
+    ): Mixed {
+
+        $allUsers = $userRep->findAll();
+
+        foreach ($allUsers as $user) {
+            if ($user->getAcronym() === $acronymName && $user->getPassword() === $password) {
+                return $user->getId();
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Adds a new row to the table User. Return the entity of the row.
+     */
+    public function addToTableUser(
+        ManagerRegistry $doctrine,
+        String $acronymName,
+        String $password,
+        String $firstName,
+        String $lastName,
+    ): User {
+        $entityManager = $doctrine->getManager();
+
+        // check first how many of the same acronym there is
+
+        $newUser = new User();
+        $newUser->setAcronym($acronymName);
+        $newUser->setPassword($password);
+        $newUser->setFirstName($firstName);
+        $newUser->setLastName($lastName);
+        $newUser->setStatus("user");
+
+
+        // tell Doctrine you want to (eventually) save the sale
+        // (no queries yet)
+        $entityManager->persist($newUser);
+
+        // actually executes the queries (i.e. the INSERT query)
+        $entityManager->flush();
+
+        return $newUser;
+    }
+
+    /**
+     * Get row through id from the table User
+     */
+    public function getRowByIdTableUser(UserRepository $userRep, string $id): User
+    {
+        return $userRep->findOneById($id);
     }
 
     /**

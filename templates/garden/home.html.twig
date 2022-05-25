@@ -5,7 +5,7 @@
 
 	<div>
 
-    <h1>Welcome</h1>
+    <h1>Welcome {{fName}} {{lName}}</h1>
 
     <form action="{{ path("garden") }}" method="get">
         <input type="submit" value="Tend to your garden">
@@ -27,6 +27,32 @@
 	</div>
 
 	<div>
+		{% if (userId) %}
+
+		<h2>Logged in as {{acronym}}</h2>
+
+		{% if (imgURL) %}
+			<a href="{{imgURL}}"><img src="{{imgURL}}" class="img-logo" alt="profile image"></a>
+		{% endif %}
+
+		{% if(description) %}
+			<h2>About you:</h2>
+			<p>{{description}}</p>
+		{% else %}
+			<p>Du har inte lagt till någon beskrivning om dig ännu :(</p>
+		{% endif %}
+
+		<form action="{{ path("logout-process") }}" method="post">
+			<input type="submit" value="Edit profile">
+		</form>
+
+		<h2>Log out</h2>
+		<form action="{{ path("logout-process") }}" method="post">
+			<input type="submit" value="Log out">
+		</form>
+
+		{% else %}
+
 		<h2>Log in</h2>
 		<form action="{{ path("login-process") }}" method="post">
 			<label for="acronym">Acronym:</label><br>
@@ -49,6 +75,7 @@
 			<input type="submit" value="Register">
 		</form>
 
+		{% endif %}
 	</div>
 
 
