@@ -1,0 +1,70 @@
+{% extends "garden/base.html.twig" %}
+{% block title %}
+	Edit Users
+{% endblock %}
+
+
+{% block content %}
+	<div class="history-container">
+
+		<h1>Users</h1>
+
+        <div class="flex-row">
+
+        {% if (isAdmin) %}
+            <h2>Add new user:</h2>
+            <form action="{{ path("login-process") }}" method="post">
+                <input type="hidden" id="acronym" name="acronym"><br>
+                <input type="submit" value="Add user">
+            </form>
+        {% else %}
+            <p>You have to be logged in as an administrator!</p>
+        {% endif %}
+
+        </div>
+
+		<div class="table-container">
+			<div>
+				<table class="table">
+                <h2>Edit existing user:</h2>
+					<tr>
+						<th>Acronym</th>
+						<th>Status</th>
+
+					</tr>
+					<tr>
+						{% for entry in tableUsers %}
+							<tr>
+								<td>{{entry.acronym}}</td>
+								<td>{{entry.status}}</td>
+								<td>
+                                <form action="{{ path("login-process") }}" method="post">
+                                    <input type="hidden" id="acronym" name="acronym"><br>
+                                    <input type="submit" value="Change status">
+                                </form>
+                                </td>
+								<td>
+                                <form action="{{ path("login-process") }}" method="post">
+                                    <input type="hidden" id="acronym" name="acronym"><br>
+                                    <input type="submit" value="Edit profile info">
+                                </form>
+                                </td>
+								<td>
+                                <form action="{{ path("login-process") }}" method="post">
+                                    <input type="hidden" id="acronym" name="acronym"><br>
+                                    <input type="submit" value="Delete user">
+                                </form>
+                                </td>
+							</tr>
+						{% endfor %}
+					</tr>
+
+				</table>
+			</div>
+		</div>
+
+	</div>
+
+
+{% endblock %}
+

@@ -49,3 +49,8 @@
 .cursor-pointer:hover {
     cursor: pointer;
 }
+
+.flex-row {
+    display: flex;
+    gap: 20px;
+}

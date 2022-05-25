@@ -77,3 +77,8 @@ figcaption {
 .customer-p {
     font-size: 2rem;
 }
+
+.acronym {
+    font-family: 'Patrick Hand', cursive;
+    text-decoration: underline;
+}

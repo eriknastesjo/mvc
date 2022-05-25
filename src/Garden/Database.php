@@ -103,7 +103,7 @@ class Database
      * Checks if acronym and password is correct.
      * Will return id if true otherwise false.
      */
-    public function getIdThroughAcrAndPassw(
+    public function getUserThroughAcrAndPassw(
         UserRepository $userRep,
         String $acronymName,
         String $password
@@ -113,7 +113,7 @@ class Database
 
         foreach ($allUsers as $user) {
             if ($user->getAcronym() === $acronymName && $user->getPassword() === $password) {
-                return $user->getId();
+                return $user;
             }
         }
         return false;
@@ -208,6 +208,14 @@ class Database
     public function getTableGardenSales(GardenSalesRepository $gardenSalesRep): array
     {
         return $gardenSalesRep->findAll();
+    }
+
+    /**
+     * Get all rows from the table GardenSales
+     */
+    public function getTableUsers(UserRepository $userRep): array
+    {
+        return $userRep->findAll();
     }
 
     /**

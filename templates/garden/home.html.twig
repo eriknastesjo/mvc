@@ -29,7 +29,7 @@
 	<div>
 		{% if (userId) %}
 
-		<h2>Logged in as {{acronym}}</h2>
+		<h2>Logged in as <span class="acronym">{{acronym}}</span></h2>
 
 		{% if (imgURL) %}
 			<a href="{{imgURL}}" class="logo-container"><img src="{{imgURL}}" class="img-logo" alt="profile image"></a>
@@ -45,6 +45,14 @@
 		<form action="{{ path("garden-edit-profile") }}" method="get">
 			<input type="submit" value="Edit profile">
 		</form>
+
+		{% if (status == "admin") %}
+
+		<form action="{{ path("garden-edit-users") }}" method="get">
+			<input type="submit" value="Edit users">
+		</form>
+
+		{% endif %}
 
 		<h2>Log out</h2>
 		<form action="{{ path("logout-process") }}" method="post">
