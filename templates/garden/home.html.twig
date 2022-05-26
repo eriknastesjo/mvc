@@ -26,9 +26,10 @@
 
 	</div>
 
-	<div>
+	<div class="login-container">
 		{% if (userId) %}
 
+		<div class="margin-bottom">
 		<h2>Logged in as <span class="acronym">{{acronym}}</span></h2>
 
 		{% if (imgURL) %}
@@ -46,9 +47,11 @@
 			<input type="submit" value="Edit profile">
 		</form>
 
+		</div>
+
 		{% if (status == "admin") %}
 
-		<form action="{{ path("garden-edit-users") }}" method="get">
+		<form action="{{ path("garden-edit-users") }}" method="get" class="margin-bottom">
 			<input type="submit" value="Edit users">
 		</form>
 
@@ -62,9 +65,9 @@
 		{% else %}
 
 		<h2>Log in</h2>
-		<form action="{{ path("login-process") }}" method="post">
+		<form action="{{ path("login-process") }}" method="post" class="margin-bottom">
 			<label for="acronym">Acronym:</label><br>
-			<input type="text" id="acronym" name="acronym" placeholder='E.g. "erna"'><br>
+			<input type="text" id="acronym" name="acronym" placeholder='E.g. "erna"'><br><br>
 			<label for="password">Password:</label><br>
 			<input type="password" id="password" name="password" placeholder="*****"><br><br>
 
@@ -74,9 +77,9 @@
 		<h2>Register</h2>
 		<form action="{{ path("register-process") }}" method="post">
 			<label for="fname">First name:</label><br>
-			<input type="text" id="fname" name="fname" placeholder="At least two letters"><br>
+			<input type="text" id="fname" name="fname" placeholder="At least two letters"><br><br>
 			<label for="lname">Last name:</label><br>
-			<input type="text" id="lname" name="lname" placeholder="At least two letters"><br>
+			<input type="text" id="lname" name="lname" placeholder="At least two letters"><br><br>
 			<label for="password">Password:</label><br>
 			<input type="password" id="password" name="password" placeholder="Secret password"><br><br>
 

@@ -86,3 +86,8 @@
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 1rem;
 }
+
+.login-container {
+    margin-bottom: 30px;
+    margin-right: 50px;
+}

@@ -54,3 +54,18 @@
     display: flex;
     gap: 20px;
 }
+
+.flex-row-center {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.margin-bottom {
+    margin-bottom: 30px;
+}
+
+.margin-sides {
+    margin-left: 10px;
+    margin-right: 10px;
+}

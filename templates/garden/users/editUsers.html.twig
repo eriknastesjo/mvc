@@ -13,14 +13,14 @@
 
         {% if (isAdmin) %}
             <h2>Add new user:</h2>
-            <div class="flex-row">
+            <div class="flex-row margin-bottom">
             <form action="{{ path("register-process") }}" method="post">
                 <label for="fname">First name:</label>
-                <input type="text" size="12" id="fname" name="fname" placeholder="At least two letters">
+                <input type="text" size="12" id="fname" name="fname" placeholder="At least two letters" class="margin-sides">
                 <label for="lname">Last name:</label>
-                <input type="text" size="12" id="lname" name="lname" placeholder="At least two letters">
+                <input type="text" size="12" id="lname" name="lname" placeholder="At least two letters" class="margin-sides">
                 <label for="password">Password:</label>
-                <input type="password" size="12" id="password" name="password" placeholder="Secret password">
+                <input type="password" size="12" id="password" name="password" placeholder="Secret password" class="margin-sides">
                 <input type="submit" value="Add user">
             </form>
             </div>
