@@ -109,7 +109,7 @@ class UserController extends AbstractController
             ];
         }
 
-        return $this->render('garden/editProfile.html.twig', $data);
+        return $this->render('garden/users/editProfile.html.twig', $data);
     }
 
     /**
@@ -134,7 +134,7 @@ class UserController extends AbstractController
             ];
         }
 
-        return $this->render('garden/editUsers.html.twig', $data);
+        return $this->render('garden/users/editUsers.html.twig', $data);
     }
 
     /**
@@ -202,7 +202,7 @@ class UserController extends AbstractController
             ];
         }
 
-        return $this->render('garden/editProfileAdmin.html.twig', $data);
+        return $this->render('garden/users/editProfileAdmin.html.twig', $data);
     }
 
 
