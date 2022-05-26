@@ -14,29 +14,40 @@ class ConvertStrings
     /**
      * Adds a new row to the table User. Return the entity of the row.
      */
-    public function fromSwe(
-        String $string
-    ): String {
+    public function createAcronym(
+        string $firstName,
+        string $lastName
+    ): string {
 
-        $stringTest = "ernä";
+        $newAcronym = substr($this->fromSwe(strtolower($firstName)), 0, 2)
+            . substr($this->fromSwe(strtolower($lastName)), 0, 2);
 
-        $RemoveChars[] = '/å/';
-        $RemoveChars[] = '/ä/';
-        $RemoveChars[] = '/ö/';
-        $RemoveChars[] = '/Å/';
-        $RemoveChars[] = '/Ä/';
-        $RemoveChars[] = '/Ö/';
+        return $newAcronym;
+    }
+    /**
+     * Adds a new row to the table User. Return the entity of the row.
+     */
+    private function fromSwe(
+        string $string
+    ): string {
+        $removeChars = [];
+        $removeChars[] = '/å/';
+        $removeChars[] = '/ä/';
+        $removeChars[] = '/ö/';
+        $removeChars[] = '/Å/';
+        $removeChars[] = '/Ä/';
+        $removeChars[] = '/Ö/';
 
-        $ReplaceWith[] = 'a';
-        $ReplaceWith[] = 'a';
-        $ReplaceWith[] = 'o';
-        $ReplaceWith[] = 'A';
-        $ReplaceWith[] = 'A';
-        $ReplaceWith[] = 'O';
+        $replaceWith = [];
+        $replaceWith[] = 'a';
+        $replaceWith[] = 'a';
+        $replaceWith[] = 'o';
+        $replaceWith[] = 'A';
+        $replaceWith[] = 'A';
+        $replaceWith[] = 'O';
 
-        $acronymNameDecoded  = preg_replace($RemoveChars, $ReplaceWith, $string);
+        $acronymNameDecoded  = preg_replace($removeChars, $replaceWith, $string);
 
         return $acronymNameDecoded;
     }
-
 }

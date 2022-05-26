@@ -80,15 +80,15 @@ class Database
      */
     public function newAcronymToDB(
         UserRepository $userRep,
-        String $acronymName
-    ): String {
-
+        string $acronymName
+    ): string {
         $allUsers = $userRep->findAll();
 
         $num = 1;
 
         foreach ($allUsers as $user) {
-            if ($user->getAcronym() === $acronymName) {
+            $acronym = substr($user->getAcronym(), 0, 4);
+            if ($acronym === $acronymName) {
                 $num++;
             }
         }
@@ -103,12 +103,11 @@ class Database
      * Checks if acronym and password is correct.
      * Will return id if true otherwise false.
      */
-    public function getUserThroughAcrAndPassw(
+    public function getUserByAcrAndPassw(
         UserRepository $userRep,
-        String $acronymName,
-        String $password
-    ): Mixed {
-
+        string $acronymName,
+        string $password
+    ): mixed {
         $allUsers = $userRep->findAll();
 
         foreach ($allUsers as $user) {
@@ -124,10 +123,10 @@ class Database
      */
     public function addToTableUser(
         ManagerRegistry $doctrine,
-        String $acronymName,
-        String $password,
-        String $firstName,
-        String $lastName,
+        string $acronymName,
+        string $password,
+        string $firstName,
+        string $lastName,
     ): User {
         $entityManager = $doctrine->getManager();
 
@@ -138,7 +137,8 @@ class Database
         $newUser->setPassword($password);
         $newUser->setFirstName($firstName);
         $newUser->setLastName($lastName);
-        $newUser->setImgURL("https://images.pexels.com/photos/1072824/pexels-photo-1072824.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
+        $newUser->setImgURL("https://images.pexels.com/photos/1072824/pexels-photo-1072824.jpeg"
+        . "?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
         $newUser->setStatus("user");
 
 
@@ -155,24 +155,24 @@ class Database
     /**
      * Get row through id from the table User
      */
-    public function getRowByIdTableUser(UserRepository $userRep, int $id): User
+    public function getUserByIdTableUser(UserRepository $userRep, int $id): User
     {
         return $userRep->findOneById($id);
     }
 
     /**
-     * Update row by id in table User
+     * Update profile info by id in table User
      */
-    public function updateUserInfo(
+    public function updateProfileInfo(
         ManagerRegistry $doctrine,
         UserRepository $userRep,
         int $id,
         string $description,
-        string $imgURL): User
-    {
+        string $imgURL
+    ): User {
         $entityManager = $doctrine->getManager();
 
-        $rowToUpdate = $this->getRowByIdTableUser($userRep, $id);
+        $rowToUpdate = $this->getUserByIdTableUser($userRep, $id);
 
         $rowToUpdate->setDescription($description);
         $rowToUpdate->setImgURL($imgURL);
@@ -185,13 +185,35 @@ class Database
         $entityManager->flush();
 
         return $rowToUpdate;
+    }
 
-        // $updateInfo = new User();
-        // $updateInfo->setId($id);
-        // $updateInfo->setDescription($description);
+    /**
+     * Change status by id in table User
+     */
+    public function changeStatus(
+        ManagerRegistry $doctrine,
+        UserRepository $userRep,
+        int $id
+    ): User {
+        $entityManager = $doctrine->getManager();
 
-        // $entityManager->merge($updateInfo);
-        // $entityManager->flush();
+        $rowToUpdate = $this->getUserByIdTableUser($userRep, $id);
+
+        if ($rowToUpdate->getStatus() === "user") {
+            $rowToUpdate->setStatus("admin");
+
+            $entityManager->persist($rowToUpdate);
+            $entityManager->flush();
+
+            return $rowToUpdate;
+        }
+
+        $rowToUpdate->setStatus("user");
+
+        $entityManager->persist($rowToUpdate);
+        $entityManager->flush();
+
+        return $rowToUpdate;
     }
 
     /**
@@ -223,7 +245,6 @@ class Database
      */
     public function resetTableGardenPlantedSeeds(ManagerRegistry $doctrine): void
     {
-
         $entityManager = $doctrine->getManager();
 
         $gardenPlantedSeeds = $entityManager->getRepository(GardenPlantedSeeds::class)->findAll();
@@ -254,8 +275,8 @@ class Database
     /**
      * Returns joined data from table GardenPlantedSeeds and GardenSales.
      */
-    public function joinedTables(GardenSalesRepository $gardenSalesRep): array {
+    public function joinedTables(GardenSalesRepository $gardenSalesRep): array
+    {
         return $gardenSalesRep->joinedTables();
     }
-
 }

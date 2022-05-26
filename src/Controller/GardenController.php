@@ -16,7 +16,6 @@ use App\Repository\GardenSalesRepository;
 use App\Repository\UserRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use App\Garden\ConvertStrings;
-
 use App\Garden\SeedBox;
 use App\Garden\Garden;
 use App\Garden\Customer;
@@ -47,7 +46,7 @@ class GardenController extends AbstractController
 
         // find row info from table User
         if ($userId) {
-            $db = new Database;
+            $db = new Database();
             $row = $db->getRowByIdTableUser($userRep, $userId);
             $data = [
                 'userId' => $userId,

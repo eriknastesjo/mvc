@@ -72,11 +72,12 @@ class GardenSalesRepository extends ServiceEntityRepository
 
         // Elements with even index will be sold plants and odd once will be planted seeds.
         $result = $query->getArrayResult();
+        $resultLength = count($result);
 
         // Here we pair every two elements into one element.
         $listReturn = [];
 
-        for ($i = 0; $i < count($result); $i++) {
+        for ($i = 0; $i < $resultLength; $i++) {
             if ($i % 2 === 0) {
                 $row = array(
                     "id" => $result[$i]['id'],

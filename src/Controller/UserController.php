@@ -11,11 +11,9 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\HttpFoundation\Request;
-
 use App\Repository\UserRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use App\Garden\ConvertStrings;
-
 use App\Garden\Database;
 
 /**
@@ -33,21 +31,24 @@ class UserController extends AbstractController
         SessionInterface $session,
         UserRepository $userRep
     ) {
-        $convStr = new ConvertStrings;
+        $convStr = new ConvertStrings();
 
         $firstName = $request->get('fname');
         $lastName = $request->get('lname');
         $password = $request->get('password');
 
         if (strlen($firstName) >= 2 && strlen($lastName) >= 2) {
-            $db = new Database;
+            $db = new Database();
 
-            $newAcronym = substr($convStr->fromSwe(strtolower($firstName)), 0, 2)
-                . substr($convStr->fromSwe(strtolower($lastName)), 0, 2);
+            $newAcronym = $convStr->createAcronym($firstName, $lastName);
 
             $newAcronym = $db->newAcronymToDB($userRep, $newAcronym);
 
             $newUser = $db->addToTableUser($doctrine, $newAcronym, $password, $firstName, $lastName);
+
+            if ($session->get("isAdmin")) {
+                return $this->redirectToRoute('garden-edit-users');
+            }
             $session->set("userId", $newUser->getId());
         }
         return $this->redirectToRoute('garden-home');
@@ -66,8 +67,8 @@ class UserController extends AbstractController
         $acronymName = $request->get('acronym');
         $password = $request->get('password');
 
-        $db = new Database;
-        $user = $db->getUserThroughAcrAndPassw($userRep, $acronymName, $password);
+        $db = new Database();
+        $user = $db->getUserByAcrAndPassw($userRep, $acronymName, $password);
 
         if ($user) {
             $session->set("userId", $user->getId());
@@ -85,7 +86,6 @@ class UserController extends AbstractController
      */
     public function editProfile(UserRepository $userRep, SessionInterface $session): Response
     {
-
         $userId = $session->get("userId");
 
         $data = [
@@ -98,8 +98,8 @@ class UserController extends AbstractController
 
         // find row info from table User
         if ($userId) {
-            $db = new Database;
-            $row = $db->getRowByIdTableUser($userRep, $userId);
+            $db = new Database();
+            $row = $db->getUserByIdTableUser($userRep, $userId);
             $data = [
                 'userId' => $userId,
                 'fName' => $row->getFirstName(),
@@ -137,12 +137,11 @@ class UserController extends AbstractController
         return $this->render('garden/editUsers.html.twig', $data);
     }
 
-
     /**
-     * Update user info
-     * @Route("/proj/user-update", name="user-update", methods={"POST"})
+     * Update profile info
+     * @Route("/proj/profile-update", name="profile-update", methods={"POST"})
      */
-    public function userUpdateProcess(
+    public function profileUpdateProcess(
         ManagerRegistry $doctrine,
         Request $request,
         UserRepository $userRep,
@@ -152,10 +151,28 @@ class UserController extends AbstractController
         $description = $request->get('description');
         $imgURL = $request->get('imgURL');
 
-        $db = new Database;
-        $db->updateUserInfo($doctrine, $userRep, $userId, $description, $imgURL);
+        $db = new Database();
+        $db->updateProfileInfo($doctrine, $userRep, $userId, $description, $imgURL);
 
         return $this->redirectToRoute('garden-home');
+    }
+
+    /**
+     * Update status
+     * @Route("/proj/status-process", name="status-process", methods={"POST"})
+     */
+    public function changeStatusProcess(
+        ManagerRegistry $doctrine,
+        Request $request,
+        UserRepository $userRep,
+    ) {
+        $db = new Database;
+        $userId = $request->get('userId');
+
+        $db = new Database();
+        $db->changeStatus($doctrine, $userRep, $userId);
+
+        return $this->redirectToRoute('garden-edit-users');
     }
 
     /**
