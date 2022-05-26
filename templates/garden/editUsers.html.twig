@@ -44,19 +44,18 @@
                         <td>{{entry.status}}</td>
                         <td>
                         <form action="{{ path("status-process") }}" method="post">
-                            <input type="hidden" id="userId" name="userId" value={{entry.id}}><br>
+                            <input type="hidden" id="userId" name="userId" value={{entry.id}}>
                             <input type="submit" value="Change status">
                         </form>
                         </td>
                         <td>
                         <form action="{{path("garden-edit-profile-admin", {userId: entry.id})}}" method="get">
-                            <input type="hidden" id="acronym" name="acronym"><br>
                             <input type="submit" value="Edit profile info">
                         </form>
                         </td>
                         <td>
-                        <form action="{{ path("login-process") }}" method="post">
-                            <input type="hidden" id="acronym" name="acronym"><br>
+                        <form action="{{ path("user-remove") }}" method="post">
+                            <input type="hidden" id="userId" name="userId" value={{entry.id}}>
                             <input type="submit" value="Delete user">
                         </form>
                         </td>

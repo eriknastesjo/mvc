@@ -214,7 +214,6 @@ class UserController extends AbstractController
         ManagerRegistry $doctrine,
         Request $request,
         UserRepository $userRep,
-        SessionInterface $session
     ) {
         $userId = $request->get('userId');
         $description = $request->get('description');
@@ -222,6 +221,23 @@ class UserController extends AbstractController
 
         $db = new Database();
         $db->updateProfileInfo($doctrine, $userRep, $userId, $description, $imgURL);
+
+        return $this->redirectToRoute('garden-edit-users');
+    }
+
+    /**
+     * Remove user
+     * @Route("/proj/user-remove", name="user-remove", methods={"POST"})
+     */
+    public function removeUser(
+        ManagerRegistry $doctrine,
+        Request $request,
+        UserRepository $userRep,
+    ) {
+        $userId = $request->get('userId');;
+
+        $db = new Database();
+        $db->removeUser($doctrine, $userRep, $userId);
 
         return $this->redirectToRoute('garden-edit-users');
     }

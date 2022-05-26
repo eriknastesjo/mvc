@@ -217,6 +217,23 @@ class Database
     }
 
     /**
+     * Remove user from table User
+     */
+    public function removeUser(
+        ManagerRegistry $doctrine,
+        UserRepository $userRep,
+        int $id
+    ): void {
+        $entityManager = $doctrine->getManager();
+
+        $rowToRemove = $this->getUserByIdTableUser($userRep, $id);
+
+        $entityManager->remove($rowToRemove);
+
+        $entityManager->flush();
+    }
+
+    /**
      * Get all rows from the table GardenPlantedSeeds
      */
     public function getTableGardenPlant(GardenPlantedSeedsRepository $gardenPlantRep): array
