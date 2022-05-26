@@ -166,7 +166,7 @@ class UserController extends AbstractController
         Request $request,
         UserRepository $userRep,
     ) {
-        $db = new Database;
+        $db = new Database();
         $userId = $request->get('userId');
 
         $db = new Database();
@@ -234,7 +234,8 @@ class UserController extends AbstractController
         Request $request,
         UserRepository $userRep,
     ) {
-        $userId = $request->get('userId');;
+        $userId = $request->get('userId');
+        ;
 
         $db = new Database();
         $db->removeUser($doctrine, $userRep, $userId);

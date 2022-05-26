@@ -18,7 +18,6 @@ class ConvertStrings
         string $firstName,
         string $lastName
     ): string {
-
         $newAcronym = substr($this->fromSwe(strtolower($firstName)), 0, 2)
             . substr($this->fromSwe(strtolower($lastName)), 0, 2);
 
