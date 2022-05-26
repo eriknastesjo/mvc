@@ -1,0 +1,32 @@
+{% extends "garden/base.html.twig" %}
+{% block title %} Edit profile {% endblock %}
+
+{% block content %}
+	<div>
+	<h1>Edit profile</h1>
+
+		{% if (userId) %}
+
+		<form action="{{path("profile-update-admin")}}" method="post">
+			<input type="hidden" id="userId" name="userId" value="{{userId}}">
+			<p>Describe yourself:</p>
+			<textarea rows="5" cols="80" id="description" name="description" placeholder='E.g. "I am the greatest gardener!"'>{{description}}</textarea><br><br>
+
+			<p>Set URL to image:</p>
+			<input type="text" size="70" id="imgURL" name="imgURL" value={{imgURL}} placeholder='E.g. "https://images.pexels.com/photos/1072824/pexels-photo-1072824.jpeg"'><br><br>
+
+			<div class="flex-row">
+			<input type="submit" value="Uppdatera">
+			<a href="{{path("garden-edit-users")}}"><button type="button">Tillbaka</button></a>
+			</div>
+		</form>
+
+
+		{% else %}
+
+		<p>Please log in to edit your profile!</p>
+
+		{% endif %}
+	</div>
+{% endblock %}
+

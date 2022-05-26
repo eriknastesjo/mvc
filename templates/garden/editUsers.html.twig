@@ -49,7 +49,7 @@
                         </form>
                         </td>
                         <td>
-                        <form action="{{ path("login-process") }}" method="post">
+                        <form action="{{path("garden-edit-profile-admin", {userId: entry.id})}}" method="get">
                             <input type="hidden" id="acronym" name="acronym"><br>
                             <input type="submit" value="Edit profile info">
                         </form>

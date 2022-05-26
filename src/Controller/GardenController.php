@@ -47,7 +47,7 @@ class GardenController extends AbstractController
         // find row info from table User
         if ($userId) {
             $db = new Database();
-            $row = $db->getRowByIdTableUser($userRep, $userId);
+            $row = $db->getUserByIdTableUser($userRep, $userId);
             $data = [
                 'userId' => $userId,
                 'acronym' => $row->getAcronym(),

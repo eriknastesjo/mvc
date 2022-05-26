@@ -176,6 +176,57 @@ class UserController extends AbstractController
     }
 
     /**
+     * Renders editing profile page for admin.
+     * @Route("/proj/editProfileAdmin/{userId}", name="garden-edit-profile-admin", methods={"GET","HEAD"})
+     */
+    public function editProfileAdmin(UserRepository $userRep, SessionInterface $session, int $userId): Response
+    {
+        $data = [
+            'userId' => null,
+            'fName' => null,
+            'lName' => null,
+            'imgURL' => null,
+            'description' => null
+        ];
+
+        // find row info from table User
+        if ($session->get("isAdmin", true)) {
+            $db = new Database();
+            $row = $db->getUserByIdTableUser($userRep, $userId);
+            $data = [
+                'userId' => $userId,
+                'fName' => $row->getFirstName(),
+                'lName' => $row->getLastName(),
+                'imgURL' => $row->getImgURL(),
+                'description' => $row->getDescription()
+            ];
+        }
+
+        return $this->render('garden/editProfileAdmin.html.twig', $data);
+    }
+
+
+    /**
+     * Update profile info
+     * @Route("/proj/profile-update-admin", name="profile-update-admin", methods={"POST"})
+     */
+    public function profileUpdateAdminProcess(
+        ManagerRegistry $doctrine,
+        Request $request,
+        UserRepository $userRep,
+        SessionInterface $session
+    ) {
+        $userId = $request->get('userId');
+        $description = $request->get('description');
+        $imgURL = $request->get('imgURL');
+
+        $db = new Database();
+        $db->updateProfileInfo($doctrine, $userRep, $userId, $description, $imgURL);
+
+        return $this->redirectToRoute('garden-edit-users');
+    }
+
+    /**
      * Log out by setting session variable userId to null
      * @Route("/proj/logout", name="logout-process", methods={"POST"})
      */

@@ -157,7 +157,7 @@ class Database
      */
     public function getUserByIdTableUser(UserRepository $userRep, int $id): User
     {
-        return $userRep->findOneById($id);
+        return $userRep->find($id);
     }
 
     /**
