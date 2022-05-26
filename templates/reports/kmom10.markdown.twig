@@ -14,7 +14,7 @@ Under utvecklingen av koden så fokuserade jag på att ha god struktur, dvs att 
 
 I övrigt var kraven ganska rättfram. De olika verktygen användes för kodstil och linters. En del tips från phpmd ignorerades. De flesta handlade om att ett bool-värde används som argument i metoder i Repository modulerna. Detta ville jag inte ändra på då det riskerade att undergräva funktionaliteten. Ett klagomål på else-sats ignorerades också då jag inte kom på något rimligt sätt skriva om koden på.
 
-Slutligen valde jag vid skapandet av enhetstester att inkludera modulen Database. Detta för att jag inte kom på något bra sätt att hantera argumenten ManagerRegistry och Repository. Dokumentation med adekvata doc blocks genomfördes. Metrics analys genomfördes och jag kände inte att den krävde någon större förändring av koden. Inte heller analys från Scrutinizer krävde någon större förändring.
+Slutligen valde jag vid skapandet av enhetstester att exkludera modulen Database. Detta för att jag inte kom på något bra sätt att hantera argumenten ManagerRegistry och Repository. Dokumentation med adekvata doc blocks genomfördes. Metrics analys genomfördes och jag kände inte att den krävde någon större förändring av koden. Inte heller analys från Scrutinizer krävde någon större förändring.
 
 #### Krav 4 (Snygg kod)
 
